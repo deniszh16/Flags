@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bootstraper.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2ff0e8e50ab530e4da08ea9762214052
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 3544410fabe8e2a4ca308ee49b88bd79, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 82915e3002058204e8757e888c2ffbaf, type: 2}
