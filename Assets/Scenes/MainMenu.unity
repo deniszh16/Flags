@@ -1781,6 +1781,7 @@ GameObject:
   - component: {fileID: 1343855652}
   - component: {fileID: 1343855651}
   - component: {fileID: 1343855653}
+  - component: {fileID: 1343855654}
   m_Layer: 5
   m_Name: Button_Map
   m_TagString: Untagged
@@ -1889,6 +1890,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1343855654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343855649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74209816c5edfb74f98050afa5b7d5ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button: {fileID: 1343855653}
+  _scene: 2
 --- !u!1 &1357593927
 GameObject:
   m_ObjectHideFlags: 0
