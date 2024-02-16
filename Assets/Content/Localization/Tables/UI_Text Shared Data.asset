@@ -19,6 +19,14 @@ MonoBehaviour:
     m_Key: key_Start
     m_Metadata:
       m_Items: []
+  - m_Id: 623811817979904
+    m_Key: key_Loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 639070880481280
+    m_Key: key_Progress
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

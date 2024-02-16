@@ -2,6 +2,7 @@ using Services.Localization;
 using Services.PersistentProgress;
 using Services.SceneLoader;
 using Services.SaveLoad;
+using Services.StaticDataService;
 using UnityEngine;
 using Zenject;
 
@@ -17,10 +18,18 @@ namespace Bootstraper
         
         public override void InstallBindings()
         {
+            BindStaticData();
             BindPersistentProgress();
             BindSaveLoadService();
             BindLocalizationService();
             BindSceneLoader();
+        }
+        
+        private void BindStaticData()
+        {
+            IStaticDataService staticDataService = new StaticDataService();
+            staticDataService.LoadLevelsConfig();
+            Container.BindInstance(staticDataService).AsSingle();
         }
         
         private void BindPersistentProgress()

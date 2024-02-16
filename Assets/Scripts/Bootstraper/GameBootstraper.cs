@@ -1,4 +1,5 @@
 using Services.PersistentProgress;
+using Cysharp.Threading.Tasks;
 using Services.Localization;
 using Services.SceneLoader;
 using Services.SaveLoad;
@@ -35,7 +36,7 @@ namespace Bootstraper
         {
             LoadProgressOrInitNew();
             _localizationService.SetLocale(_progressService.GetUserProgress.Locale);
-            _sceneLoaderService.LoadSceneAsync(Scenes.MainMenu, screensaver: false, delay: 1f);
+            _sceneLoaderService.LoadSceneAsync(Scenes.MainMenu, screensaver: false, delay: 1f).Forget();
         }
 
         private void LoadProgressOrInitNew()

@@ -1,5 +1,6 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
 namespace Services.SceneLoader
@@ -9,23 +10,18 @@ namespace Services.SceneLoader
         [Header("Экран затемнения")]
         [SerializeField] private CanvasGroup _blackout;
 
-        public void LoadSceneAsync(Scenes scene, bool screensaver, float delay) =>
-            _ = StartCoroutine(LoadSceneAsyncCoroutine(scene.ToString(), screensaver, delay));
-
-        private IEnumerator LoadSceneAsyncCoroutine(string scene, bool screensaver, float delay)
+        public async UniTask LoadSceneAsync(Scenes scene, bool screensaver, float delay)
         {
-            yield return new WaitForSeconds(delay);
-
+            await UniTask.Delay(TimeSpan.FromSeconds(delay));
+            
             if (screensaver)
             {
                 _blackout.blocksRaycasts = true;
                 _blackout.alpha = 1f;
             }
-
-            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(scene);
-            while (asyncOperation.isDone != true)
-                yield return null;
-
+            
+            await SceneManager.LoadSceneAsync(scene.ToString());
+            
             if (screensaver)
             {
                 _blackout.blocksRaycasts = false;

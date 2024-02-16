@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Services.SceneLoader;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ namespace Logic.Buttons
             _button.onClick.AddListener(GoToScene);
 
         private void GoToScene() =>
-            _sceneLoaderService.LoadSceneAsync(_scene, screensaver: true, delay: 0f);
+            _sceneLoaderService.LoadSceneAsync(_scene, screensaver: true, delay: 0f).Forget();
         
         private void OnDisable() =>
             _button.onClick.RemoveListener(GoToScene);

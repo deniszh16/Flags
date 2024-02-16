@@ -1,7 +1,9 @@
-﻿namespace Services.SceneLoader
+﻿using Cysharp.Threading.Tasks;
+
+namespace Services.SceneLoader
 {
     public interface ISceneLoaderService
     {
-        public void LoadSceneAsync(Scenes scene, bool screensaver, float delay);
+        public UniTask LoadSceneAsync(Scenes scene, bool screensaver, float delay);
     }
 }
