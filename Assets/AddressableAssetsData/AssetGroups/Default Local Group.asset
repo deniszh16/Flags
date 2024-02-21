@@ -16,7 +16,12 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: dc505f69b420f4943b33df970355864a
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 7b0883ae0fdd12744b2d12bfee319c32
+    m_Address: Flag_Russia
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b5edba8ac0e19064d88648d46154b600, type: 2}
   m_SchemaSet:

@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: LevelsStaticData
   m_EditorClassIdentifier: 
   LevelConfig:
-  - Number: 1
-    LocalizedText:
+  - LocalizedText:
       m_TableReference:
         m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
       m_TableEntryReference:
@@ -24,12 +23,16 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     Position: {x: -610, y: -365}
+    Flag:
+      m_AssetGUID: 7b0883ae0fdd12744b2d12bfee319c32
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Colors:
     - {r: 1, g: 1, b: 1, a: 1}
     - {r: 0.043137256, g: 0.25490198, b: 0.8352941, a: 1}
     - {r: 0.94509804, g: 0.12156863, b: 0.13333334, a: 1}
-  - Number: 2
-    LocalizedText:
+  - LocalizedText:
       m_TableReference:
         m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
       m_TableEntryReference:
@@ -39,11 +42,15 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     Position: {x: -1145, y: -70}
+    Flag:
+      m_AssetGUID: 7b0883ae0fdd12744b2d12bfee319c32
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Colors:
     - {r: 1, g: 0.96862745, b: 0.003921569, a: 1}
     - {r: 0.85882354, g: 0.14117648, b: 0.10980392, a: 1}
-  - Number: 3
-    LocalizedText:
+  - LocalizedText:
       m_TableReference:
         m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
       m_TableEntryReference:
@@ -53,11 +60,15 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     Position: {x: 1430, y: -260}
+    Flag:
+      m_AssetGUID: 7b0883ae0fdd12744b2d12bfee319c32
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Colors:
     - {r: 1, g: 0, b: 0, a: 1}
     - {r: 1, g: 1, b: 1, a: 1}
-  - Number: 4
-    LocalizedText:
+  - LocalizedText:
       m_TableReference:
         m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
       m_TableEntryReference:
@@ -67,6 +78,11 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     Position: {x: 90, y: -235}
+    Flag:
+      m_AssetGUID: 7b0883ae0fdd12744b2d12bfee319c32
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
     Colors:
     - {r: 0, g: 0.2784314, b: 0.5294118, a: 1}
     - {r: 1, g: 1, b: 1, a: 1}

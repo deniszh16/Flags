@@ -1,8 +1,6 @@
-﻿using Services.PersistentProgress;
-using Services.StaticDataService;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using StaticData;
-using Zenject;
 
 namespace Logic.WorldMap
 {
@@ -10,31 +8,36 @@ namespace Logic.WorldMap
     {
         [Header("Позиция карты")]
         [SerializeField] private Transform _worldMap;
-        
-        private IPersistentProgressService _progressService;
-        private IStaticDataService _staticData;
 
-        [Inject]
-        private void Construct(IPersistentProgressService progressService, IStaticDataService staticData)
+        [Header("Список стран")]
+        [SerializeField] private List<Country> _countries;
+
+        private int _currentProgress;
+        private LevelsStaticData _staticData;
+
+        public void Construct(int progress, LevelsStaticData staticData)
         {
-            _progressService = progressService;
+            _currentProgress = progress - 1;
             _staticData = staticData;
         }
 
-        private void Start() =>
-            MoveMapToCurrentCountry();
-
-        private void MoveMapToCurrentCountry()
+        public void CheckCountries()
         {
-            int progress = GetCurrentCountry();
-            Vector2Int position = GetCountryData(progress - 1).Position;
-            _worldMap.localPosition = new Vector3(position.x, position.y, 0);
+            for (int i = 0; i < _countries.Count; i++)
+            {
+                if (i > _currentProgress) break;
+                
+                _countries[i].ShowCountry();
+                
+                if (i < _currentProgress)
+                    _countries[i].ShowOpenCountry();
+            }
         }
 
-        public int GetCurrentCountry() =>
-            _progressService.GetUserProgress.Progress;
-
-        private LevelConfig GetCountryData(int number) =>
-            _staticData.GetLevelConfig().LevelConfig[number];
+        public void MoveMapToCurrentCountry()
+        {
+            Vector2Int position = _staticData.LevelConfig[_currentProgress].Position;
+            _worldMap.localPosition = new Vector3(position.x, position.y, 0);
+        }
     }
 }

@@ -1,10 +1,8 @@
-﻿using Services.PersistentProgress;
-using Services.StaticDataService;
-using UnityEngine.Localization;
-using UnityEngine.Localization.Components;
+﻿using Services.StateMachine;
+using Services.StateMachine.States;
 using UnityEngine.UI;
-using Logic.Levels;
 using UnityEngine;
+using DG.Tweening;
 using Zenject;
 
 namespace Logic.Buttons
@@ -13,37 +11,26 @@ namespace Logic.Buttons
     {
         [Header("Ссылки на компоненты")]
         [SerializeField] private Button _button;
-        [SerializeField] private LevelStartButtonAnimation _buttonAnimation;
-        [SerializeField] private LocalizeStringEvent _localizeStringEvent;
-        [SerializeField] private CurrentLevel _currentLevel;
-        
-        private IStaticDataService _staticData;
-        private IPersistentProgressService _progressService;
+
+        private GameStateMachine _gameStateMachine;
 
         [Inject]
-        private void Construct(IStaticDataService staticData, IPersistentProgressService progressService)
-        {
-            _staticData = staticData;
-            _progressService = progressService;
-        }
+        private void Construct(GameStateMachine gameStateMachine) =>
+            _gameStateMachine = gameStateMachine;
 
         private void OnEnable() =>
-            _button.onClick.AddListener(_currentLevel.StartLevel);
+            _button.onClick.AddListener(StartLevel);
 
-        private void Start()
-        {
-            ChangeTranslationKey();
-            _buttonAnimation.ShowButtonAnimation();
-        }
+        private void Start() =>
+            ShowButtonAnimation();
 
-        private void ChangeTranslationKey()
-        {
-            LocalizedString localizedString = _staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].LocalizedText;
-            _localizeStringEvent.StringReference = localizedString;
-            _localizeStringEvent.RefreshString();
-        }
+        private void StartLevel() =>
+            _gameStateMachine.Enter<DrawingState>();
+
+        private void ShowButtonAnimation() =>
+            transform.DOScale(Vector3.one, duration: 0.5f).SetEase(Ease.InOutQuad);
 
         private void OnDisable() =>
-            _button.onClick.RemoveListener(_currentLevel.StartLevel);
+            _button.onClick.RemoveListener(StartLevel);
     }
 }

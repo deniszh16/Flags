@@ -7,7 +7,7 @@ namespace Data
     public class UserProgress
     {
         [SerializeField]
-        private int _progress;
+        private int _progress = 1;
 
         public int Progress =>
             _progress;
@@ -21,12 +21,7 @@ namespace Data
             set => _locale = value;
         }
         
-        public bool Sound;
-
-        public UserProgress()
-        {
-            _progress = 1;
-        }
+        private bool _sound;
 
         public void IncreaseProgress() =>
             _progress++;

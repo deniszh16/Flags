@@ -27,6 +27,14 @@ MonoBehaviour:
     m_Key: key_Progress
     m_Metadata:
       m_Items: []
+  - m_Id: 2078065908858880
+    m_Key: key_Drawing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2080349837410304
+    m_Key: key_Coloring
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
