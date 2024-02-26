@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Logic.Levels
 {
-    public class ColorForColoring : MonoBehaviour
+    public class ColorButton : MonoBehaviour
     {
         [Header("Ссылки на компоненты")]
         [SerializeField] private Image _image;

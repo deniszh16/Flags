@@ -30,10 +30,9 @@ namespace Services.StateMachine.States
             int progress = _progressService.GetUserProgress.Progress;
             LevelsStaticData levelsStaticData = _staticData.GetLevelConfig();
             
-            _countries.Construct(progress, levelsStaticData);
-            _countries.CheckCountries();
-            _countries.MoveMapToCurrentCountry();
-            _mapProgress.CalculatePassPercentage(progress, levelsStaticData.LevelConfig.Count);
+            _countries.CheckCountries(progress);
+            _countries.MoveMapToCurrentCountry(levelsStaticData);
+            _mapProgress.CalculatePassPercentage(progress, numberOfTasks: levelsStaticData.LevelConfig.Count);
             _currentCountry.ChangeTranslationKey(levelsStaticData.LevelConfig[progress - 1].LocalizedText);
         }
 

@@ -1,4 +1,5 @@
-﻿using Services.StateMachine;
+﻿using Logic.Levels.Factory;
+using Services.StateMachine;
 using Logic.WorldMap;
 using UnityEngine;
 using Zenject;
@@ -11,9 +12,10 @@ namespace Logic.Levels
         [SerializeField] private MapProgress _mapProgress;
         [SerializeField] private CurrentCountry _currentCountry;
 
-        [SerializeField] private CurrentLevel _currentLevel;
-        [SerializeField] private DescriptionTask _descriptionTask;
+        [SerializeField] private DrawingSection _drawingSection;
         [SerializeField] private DrawingRoute _drawingRoute;
+        [SerializeField] private DescriptionTask _descriptionTask;
+        [SerializeField] private ArrangementOfColors _arrangementOfColors;
         
         public override void InstallBindings()
         {
@@ -22,10 +24,12 @@ namespace Logic.Levels
             BindCountries();
             BindMapProgress();
             BindCurrentCountry();
-            
-            BindCurrentLevel();
-            BindDescriptionTask();
+
+            BindFlagFactory();
+            BindDrawingSection();
             BindDrawingRoute();
+            BindDescriptionTask();
+            BindArrangementOfButtonsColor();
         }
         
         private void BindGameStateMachine()
@@ -43,13 +47,22 @@ namespace Logic.Levels
         private void BindCurrentCountry() =>
             Container.BindInstance(_currentCountry).AsSingle();
         
-        private void BindCurrentLevel() =>
-            Container.BindInstance(_currentLevel).AsSingle();
+        private void BindFlagFactory()
+        {
+            IFlagFactory flagFactory = new FlagFactory();
+            Container.BindInstance(flagFactory).AsSingle();
+        }
         
+        private void BindDrawingSection() =>
+            Container.BindInstance(_drawingSection).AsSingle();
+
+        private void BindDrawingRoute() =>
+            Container.BindInstance(_drawingRoute).AsSingle();
+
         private void BindDescriptionTask() =>
             Container.BindInstance(_descriptionTask).AsSingle();
         
-        private void BindDrawingRoute() =>
-            Container.BindInstance(_drawingRoute).AsSingle();
+        private void BindArrangementOfButtonsColor() =>
+            Container.BindInstance(_arrangementOfColors).AsSingle();
     }
 }

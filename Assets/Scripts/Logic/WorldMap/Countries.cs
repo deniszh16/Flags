@@ -13,16 +13,11 @@ namespace Logic.WorldMap
         [SerializeField] private List<Country> _countries;
 
         private int _currentProgress;
-        private LevelsStaticData _staticData;
 
-        public void Construct(int progress, LevelsStaticData staticData)
+        public void CheckCountries(int progress)
         {
             _currentProgress = progress - 1;
-            _staticData = staticData;
-        }
-
-        public void CheckCountries()
-        {
+            
             for (int i = 0; i < _countries.Count; i++)
             {
                 if (i > _currentProgress) break;
@@ -34,9 +29,9 @@ namespace Logic.WorldMap
             }
         }
 
-        public void MoveMapToCurrentCountry()
+        public void MoveMapToCurrentCountry(LevelsStaticData staticData)
         {
-            Vector2Int position = _staticData.LevelConfig[_currentProgress].Position;
+            Vector2Int position = staticData.LevelConfig[_currentProgress].Position;
             _worldMap.localPosition = new Vector3(position.x, position.y, 0);
         }
     }
