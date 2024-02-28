@@ -16,6 +16,8 @@ namespace Logic.Levels
         [SerializeField] private DrawingRoute _drawingRoute;
         [SerializeField] private DescriptionTask _descriptionTask;
         [SerializeField] private ArrangementOfColors _arrangementOfColors;
+
+        [SerializeField] private ColoringFlag _coloringFlag;
         
         public override void InstallBindings()
         {
@@ -30,6 +32,8 @@ namespace Logic.Levels
             BindDrawingRoute();
             BindDescriptionTask();
             BindArrangementOfButtonsColor();
+
+            BindColoringFlag();
         }
         
         private void BindGameStateMachine()
@@ -64,5 +68,8 @@ namespace Logic.Levels
         
         private void BindArrangementOfButtonsColor() =>
             Container.BindInstance(_arrangementOfColors).AsSingle();
+        
+        private void BindColoringFlag() =>
+            Container.BindInstance(_coloringFlag).AsSingle();
     }
 }

@@ -1,14 +1,16 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Logic.Levels
 {
-    public class DrawingRoute : MonoBehaviour
+    public class DrawingRoute : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         public event Action FragmentDrawn;
         public event Action DrawingCompleted;
         
         private bool _drawingActivity;
+        private bool _tappingScreen;
         private EdgeCollider2D[] _colliders;
         private int _currentArrayOfPoints;
 
@@ -42,10 +44,16 @@ namespace Logic.Levels
             _lineRenderer.positionCount = 1;
             _lineRenderer.SetPosition(0, _pencil.transform.localPosition);
         }
+        
+        public void OnPointerDown(PointerEventData eventData) =>
+            _tappingScreen = true;
+
+        public void OnPointerUp(PointerEventData eventData) =>
+            _tappingScreen = false;
 
         private void Update()
         {
-            if (_drawingActivity == false)
+            if (_drawingActivity == false || _tappingScreen == false)
                 return;
             
             if (Input.GetMouseButton(0))

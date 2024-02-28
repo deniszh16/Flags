@@ -1,6 +1,6 @@
 ﻿using Logic.Levels.Factory;
-using Services.StaticDataService;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Logic.Levels
 {
@@ -12,29 +12,29 @@ namespace Logic.Levels
         [Header("Контейнер для флага")]
         [SerializeField] private Transform _container;
 
-        private IStaticDataService _staticData;
         private IFlagFactory _flagFactory;
-
-        public void Construct(IStaticDataService staticData, IFlagFactory flagFactory)
-        {
-            _staticData = staticData;
-            _flagFactory = flagFactory;
-        }
 
         public void ChangeVisibilityOfDrawingSection(bool state)
         {
             int alpha = state ? 1 : 0;
             _canvasGroup.alpha = alpha;
             _canvasGroup.interactable = state;
+            _canvasGroup.blocksRaycasts = state;
         }
 
-        public void CreateFlag(int flagNumber) =>
-            _flagFactory.CreateFlag(_staticData.GetLevelConfig().LevelConfig[flagNumber].Flag, _container);
+        public void CreateFlag(IFlagFactory flagFactory, AssetReferenceGameObject flag)
+        {
+            _flagFactory = flagFactory;
+            _flagFactory.CreateFlag(flag, _container);
+        }
 
         public void ShowDrawnLine() =>
             _flagFactory.GetCreatedFlag.ShowDrawnLines();
 
-        private void OnDestroy() =>
-            _flagFactory.Dispose();
+        private void OnDestroy()
+        {
+            if (_flagFactory != null)
+                _flagFactory.Dispose();
+        }
     }
 }

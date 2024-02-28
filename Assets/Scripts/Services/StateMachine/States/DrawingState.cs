@@ -31,9 +31,8 @@ namespace Services.StateMachine.States
 
         public override void Enter()
         {
-            _drawingSection.Construct(_staticData, _flagFactory);
             _drawingSection.ChangeVisibilityOfDrawingSection(state: true);
-            _drawingSection.CreateFlag(flagNumber: _progressService.GetUserProgress.Progress - 1);
+            _drawingSection.CreateFlag(_flagFactory, _staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].Flag);
             _flagFactory.FlagCreated += _drawingRoute.PrepareRouteForPencil;
             _drawingRoute.ChangeDrawingActivity(state: true);
             _drawingRoute.FragmentDrawn += _drawingSection.ShowDrawnLine;
@@ -47,6 +46,7 @@ namespace Services.StateMachine.States
 
         public override void Exit()
         {
+            _drawingRoute.ChangeDrawingActivity(state: false);
             _flagFactory.FlagCreated -= _drawingRoute.PrepareRouteForPencil;
             _drawingRoute.FragmentDrawn -= _drawingSection.ShowDrawnLine; 
             _drawingRoute.DrawingCompleted -= GoToColoringState;

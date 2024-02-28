@@ -19,11 +19,10 @@ namespace Logic.Levels
         [Header("Пустые фрагменты")]
         [SerializeField] private Image[] _emptyFragments;
 
-        private int _drawnLine;
-        private int _emptyFragment;
+        public int NumberOfEmptyFragments =>
+            _emptyFragments.Length;
 
-        public void SetNumberOfEmptyFragments() =>
-            _emptyFragment = _emptyFragments.Length;
+        private int _drawnLine;
 
         public void ShowDrawnLines()
         {
@@ -34,8 +33,18 @@ namespace Logic.Levels
                 _drawnLine++;
             }
         }
+        
+        public Image SelectActiveFragment(int fragmentNumber)
+        {
+            if (fragmentNumber >= NumberOfEmptyFragments) return null;
+            _emptyFragments[fragmentNumber].transform.GetChild(0).gameObject.SetActive(true);
+            return _emptyFragments[fragmentNumber];
+        }
 
-        public void SelectActiveFragment() =>
-            _emptyFragments[_emptyFragment].transform.GetChild(0).gameObject.SetActive(true);
+        public Vector2 GetPositionOfActiveFragment(int fragmentNumber) =>
+            _emptyFragments[fragmentNumber].transform.position;
+
+        public void DeselectFragment(int fragmentNumber) =>
+            _emptyFragments[fragmentNumber].transform.GetChild(0).gameObject.SetActive(false);
     }
 }
