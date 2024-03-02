@@ -1,4 +1,8 @@
-﻿using Logic.Levels.Factory;
+﻿using Logic.Levels.Coloring;
+using Logic.Levels.Drawing;
+using Logic.Levels.Factory;
+using Logic.Levels.Hints;
+using Logic.Levels.Other;
 using Services.StateMachine;
 using Logic.WorldMap;
 using UnityEngine;
@@ -18,7 +22,11 @@ namespace Logic.Levels
         [SerializeField] private ArrangementOfColors _arrangementOfColors;
 
         [SerializeField] private ColoringFlag _coloringFlag;
-        
+        [SerializeField] private HintForColoring _hintForColoring;
+        [SerializeField] private ColorCancellation _colorCancellation;
+        [SerializeField] private InfoCurrentLevel _levelInfo;
+        [SerializeField] private ColoringResult _coloringResult;
+
         public override void InstallBindings()
         {
             BindGameStateMachine();
@@ -34,6 +42,10 @@ namespace Logic.Levels
             BindArrangementOfButtonsColor();
 
             BindColoringFlag();
+            BindHintForColoring();
+            BindColorCancellation();
+            BindLevelInfo();
+            BindColoringResult();
         }
         
         private void BindGameStateMachine()
@@ -71,5 +83,17 @@ namespace Logic.Levels
         
         private void BindColoringFlag() =>
             Container.BindInstance(_coloringFlag).AsSingle();
+        
+        private void BindHintForColoring() =>
+            Container.BindInstance(_hintForColoring).AsSingle();
+        
+        private void BindColorCancellation() =>
+            Container.BindInstance(_colorCancellation).AsSingle();
+        
+        private void BindLevelInfo() =>
+            Container.BindInstance(_levelInfo).AsSingle();
+
+        private void BindColoringResult() =>
+            Container.BindInstance(_coloringResult).AsSingle();
     }
 }

@@ -11,6 +11,19 @@ namespace Data
 
         public int Progress =>
             _progress;
+
+        [SerializeField]
+        private int _hints = 3;
+
+        public int Hints
+        {
+            get => _hints;
+            set
+            {
+                _hints += value;
+                if (_hints < 0) _hints = 0;
+            }
+        }
         
         [SerializeField]
         private int _locale;

@@ -1,25 +1,22 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UniRx;
 
 namespace Logic.Levels.Factory
 {
-    public class FlagFactory : IFlagFactory, IDisposable
+    public class FlagFactory : IFlagFactory
     {
+        public Flag GetCreatedFlag { get; private set; } 
+        
+        public ReactiveCommand<EdgeCollider2D[]> FlagCreated { get; set; } = new();
+        
         private AssetReferenceGameObject _flag;
-        private Flag _createdFlag;
 
-        public Flag GetCreatedFlag =>
-            _createdFlag;
-        
-        public event Action<EdgeCollider2D[]> FlagCreated;
-        
-        public void CreateFlag(AssetReferenceGameObject flag, Transform container)
+        public void CreateFlag(AssetReferenceGameObject flagAssetReference, Transform container)
         {
             RemovePreviousFlag();
-            
-            _flag = flag;
+            _flag = flagAssetReference;
             _flag.InstantiateAsync(container).Completed += OnFlagInstantiated;
         }
         
@@ -27,18 +24,15 @@ namespace Logic.Levels.Factory
         {
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
-                _createdFlag = handle.Result.GetComponent<Flag>();
-                FlagCreated?.Invoke(_createdFlag.Colliders);
+                GetCreatedFlag = handle.Result.GetComponent<Flag>();
+                FlagCreated.Execute(GetCreatedFlag.Colliders);
             }
         }
-
+        
         public void RemovePreviousFlag()
         {
             if (_flag != null)
-                _flag.ReleaseInstance(_createdFlag.gameObject);
+                _flag.ReleaseInstance(GetCreatedFlag.gameObject);
         }
-
-        public void Dispose() =>
-            FlagCreated = null;
     }
 }

@@ -40,10 +40,15 @@ MonoBehaviour:
     m_Localized: Color the flag
     m_Metadata:
       m_Items: []
+  - m_Id: 5049232433168384
+    m_Localized: Level {0}
+    m_Metadata:
+      m_Items:
+      - rid: 6010829229683114091
   references:
     version: 2
     RefIds:
     - rid: 6010829229683114091
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0040d1483b450200
+        m_Entries: 0040d1483b4502000040910940f01100

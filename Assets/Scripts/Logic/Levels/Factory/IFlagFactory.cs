@@ -1,15 +1,16 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UniRx;
 
 namespace Logic.Levels.Factory
 {
-    public interface IFlagFactory : IDisposable
+    public interface IFlagFactory
     {
         public Flag GetCreatedFlag { get; }
-        public event Action<EdgeCollider2D[]> FlagCreated;
         
-        public void CreateFlag(AssetReferenceGameObject flag, Transform container);
+        public ReactiveCommand<EdgeCollider2D[]> FlagCreated { get; }
+        
+        public void CreateFlag(AssetReferenceGameObject flagAssetReference, Transform container);
         public void RemovePreviousFlag();
     }
 }
