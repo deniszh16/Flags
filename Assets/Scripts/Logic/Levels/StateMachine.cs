@@ -65,7 +65,7 @@ namespace Logic.Levels
         private void Awake()
         {
             _gameStateMachine.AddState(new MapState(_gameStateMachine, _progressService, _staticData, _countries, _mapProgress, _currentCountry));
-            _gameStateMachine.AddState(new DrawingState(_gameStateMachine, _progressService, _staticData, _flagFactory, _drawingSection, _drawingRoute, _descriptionTask, _infoCurrentLevel, _arrangementOfColors));
+            _gameStateMachine.AddState(new DrawingState(_gameStateMachine, _progressService, _staticData, _flagFactory, _drawingSection, _drawingRoute, _descriptionTask, _infoCurrentLevel, _arrangementOfColors, _hintForColoring));
             _gameStateMachine.AddState(new ColoringState(_gameStateMachine, _arrangementOfColors, _coloringFlag, _flagFactory, _descriptionTask, _hintForColoring, _colorCancellation, _coloringResult));
             _gameStateMachine.AddState(new QuizState(_gameStateMachine));
         }

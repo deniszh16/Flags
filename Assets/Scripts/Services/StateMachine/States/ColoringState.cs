@@ -45,9 +45,10 @@ namespace Services.StateMachine.States
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _coloringResult.ShowVictoryIcon()).AddTo(_compositeDisposable);
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _stateMachine.Enter<QuizState>()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _coloringResult.ShowLossIcon()).AddTo(_compositeDisposable);
+            _arrangementOfColors.IncorrectColoring.Subscribe(_ => _colorCancellation.ChangeButtonActivity(state: false)).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(async _ => await ResetFlagColoring()).AddTo(_compositeDisposable);
             _descriptionTask.ChangeDescription(DescriptionTypes.Coloring);
-            _hintForColoring.CheckNumberOfHints();
+            _hintForColoring.ChangeActivityOfHintButton(state: true);
             _colorCancellation.ChangeButtonActivity(state: true);
         }
 
@@ -57,6 +58,7 @@ namespace Services.StateMachine.States
             _coloringFlag.ResetFragments();
             _arrangementOfColors.ResetColorButtons();
             _coloringResult.HideResultIcon();
+            _colorCancellation.ChangeButtonActivity(state: true);
         }
 
         public override void Exit()

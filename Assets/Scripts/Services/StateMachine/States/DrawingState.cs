@@ -3,6 +3,7 @@ using Services.StaticDataService;
 using Logic.Levels.Coloring;
 using Logic.Levels.Drawing;
 using Logic.Levels.Factory;
+using Logic.Levels.Hints;
 using Logic.Levels.Other;
 using UniRx;
 
@@ -19,12 +20,13 @@ namespace Services.StateMachine.States
         private readonly DescriptionTask _descriptionTask;
         private readonly InfoCurrentLevel _infoCurrentLevel;
         private readonly ArrangementOfColors _arrangementOfColors;
+        private readonly HintForColoring _hintForColoring;
 
         private readonly CompositeDisposable _compositeDisposable = new();
         
         public DrawingState(GameStateMachine stateMachine, IPersistentProgressService progressService, IStaticDataService staticData, IFlagFactory flagFactory,
             DrawingSection drawingSection, DrawingRoute drawingRoute, DescriptionTask descriptionTask, InfoCurrentLevel infoCurrentLevel,
-            ArrangementOfColors arrangementOfColors) : base(stateMachine)
+            ArrangementOfColors arrangementOfColors, HintForColoring hintForColoring) : base(stateMachine)
         {
             _progressService = progressService;
             _staticData = staticData;
@@ -35,6 +37,7 @@ namespace Services.StateMachine.States
             _descriptionTask = descriptionTask;
             _infoCurrentLevel = infoCurrentLevel;
             _arrangementOfColors = arrangementOfColors;
+            _hintForColoring = hintForColoring;
         }
 
         public override void Enter()
@@ -49,6 +52,7 @@ namespace Services.StateMachine.States
             _infoCurrentLevel.ShowCurrentLevel(_progressService.GetUserProgress.Progress);
             _infoCurrentLevel.ShowCountryName(_staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].LocalizedText);
             _arrangementOfColors.ArrangeColors(_staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].Colors);
+            _hintForColoring.ShowNumberOfHints();
         }
 
         public override void Exit()

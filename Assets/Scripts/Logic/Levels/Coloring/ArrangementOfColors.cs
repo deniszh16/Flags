@@ -55,10 +55,7 @@ namespace Logic.Levels.Coloring
         public void ActivateUnusedButtons()
         {
             foreach (ColorButton button in _colorButtons)
-            {
-                if (button.ColorUsed == false)
-                    button.ChangeButtonActivity(state: true);
-            }
+                button.ChangeButtonActivity(state: button.ColorUsed == false);
         }
         
         public void CompareColorCollections()
@@ -72,15 +69,56 @@ namespace Logic.Levels.Coloring
 
             CorrectColoring.Execute();
         }
+
+        public (int, Color) FindFragmentForHint()
+        {
+            if (_colorButtonsUsed.Count < 1)
+            {
+                FindButtonWithColor(_flagColors[0]);
+                ActivateUnusedButtons();
+                return (0, _flagColors[0]);
+            }
+
+            for (int i = 0; i < _colorButtonsUsed.Count; i++)
+            {
+                if (_colorButtonsUsed[i].Color.Equals(_flagColors[i])) continue;
+                
+                for (int j = _colorButtonsUsed.Count; j > i; j--)
+                {
+                    _colorButtonsUsed[^1].ColorUsed = false;
+                    _colorButtonsUsed.RemoveAt(_colorButtonsUsed.Count - 1);
+                }
+                
+                FindButtonWithColor(_flagColors[i]);
+                ActivateUnusedButtons();
+                return (i, _flagColors[i]);
+            }
+
+            int fragment = _colorButtonsUsed.Count;
+            FindButtonWithColor(_flagColors[fragment]);
+            ActivateUnusedButtons();
+            return (fragment, _flagColors[fragment]);
+        }
+
+        private void FindButtonWithColor(Color color)
+        {
+            for (int i = 0; i < _colorButtons.Length; i++)
+            {
+                if (_colorButtons[i].gameObject.activeInHierarchy && _colorButtons[i].Color.Equals(color))
+                {
+                    _activeButton = _colorButtons[i];
+                    RecordSelectedColor();
+                    break;
+                }
+            }
+        }
         
         public void ResetLastColorButton()
         {
-            if (_colorButtonsUsed.Count > 0)
-            {
-                _colorButtonsUsed[^1].ColorUsed = false;
-                _colorButtonsUsed.RemoveAt(_colorButtonsUsed.Count - 1);
-                ActivateUnusedButtons();
-            }
+            if (_colorButtonsUsed.Count <= 0) return;
+            _colorButtonsUsed[^1].ColorUsed = false;
+            _colorButtonsUsed.RemoveAt(_colorButtonsUsed.Count - 1);
+            ActivateUnusedButtons();
         }
         
         public void ResetColorButtons()

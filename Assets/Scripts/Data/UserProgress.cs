@@ -13,17 +13,9 @@ namespace Data
             _progress;
 
         [SerializeField]
-        private int _hints = 3;
+        private int _hints = 5;
 
-        public int Hints
-        {
-            get => _hints;
-            set
-            {
-                _hints += value;
-                if (_hints < 0) _hints = 0;
-            }
-        }
+        public int Hints => _hints;
         
         [SerializeField]
         private int _locale;
@@ -38,5 +30,8 @@ namespace Data
 
         public void IncreaseProgress() =>
             _progress++;
+        
+        public void ChangeNumberOfHints(int value) =>
+            _hints += value;
     }
 }

@@ -74,25 +74,45 @@ namespace Logic.Levels.Coloring
                 }
                 else
                 {
-                    _currentFlag.DeselectFragment(_currentFragment);
-                    _brush.gameObject.SetActive(false);
-                    _activeColor = default;
-                    _currentFragment++;
-                    FragmentIsColored.Execute();
-                    _startedColoring = false;
-                    CheckCompletionOfColoring();
+                    FinishColoringFragment();
                 }
             }
+        }
+        
+        private void FinishColoringFragment()
+        {
+            _currentFlag.DeselectFragment(_currentFragment);
+            _brush.gameObject.SetActive(false);
+            _activeColor = default;
+            _currentFragment++;
+            FragmentIsColored.Execute();
+            _startedColoring = false;
+            CheckCompletionOfColoring();
         }
 
         private void CheckCompletionOfColoring()
         {
             if (_currentFragment < _currentFlag.NumberOfEmptyFragments)
                 GetCurrentFragment();
-            else
-                FlagIsFinished.Execute();
+            else FlagIsFinished.Execute();
         }
 
+        public void ColorInFragmentWithHint(int fragment, Color color)
+        {
+            _currentFragment = fragment;
+            GetCurrentFragment();
+            _currentFragmentImage.color = color;
+            _currentFragmentImage.fillAmount = 1;
+
+            for (int i = fragment + 1; i < _currentFlag.NumberOfEmptyFragments; i++)
+            {
+                _currentFlag.DeselectFragment(i);
+                _currentFlag.ResetFillOfLastFragment(i);
+            }
+            
+            FinishColoringFragment();
+        }
+        
         public void ResetLastFragment()
         {
             if (_currentFragment > 0)
@@ -101,6 +121,7 @@ namespace Logic.Levels.Coloring
                 _currentFragment--;
                 _currentFlag.ResetFillOfLastFragment(_currentFragment);
                 _currentFragmentImage = null;
+                _brush.gameObject.SetActive(false);
                 GetCurrentFragment();
             }
         }
