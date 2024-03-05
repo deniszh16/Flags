@@ -65,6 +65,7 @@ namespace Services.StateMachine.States
         {
             _compositeDisposable.Dispose();
             _coloringFlag.ChangeColoringActivity(state: false);
+            _hintForColoring.ChangeActivityOfHintButton(state: false);
             _colorCancellation.ChangeButtonActivity(state: false);
         }
     }

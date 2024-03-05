@@ -13,9 +13,29 @@ namespace Data
             _progress;
 
         [SerializeField]
-        private int _hints = 5;
+        private int _hints = 0;
 
         public int Hints => _hints;
+        
+        public event Action ChangedNumberOfHints;
+
+        [SerializeField]
+        private bool _endlessHints;
+
+        public bool EndlessHints
+        {
+            get => _endlessHints;
+            set => _endlessHints = value;
+        }
+
+        [SerializeField]
+        private bool _freeHint;
+        
+        public bool FreeHint
+        {
+            get => _freeHint;
+            set => _freeHint = value;
+        }
         
         [SerializeField]
         private int _locale;
@@ -31,7 +51,10 @@ namespace Data
         public void IncreaseProgress() =>
             _progress++;
         
-        public void ChangeNumberOfHints(int value) =>
+        public void ChangeNumberOfHints(int value)
+        {
             _hints += value;
+            ChangedNumberOfHints?.Invoke();
+        }
     }
 }

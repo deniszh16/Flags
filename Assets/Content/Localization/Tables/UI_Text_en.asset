@@ -45,6 +45,42 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6010829229683114091
+  - m_Id: 6942803922862080
+    m_Localized: Hints
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6944744023343104
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7140489255010304
+    m_Localized: Free hint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7140839580057600
+    m_Localized: Get
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7141521875877888
+    m_Localized: 3 hints for watching ads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7142545592238080
+    m_Localized: View ads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7149200363044864
+    m_Localized: Endless hints
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7158802697764864
+    m_Localized: Buy for 29 yans
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7175616072859648
+    m_Localized: Already received
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
