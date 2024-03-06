@@ -51,6 +51,7 @@ namespace Services.StateMachine.States
             _descriptionTask.ChangeDescription(DescriptionTypes.Drawing);
             _infoCurrentLevel.ShowCurrentLevel(_progressService.GetUserProgress.Progress);
             _infoCurrentLevel.ShowCountryName(_staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].LocalizedText);
+            _arrangementOfColors.ChangeVisibilityOfColors(state: true);
             _arrangementOfColors.ArrangeColors(_staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].Colors);
             _hintForColoring.ShowNumberOfHints();
         }

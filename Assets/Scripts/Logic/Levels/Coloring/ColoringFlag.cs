@@ -11,6 +11,9 @@ namespace Logic.Levels.Coloring
         [Header("Кисть для раскрашивания")]
         [SerializeField] private Transform _brush;
         [SerializeField] private Image _whiteBrush;
+        [SerializeField] private Animator _animator;
+
+        private readonly int _animationTrigger = Animator.StringToHash("Coloring");
 
         private Color? _activeColor;
         
@@ -28,16 +31,16 @@ namespace Logic.Levels.Coloring
         public readonly ReactiveCommand StartedColoring = new();
         public readonly ReactiveCommand FragmentIsColored = new();
         public readonly ReactiveCommand FlagIsFinished = new();
-        
-        public void SetFlag(Flag flag) =>
-            _currentFlag = flag;
-        
-        public void GetCurrentFragment() =>
-            _currentFragmentImage = _currentFlag.SelectActiveFragment(_currentFragment);
-        
+
         public void ChangeColoringActivity(bool state) =>
             _coloringActivity = state;
-        
+
+        public void SetFlag(Flag flag) =>
+            _currentFlag = flag;
+
+        public void GetCurrentFragment() =>
+            _currentFragmentImage = _currentFlag.SelectActiveFragment(_currentFragment);
+
         public void SetActiveColor(Color color) =>
             _activeColor = color;
 
@@ -48,12 +51,18 @@ namespace Logic.Levels.Coloring
             if (_activeColor != null) _whiteBrush.color = _activeColor.Value;
         }
         
-        public void OnPointerDown(PointerEventData eventData) =>
+        public void OnPointerDown(PointerEventData eventData)
+        {
             _tappingScreen = true;
+            _animator.SetBool(id: _animationTrigger, value: true);
+        }
 
-        public void OnPointerUp(PointerEventData eventData) =>
+        public void OnPointerUp(PointerEventData eventData)
+        {
             _tappingScreen = false;
-        
+            _animator.SetBool(id: _animationTrigger, value: false);
+        }
+
         private void Update()
         {
             if (_coloringActivity == false || _tappingScreen == false)
@@ -126,7 +135,7 @@ namespace Logic.Levels.Coloring
             }
         }
 
-        public void ResetFragments()
+        public void ResetAllFragments()
         {
             _currentFragment = 0;
             _currentFragmentImage = null;

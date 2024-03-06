@@ -16,8 +16,10 @@ namespace Logic.Levels.Hints
         [SerializeField] private TextMeshProUGUI _numberOfHints;
         [SerializeField] private Button _closeWindowButton;
 
-        [Header("Дополнительные подсказки")]
+        [Header("Панель получения подсказок")]
         [SerializeField] private GameObject _gettingHints;
+        
+        private const float AnimationDuration = 0.3f;
 
         private IPersistentProgressService _progressService;
         private ISaveLoadService _saveLoadService;
@@ -43,7 +45,6 @@ namespace Logic.Levels.Hints
         private void OnEnable()
         {
             _hintButton.onClick.AddListener(UseHint);
-            _hintButton.onClick.AddListener(ShowNumberOfHints);
             _closeWindowButton.onClick.AddListener(CloseHintWindow);
             _progressService.GetUserProgress.ChangedNumberOfHints += ShowNumberOfHints;
         }
@@ -52,8 +53,8 @@ namespace Logic.Levels.Hints
         {
             if (_progressService.GetUserProgress.Hints > 0 || _progressService.GetUserProgress.EndlessHints)
             {
-                (int, Color) fragment = _arrangementOfColors.FindFragmentForHint();
-                _coloringFlag.ColorInFragmentWithHint(fragment.Item1, fragment.Item2);
+                var fragmentAndColor = _arrangementOfColors.FindFragmentAndColorForHint();
+                _coloringFlag.ColorInFragmentWithHint(fragmentAndColor.Item1, fragmentAndColor.Item2);
                 _progressService.GetUserProgress.ChangeNumberOfHints(-1);
                 _saveLoadService.SaveProgress();
             }
@@ -61,7 +62,7 @@ namespace Logic.Levels.Hints
             {
                 _gettingHints.SetActive(true);
                 _gettingHints.transform.localScale = Vector3.zero;
-                _gettingHints.transform.DOScale(Vector3.one, duration: 0.3f);
+                _gettingHints.transform.DOScale(Vector3.one, AnimationDuration);
             }
         }
         
@@ -71,7 +72,6 @@ namespace Logic.Levels.Hints
         private void OnDisable()
         {
             _hintButton.onClick.RemoveListener(UseHint);
-            _hintButton.onClick.RemoveListener(ShowNumberOfHints);
             _closeWindowButton.onClick.RemoveListener(CloseHintWindow);
             _progressService.GetUserProgress.ChangedNumberOfHints -= ShowNumberOfHints;
         }

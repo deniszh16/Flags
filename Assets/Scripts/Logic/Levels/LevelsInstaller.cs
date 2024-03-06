@@ -1,6 +1,7 @@
 ﻿using Logic.Levels.Coloring;
 using Logic.Levels.Drawing;
 using Logic.Levels.Factory;
+using Logic.Levels.Guessing;
 using Logic.Levels.Hints;
 using Logic.Levels.Other;
 using Services.StateMachine;
@@ -26,6 +27,8 @@ namespace Logic.Levels
         [SerializeField] private ColorCancellation _colorCancellation;
         [SerializeField] private InfoCurrentLevel _levelInfo;
         [SerializeField] private ColoringResult _coloringResult;
+        
+        [SerializeField] private GuessingCapitals _guessingCapitals;
 
         public override void InstallBindings()
         {
@@ -46,6 +49,8 @@ namespace Logic.Levels
             BindColorCancellation();
             BindLevelInfo();
             BindColoringResult();
+
+            BindCapitalQuiz();
         }
         
         private void BindGameStateMachine()
@@ -95,5 +100,8 @@ namespace Logic.Levels
 
         private void BindColoringResult() =>
             Container.BindInstance(_coloringResult).AsSingle();
+
+        private void BindCapitalQuiz() =>
+            Container.BindInstance(_guessingCapitals).AsSingle();
     }
 }

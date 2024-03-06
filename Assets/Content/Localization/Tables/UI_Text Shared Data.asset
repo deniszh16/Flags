@@ -75,6 +75,14 @@ MonoBehaviour:
     m_Key: key_AlreadyReceived
     m_Metadata:
       m_Items: []
+  - m_Id: 7178888632418304
+    m_Key: key_Capital
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7202392010473472
+    m_Key: key_Variant
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

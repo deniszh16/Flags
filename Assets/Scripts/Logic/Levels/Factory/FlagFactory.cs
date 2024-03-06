@@ -9,13 +9,12 @@ namespace Logic.Levels.Factory
     {
         public Flag GetCreatedFlag { get; private set; } 
         
-        public ReactiveCommand<EdgeCollider2D[]> FlagCreated { get; set; } = new();
+        public ReactiveCommand<EdgeCollider2D[]> FlagCreated { get; } = new();
         
         private AssetReferenceGameObject _flag;
 
         public void CreateFlag(AssetReferenceGameObject flagAssetReference, Transform container)
         {
-            RemovePreviousFlag();
             _flag = flagAssetReference;
             _flag.InstantiateAsync(container).Completed += OnFlagInstantiated;
         }

@@ -2,15 +2,15 @@
 
 namespace Services.StateMachine.States
 {
-    public class QuizState : BaseStates
+    public class ResultsState : BaseStates
     {
-        public QuizState(GameStateMachine stateMachine) : base(stateMachine)
+        public ResultsState(GameStateMachine stateMachine) : base(stateMachine)
         {
         }
 
         public override void Enter()
         {
-            Debug.Log("Enter QuizState");
+            Debug.Log("ResultsState");
         }
 
         public override void Exit()

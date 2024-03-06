@@ -81,6 +81,14 @@ MonoBehaviour:
     m_Localized: Already received
     m_Metadata:
       m_Items: []
+  - m_Id: 7178888632418304
+    m_Localized: Name the capital
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7202392010473472
+    m_Localized: Answer variant
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

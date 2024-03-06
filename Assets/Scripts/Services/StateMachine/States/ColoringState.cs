@@ -1,9 +1,9 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using Logic.Levels.Coloring;
 using Logic.Levels.Factory;
 using Logic.Levels.Hints;
 using Logic.Levels.Other;
+using System;
 using UniRx;
 
 namespace Services.StateMachine.States
@@ -43,7 +43,7 @@ namespace Services.StateMachine.States
             _coloringFlag.FlagIsFinished.Subscribe(_ => _arrangementOfColors.CompareColorCollections()).AddTo(_compositeDisposable);
             _arrangementOfColors.ActivateUnusedButtons();
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _coloringResult.ShowVictoryIcon()).AddTo(_compositeDisposable);
-            _arrangementOfColors.CorrectColoring.Subscribe(_ => _stateMachine.Enter<QuizState>()).AddTo(_compositeDisposable);
+            _arrangementOfColors.CorrectColoring.Subscribe(_ => _stateMachine.Enter<GuessingState>()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _coloringResult.ShowLossIcon()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _colorCancellation.ChangeButtonActivity(state: false)).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(async _ => await ResetFlagColoring()).AddTo(_compositeDisposable);
@@ -55,7 +55,7 @@ namespace Services.StateMachine.States
         private async UniTask ResetFlagColoring()
         {
             await UniTask.Delay(TimeSpan.FromSeconds(1.2f), ignoreTimeScale: false);
-            _coloringFlag.ResetFragments();
+            _coloringFlag.ResetAllFragments();
             _arrangementOfColors.ResetColorButtons();
             _coloringResult.HideResultIcon();
             _colorCancellation.ChangeButtonActivity(state: true);
@@ -67,6 +67,7 @@ namespace Services.StateMachine.States
             _coloringFlag.ChangeColoringActivity(state: false);
             _hintForColoring.ChangeActivityOfHintButton(state: false);
             _colorCancellation.ChangeButtonActivity(state: false);
+            _arrangementOfColors.ChangeVisibilityOfColors(state: false);
         }
     }
 }

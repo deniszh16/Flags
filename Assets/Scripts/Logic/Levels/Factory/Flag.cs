@@ -31,7 +31,9 @@ namespace Logic.Levels.Factory
         
         public Image SelectActiveFragment(int fragmentNumber)
         {
-            if (fragmentNumber >= NumberOfEmptyFragments) return null;
+            if (fragmentNumber >= NumberOfEmptyFragments)
+                return null;
+            
             _emptyFragments[fragmentNumber].transform.GetChild(0).gameObject.SetActive(true);
             return _emptyFragments[fragmentNumber];
         }

@@ -7,6 +7,9 @@ namespace Logic.Levels.Coloring
 {
     public class ArrangementOfColors : MonoBehaviour
     {
+        [Header("Ссылки на компоненты")]
+        [SerializeField] private CanvasGroup _canvasGroup;
+        
         [Header("Цветные кнопки")]
         [SerializeField] private ColorButton[] _colorButtons;
 
@@ -16,7 +19,13 @@ namespace Logic.Levels.Coloring
         private List<Color> _flagColors;
         private List<ColorButton> _colorButtonsUsed;
         private ColorButton _activeButton;
-        
+
+        public void ChangeVisibilityOfColors(bool state)
+        {
+            int value = state ? 1 : 0;
+            _canvasGroup.alpha = value;
+        }
+
         public void ArrangeColors(Color[] colors)
         {
             _flagColors = new List<Color>();
@@ -70,7 +79,7 @@ namespace Logic.Levels.Coloring
             CorrectColoring.Execute();
         }
 
-        public (int, Color) FindFragmentForHint()
+        public (int, Color) FindFragmentAndColorForHint()
         {
             if (_colorButtonsUsed.Count < 1)
             {
@@ -115,7 +124,7 @@ namespace Logic.Levels.Coloring
         
         public void ResetLastColorButton()
         {
-            if (_colorButtonsUsed.Count <= 0) return;
+            if (_colorButtonsUsed.Count < 1) return;
             _colorButtonsUsed[^1].ColorUsed = false;
             _colorButtonsUsed.RemoveAt(_colorButtonsUsed.Count - 1);
             ActivateUnusedButtons();

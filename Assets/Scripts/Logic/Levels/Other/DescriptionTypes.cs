@@ -3,6 +3,7 @@
     public enum DescriptionTypes
     {
         Drawing,
-        Coloring
+        Coloring,
+        Guessing
     }
 }

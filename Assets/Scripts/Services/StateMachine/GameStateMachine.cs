@@ -7,7 +7,7 @@ namespace Services.StateMachine
     public class GameStateMachine
     {
         private IState ActiveState { get; set; }
-        private Dictionary<Type, IState> _states = new();
+        private readonly Dictionary<Type, IState> _states = new();
 
         public void AddState<TState>(TState state) where TState : class, IState =>
             _states.Add(typeof(TState), state);

@@ -10,6 +10,12 @@ namespace StaticData
     {
         [Header("Название страны")]
         public LocalizedString LocalizedText;
+        
+        [Header("Варианты столицы")]
+        public LocalizedString[] Capitals;
+
+        [Header("Правильный вариант")]
+        public int CorrectVariant;
 
         [Header("Позиция на карте")]
         public Vector2Int Position;

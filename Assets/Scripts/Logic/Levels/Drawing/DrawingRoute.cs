@@ -11,6 +11,7 @@ namespace Logic.Levels.Drawing
         
         private bool _drawingActivity;
         private bool _tappingScreen;
+        
         private EdgeCollider2D[] _colliders;
         private int _currentArrayOfPoints;
 
@@ -73,20 +74,25 @@ namespace Logic.Levels.Drawing
                     _lineRenderer.positionCount = 1;
                     _lineRenderer.SetPosition(index: 0, _pencil.transform.localPosition);
                     
-                    if (_currentArrayOfPoints < _colliders.Length - 1)
-                    {
-                        _currentArrayOfPoints++;
-                        _points = _colliders[_currentArrayOfPoints].points;
-                        _currentTargetIndex = 0;
-                        _pencil.transform.localPosition = _points[_currentTargetIndex];
-                    }
-                    else
-                    {
-                        ChangeDrawingActivity(state: false);
-                        _pencil.gameObject.SetActive(false);
-                        DrawingCompleted.Execute();
-                    }
+                    ChangePointArray();
                 }
+            }
+        }
+        
+        private void ChangePointArray()
+        {
+            if (_currentArrayOfPoints < _colliders.Length - 1)
+            {
+                _currentArrayOfPoints++;
+                _points = _colliders[_currentArrayOfPoints].points;
+                _currentTargetIndex = 0;
+                _pencil.transform.localPosition = _points[_currentTargetIndex];
+            }
+            else
+            {
+                ChangeDrawingActivity(state: false);
+                _pencil.gameObject.SetActive(false);
+                DrawingCompleted.Execute();
             }
         }
     }
