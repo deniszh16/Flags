@@ -30,7 +30,7 @@ MonoBehaviour:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da2bda6ad1fa4cb43a7b1e882d1565ec
-    m_Address: CapitalCities_ru
+    m_Address: UI_CapitalCities_ru
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-ru

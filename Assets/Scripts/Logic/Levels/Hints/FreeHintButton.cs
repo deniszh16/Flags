@@ -46,7 +46,7 @@ namespace Logic.Levels.Hints
         {
             _button.interactable = false;
             _progressService.GetUserProgress.ChangeNumberOfHints(1);
-            _progressService.GetUserProgress.FreeHint = true;
+            _progressService.GetUserProgress.ChangeFreeHints();
             _saveLoadService.SaveProgress();
         }
 

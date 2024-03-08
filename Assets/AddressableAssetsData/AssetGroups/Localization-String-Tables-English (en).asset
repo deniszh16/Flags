@@ -30,7 +30,7 @@ MonoBehaviour:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8cbfa9cb44f1b51469335a2d9c482e36
-    m_Address: CapitalCities_en
+    m_Address: UI_CapitalCities_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

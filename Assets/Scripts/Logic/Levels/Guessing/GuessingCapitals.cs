@@ -14,7 +14,7 @@ namespace Logic.Levels.Guessing
         [Header("Тексты вариантов")]
         [SerializeField] private LocalizeStringEvent[] _localizeStringEvents;
 
-        public readonly ReactiveCommand QuizCompleted = new();
+        public readonly ReactiveCommand<bool> QuizCompleted = new();
 
         private readonly Vector2 _startingPosition = new(0, -300);
         private const float PositionY = 270;
@@ -48,12 +48,12 @@ namespace Logic.Levels.Guessing
             if (variantButton.Number.Equals(_correctAnswer))
             {
                 variantButton.ChangeButtonColor(Color.green);
-                QuizCompleted.Execute();
+                QuizCompleted.Execute(parameter: true);
                 return;
             }
             
             variantButton.ChangeButtonColor(Color.red);
-            QuizCompleted.Execute();
+            QuizCompleted.Execute(parameter: false);
         }
 
         private void OnDisable()

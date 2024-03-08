@@ -83,6 +83,30 @@ MonoBehaviour:
     m_Key: key_Variant
     m_Metadata:
       m_Items: []
+  - m_Id: 7642681594429440
+    m_Key: key_Results
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7646034533629952
+    m_Key: key_Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8228380584525824
+    m_Key: key_ColoredFlags
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8228645781979136
+    m_Key: key_CorrectAnswers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8229162474094592
+    m_Key: key_IncorrectAnswers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8229406318346240
+    m_Key: key_HintsUsed
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -35,7 +35,7 @@ namespace Bootstraper
         private void Start()
         {
             LoadProgressOrInitNew();
-            _localizationService.SetLocale(_progressService.GetUserProgress.Locale);
+            _localizationService.SetLocale(_progressService.GetUserProgress.SettingsData.Locale);
             _sceneLoaderService.LoadSceneAsync(Scenes.MainMenu, screensaver: false, delay: 1f).Forget();
         }
 

@@ -55,6 +55,7 @@ namespace Logic.Levels.Hints
             {
                 var fragmentAndColor = _arrangementOfColors.FindFragmentAndColorForHint();
                 _coloringFlag.ColorInFragmentWithHint(fragmentAndColor.Item1, fragmentAndColor.Item2);
+                _progressService.GetUserProgress.ChangeNumberOfHintsUsed();
                 _progressService.GetUserProgress.ChangeNumberOfHints(-1);
                 _saveLoadService.SaveProgress();
             }

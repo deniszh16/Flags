@@ -89,10 +89,38 @@ MonoBehaviour:
     m_Localized: Answer variant
     m_Metadata:
       m_Items: []
+  - m_Id: 7642681594429440
+    m_Localized: Results
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7646034533629952
+    m_Localized: Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8228380584525824
+    m_Localized: 'Colored flags: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 6010829229683114091
+  - m_Id: 8228645781979136
+    m_Localized: 'Correct answers: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 6010829229683114091
+  - m_Id: 8229162474094592
+    m_Localized: 'Incorrect answers: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 6010829229683114091
+  - m_Id: 8229406318346240
+    m_Localized: 'Hints used: {0}'
+    m_Metadata:
+      m_Items:
+      - rid: 6010829229683114091
   references:
     version: 2
     RefIds:
     - rid: 6010829229683114091
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 0040d1483b4502000040910940f01100
+        m_Entries: 0040d1483b4502000040910940f011000040d125ab3b1d000040d1e4e83b1d0000401132613c1d00004051f8993c1d00
