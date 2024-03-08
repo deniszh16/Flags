@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using StaticData;
 
@@ -7,12 +8,13 @@ namespace Logic.WorldMap
     public class Countries : MonoBehaviour
     {
         [Header("Позиция карты")]
-        [SerializeField] private Transform _worldMap;
+        [SerializeField] private RectTransform _worldMap;
 
         [Header("Список стран")]
         [SerializeField] private List<Country> _countries;
 
         private int _currentProgress;
+        private const float AnimationDuration = 0.6f;
 
         public void CheckCountries(int progress)
         {
@@ -29,10 +31,12 @@ namespace Logic.WorldMap
             }
         }
 
-        public void MoveMapToCurrentCountry(LevelsStaticData staticData)
+        public void MoveMapToCurrentCountry(LevelsStaticData staticData, bool motionAnimation)
         {
             Vector2Int position = staticData.LevelConfig[_currentProgress].Position;
-            _worldMap.localPosition = new Vector3(position.x, position.y, 0);
+            
+            if (motionAnimation) _worldMap.localPosition = new Vector3(position.x, position.y, 0);
+            else _worldMap.DOAnchorPos(position, AnimationDuration);
         }
     }
 }
