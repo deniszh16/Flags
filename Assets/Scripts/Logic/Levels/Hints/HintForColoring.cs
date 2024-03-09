@@ -1,5 +1,5 @@
-﻿using Logic.Levels.Coloring;
-using Services.PersistentProgress;
+﻿using Services.PersistentProgress;
+using Logic.Levels.Coloring;
 using Services.SaveLoad;
 using UnityEngine;
 using UnityEngine.UI;

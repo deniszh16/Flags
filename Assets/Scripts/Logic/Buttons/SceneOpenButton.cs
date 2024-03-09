@@ -8,7 +8,7 @@ namespace Logic.Buttons
 {
     public class SceneOpenButton : MonoBehaviour
     {
-        [Header("Компонент кнопки")]
+        [Header("Ссылки на компоненты")]
         [SerializeField] private Button _button;
         
         [Header("Сцена для загрузки")]

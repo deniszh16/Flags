@@ -1,8 +1,8 @@
-﻿using DG.Tweening;
-using Services.StateMachine;
+﻿using Services.StateMachine;
 using Services.StateMachine.States;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 using Zenject;
 
 namespace Logic.Buttons

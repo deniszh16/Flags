@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
+using DG.Tweening;
 using StaticData;
 
 namespace Logic.WorldMap
@@ -13,17 +13,16 @@ namespace Logic.WorldMap
         [Header("Список стран")]
         [SerializeField] private List<Country> _countries;
 
-        private int _currentProgress;
         private const float AnimationDuration = 0.6f;
+        private int _currentProgress;
 
         public void CheckCountries(int progress)
         {
-            _currentProgress = progress - 1;
+            _currentProgress = progress;
             
             for (int i = 0; i < _countries.Count; i++)
             {
                 if (i > _currentProgress) break;
-                
                 _countries[i].ShowCountry();
                 
                 if (i < _currentProgress)
@@ -31,11 +30,11 @@ namespace Logic.WorldMap
             }
         }
 
-        public void MoveMapToCurrentCountry(LevelsStaticData staticData, bool motionAnimation)
+        public void MoveMapToCurrentCountry(LevelsStaticData staticData, bool animatedMovement)
         {
             Vector2Int position = staticData.LevelConfig[_currentProgress].Position;
             
-            if (motionAnimation) _worldMap.localPosition = new Vector3(position.x, position.y, 0);
+            if (animatedMovement) _worldMap.localPosition = new Vector3(position.x, position.y, 0);
             else _worldMap.DOAnchorPos(position, AnimationDuration);
         }
     }

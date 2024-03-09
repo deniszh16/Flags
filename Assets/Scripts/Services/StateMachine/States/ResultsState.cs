@@ -1,4 +1,6 @@
-﻿using Logic.Levels.Other;
+﻿using Logic.Levels.Coloring;
+using Logic.Levels.Factory;
+using Logic.Levels.Other;
 using Services.PersistentProgress;
 using Services.SaveLoad;
 
@@ -10,14 +12,18 @@ namespace Services.StateMachine.States
         private readonly ISaveLoadService _saveLoadService;
         
         private readonly GameResults _gameResults;
+        private readonly IFlagFactory _flagFactory;
+        private readonly ColoringResult _coloringResult;
         
         public ResultsState(GameStateMachine stateMachine, IPersistentProgressService progressService, ISaveLoadService saveLoadService,
-            GameResults gameResults) : base(stateMachine)
+            GameResults gameResults, IFlagFactory flagFactory, ColoringResult coloringResult) : base(stateMachine)
         {
             _progressService = progressService;
             _saveLoadService = saveLoadService;
             
             _gameResults = gameResults;
+            _flagFactory = flagFactory;
+            _coloringResult = coloringResult;
         }
 
         public override void Enter()
@@ -25,6 +31,10 @@ namespace Services.StateMachine.States
             _gameResults.ChangeActivityOfResultsPanel(state: true);
             _gameResults.ChangeVisibilityOfDrawingSection(state: true);
             _gameResults.UpdateStatistics(_progressService.GetUserProgress);
+            
+            _flagFactory.RemovePreviousFlag();
+            _coloringResult.HideResultIcon();
+            
             _progressService.GetUserProgress.IncreaseProgress();
             _saveLoadService.SaveProgress();
         }

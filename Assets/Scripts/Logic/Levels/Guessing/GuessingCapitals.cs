@@ -30,6 +30,7 @@ namespace Logic.Levels.Guessing
         public void ArrangeOptions(LocalizedString[] variants, int correctAnswer)
         {
             _correctAnswer = correctAnswer;
+            
             for (int i = 0; i < _localizeStringEvents.Length; i++)
             {
                 _localizeStringEvents[i].StringReference = variants[i];

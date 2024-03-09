@@ -28,10 +28,7 @@ namespace Logic.Levels.Factory
             }
         }
         
-        public void RemovePreviousFlag()
-        {
-            if (_flag != null)
-                _flag.ReleaseInstance(GetCreatedFlag.gameObject);
-        }
+        public void RemovePreviousFlag() =>
+            _flag?.ReleaseInstance(GetCreatedFlag.gameObject);
     }
 }

@@ -63,7 +63,7 @@ MonoBehaviour:
     CorrectVariant: 0
     Position: {x: -1145, y: -70}
     Flag:
-      m_AssetGUID: 7b0883ae0fdd12744b2d12bfee319c32
+      m_AssetGUID: 6923d0fb88080ec41ac4fc9898689ebd
       m_SubObjectName: 
       m_SubObjectType: 
       m_EditorAssetChanged: 0

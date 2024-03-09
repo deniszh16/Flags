@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine;
 using UniRx;
 
 namespace Logic.Levels.Coloring
@@ -35,18 +35,24 @@ namespace Logic.Levels.Coloring
             
             List<Color> listOfColors = new List<Color>();
             listOfColors.AddRange(colors);
-
-            int numberOfColors = listOfColors.Count;
-            for (int i = 0; i < numberOfColors; i++)
+            
+            for (int i = 0; i < _colorButtons.Length; i++)
             {
-                int number = Random.Range(0, listOfColors.Count - 1);
-                _colorButtons[i].gameObject.SetActive(true);
-                _colorButtons[i].Color = listOfColors[number];
-                listOfColors.RemoveAt(number);
+                if (i < listOfColors.Count)
+                {
+                    int number = Random.Range(0, listOfColors.Count - 1);
+                    _colorButtons[i].gameObject.SetActive(true);
+                    _colorButtons[i].Color = listOfColors[number];
+                    listOfColors.RemoveAt(number);
+                }
+                else
+                {
+                    _colorButtons[i].gameObject.SetActive(false);
+                }
             }
         }
         
-        public void DisableAllButtons()
+        public void DisableInteractivityOfAllButtons()
         {
             foreach (ColorButton button in _colorButtons)
                 button.ChangeButtonActivity(state: false);
@@ -61,7 +67,7 @@ namespace Logic.Levels.Coloring
             _activeButton.ColorUsed = true;
         }
         
-        public void ActivateUnusedButtons()
+        public void ActivateInteractivityOfUnusedButtons()
         {
             foreach (ColorButton button in _colorButtons)
                 button.ChangeButtonActivity(state: button.ColorUsed == false);
@@ -84,7 +90,7 @@ namespace Logic.Levels.Coloring
             if (_colorButtonsUsed.Count < 1)
             {
                 FindButtonWithColor(_flagColors[0]);
-                ActivateUnusedButtons();
+                ActivateInteractivityOfUnusedButtons();
                 return (0, _flagColors[0]);
             }
 
@@ -99,13 +105,13 @@ namespace Logic.Levels.Coloring
                 }
                 
                 FindButtonWithColor(_flagColors[i]);
-                ActivateUnusedButtons();
+                ActivateInteractivityOfUnusedButtons();
                 return (i, _flagColors[i]);
             }
 
             int fragment = _colorButtonsUsed.Count;
             FindButtonWithColor(_flagColors[fragment]);
-            ActivateUnusedButtons();
+            ActivateInteractivityOfUnusedButtons();
             return (fragment, _flagColors[fragment]);
         }
 
@@ -127,7 +133,7 @@ namespace Logic.Levels.Coloring
             if (_colorButtonsUsed.Count < 1) return;
             _colorButtonsUsed[^1].ColorUsed = false;
             _colorButtonsUsed.RemoveAt(_colorButtonsUsed.Count - 1);
-            ActivateUnusedButtons();
+            ActivateInteractivityOfUnusedButtons();
         }
         
         public void ResetColorButtons()

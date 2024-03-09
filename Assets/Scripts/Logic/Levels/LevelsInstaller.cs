@@ -1,11 +1,12 @@
-﻿using Logic.Levels.Coloring;
+﻿using Services.StateMachine;
+using Logic.Levels.Coloring;
+using Logic.Levels.Guessing;
 using Logic.Levels.Drawing;
 using Logic.Levels.Factory;
-using Logic.Levels.Guessing;
 using Logic.Levels.Hints;
 using Logic.Levels.Other;
-using Services.StateMachine;
 using Logic.WorldMap;
+using Logic.Buttons;
 using UnityEngine;
 using Zenject;
 
@@ -16,6 +17,7 @@ namespace Logic.Levels
         [SerializeField] private Countries _countries;
         [SerializeField] private MapProgress _mapProgress;
         [SerializeField] private CurrentCountry _currentCountry;
+        [SerializeField] private LevelStartButton _levelStartButton;
 
         [SerializeField] private DrawingSection _drawingSection;
         [SerializeField] private DrawingRoute _drawingRoute;
@@ -39,6 +41,7 @@ namespace Logic.Levels
             BindCountries();
             BindMapProgress();
             BindCurrentCountry();
+            BindLevelStartButton();
 
             BindFlagFactory();
             BindDrawingSection();
@@ -53,7 +56,6 @@ namespace Logic.Levels
             BindColoringResult();
 
             BindGuessingCapitals();
-
             BindGameResults();
         }
         
@@ -71,7 +73,10 @@ namespace Logic.Levels
         
         private void BindCurrentCountry() =>
             Container.BindInstance(_currentCountry).AsSingle();
-        
+
+        private void BindLevelStartButton() =>
+            Container.BindInstance(_levelStartButton).AsSingle();
+
         private void BindFlagFactory()
         {
             IFlagFactory flagFactory = new FlagFactory();

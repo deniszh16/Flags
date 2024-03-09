@@ -13,7 +13,6 @@ namespace Logic.Buttons
         [SerializeField] private Button _button;
         
         private const float AnimationDuration = 0.5f;
-
         private GameStateMachine _gameStateMachine;
 
         [Inject]
@@ -23,14 +22,14 @@ namespace Logic.Buttons
         private void OnEnable() =>
             _button.onClick.AddListener(StartLevel);
 
-        private void Start() =>
-            ShowButtonAnimation();
-
         private void StartLevel() =>
             _gameStateMachine.Enter<DrawingState>();
 
-        private void ShowButtonAnimation() =>
+        public void ShowButtonAnimation()
+        {
+            transform.localScale = Vector3.zero;
             transform.DOScale(Vector3.one, AnimationDuration).SetEase(Ease.InOutQuad);
+        }
 
         private void OnDisable() =>
             _button.onClick.RemoveListener(StartLevel);

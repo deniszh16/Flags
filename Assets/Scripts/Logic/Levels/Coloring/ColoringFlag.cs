@@ -13,7 +13,7 @@ namespace Logic.Levels.Coloring
         [SerializeField] private Image _whiteBrush;
         [SerializeField] private Animator _animator;
 
-        private readonly int _animationTrigger = Animator.StringToHash("Coloring");
+        private readonly int _animationTrigger = Animator.StringToHash(name: "Coloring");
 
         private Color? _activeColor;
         
@@ -35,8 +35,11 @@ namespace Logic.Levels.Coloring
         public void ChangeColoringActivity(bool state) =>
             _coloringActivity = state;
 
-        public void SetFlag(Flag flag) =>
+        public void SetFlag(Flag flag)
+        {
             _currentFlag = flag;
+            _currentFragment = 0;
+        }
 
         public void GetCurrentFragment() =>
             _currentFragmentImage = _currentFlag.SelectActiveFragment(_currentFragment);
@@ -94,22 +97,31 @@ namespace Logic.Levels.Coloring
             _brush.gameObject.SetActive(false);
             _activeColor = default;
             _currentFragment++;
-            FragmentIsColored.Execute();
             _startedColoring = false;
+            
+            FragmentIsColored.Execute();
             CheckCompletionOfColoring();
         }
 
         private void CheckCompletionOfColoring()
         {
             if (_currentFragment < _currentFlag.NumberOfEmptyFragments)
+            {
                 GetCurrentFragment();
-            else FlagIsFinished.Execute();
+            }
+            else
+            {
+                _currentFlag = null;
+                _currentFragmentImage = null;
+                FlagIsFinished.Execute();
+            }
         }
 
         public void ColorInFragmentWithHint(int fragment, Color color)
         {
             _currentFragment = fragment;
             GetCurrentFragment();
+            
             _currentFragmentImage.color = color;
             _currentFragmentImage.fillAmount = 1;
 

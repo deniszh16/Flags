@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Services.PersistentProgress;
+using Services.StaticDataService;
 using Cysharp.Threading.Tasks;
 using Logic.Levels.Drawing;
 using Logic.Levels.Guessing;
 using Logic.Levels.Other;
-using Services.PersistentProgress;
-using Services.StaticDataService;
+using System;
 using UniRx;
 
 namespace Services.StateMachine.States
@@ -17,6 +17,7 @@ namespace Services.StateMachine.States
         private readonly GuessingCapitals _guessingCapitals;
         private readonly DescriptionTask _descriptionTask;
         private readonly DrawingSection _drawingSection;
+        
 
         private readonly CompositeDisposable _compositeDisposable = new();
         
@@ -50,8 +51,9 @@ namespace Services.StateMachine.States
 
         public override void Exit()
         {
-            _compositeDisposable.Dispose();
+            _compositeDisposable.Clear();
             _drawingSection.ChangeVisibilityOfDrawingSection(state: false);
+            _guessingCapitals.ChangeGuessingActivity(state: false);
         }
     }
 }

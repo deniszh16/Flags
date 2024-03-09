@@ -33,6 +33,9 @@ namespace Logic.Levels.Drawing
 
         public void PrepareRouteForPencil(EdgeCollider2D[] colliders)
         {
+            _currentArrayOfPoints = 0;
+            _currentTargetIndex = 0;
+            
             _colliders = colliders;
             _points = _colliders[_currentArrayOfPoints].points;
             
@@ -63,7 +66,7 @@ namespace Logic.Levels.Drawing
                     _pencil.transform.localPosition = Vector3.MoveTowards(_pencil.transform.localPosition, _currentTarget, _drawingSpeed * Time.deltaTime);
                     
                     _lineRenderer.positionCount++;
-                    _lineRenderer.SetPosition(_lineRenderer.positionCount - 1, _pencil.transform.localPosition);
+                    _lineRenderer.SetPosition(index: _lineRenderer.positionCount - 1, _pencil.transform.localPosition);
                     
                     if (_pencil.transform.localPosition == (Vector3)_currentTarget)
                         _currentTargetIndex++;
@@ -73,7 +76,6 @@ namespace Logic.Levels.Drawing
                     FragmentDrawn.Execute();
                     _lineRenderer.positionCount = 1;
                     _lineRenderer.SetPosition(index: 0, _pencil.transform.localPosition);
-                    
                     ChangePointArray();
                 }
             }

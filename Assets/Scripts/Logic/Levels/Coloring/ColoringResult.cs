@@ -12,7 +12,7 @@ namespace Logic.Levels.Coloring
         [Header("Спрайты результата")]
         [SerializeField] private Sprite[] _sprites;
         
-        private const float _animationDuration = 0.2f;
+        private const float AnimationDuration = 0.2f;
 
         public void ShowVictoryIcon()
         {
@@ -29,7 +29,7 @@ namespace Logic.Levels.Coloring
         private void StartIconAnimation()
         {
             _result.gameObject.SetActive(true);
-            _result.transform.DOScale(Vector3.one, _animationDuration);
+            _result.transform.DOScale(Vector3.one, AnimationDuration);
         }
         
         public void HideResultIcon() =>

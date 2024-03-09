@@ -10,8 +10,8 @@ namespace Services.StateMachine.States
 {
     public class ColoringState : BaseStates
     {
-        private readonly ArrangementOfColors _arrangementOfColors;
         private readonly ColoringFlag _coloringFlag;
+        private readonly ArrangementOfColors _arrangementOfColors;
         private readonly IFlagFactory _flagFactory;
         private readonly DescriptionTask _descriptionTask;
         private readonly HintForColoring _hintForColoring;
@@ -20,11 +20,11 @@ namespace Services.StateMachine.States
         
         private readonly CompositeDisposable _compositeDisposable = new();
 
-        public ColoringState(GameStateMachine stateMachine, ArrangementOfColors arrangementOfColors, ColoringFlag coloringFlag, IFlagFactory flagFactory,
+        public ColoringState(GameStateMachine stateMachine, ColoringFlag coloringFlag, ArrangementOfColors arrangementOfColors, IFlagFactory flagFactory,
             DescriptionTask descriptionTask, HintForColoring hintForColoring, ColorCancellation colorCancellation, ColoringResult coloringResult) : base(stateMachine)
         {
-            _arrangementOfColors = arrangementOfColors;
             _coloringFlag = coloringFlag;
+            _arrangementOfColors = arrangementOfColors;
             _flagFactory = flagFactory;
             _descriptionTask = descriptionTask;
             _hintForColoring = hintForColoring;
@@ -34,19 +34,19 @@ namespace Services.StateMachine.States
 
         public override void Enter()
         {
-            _coloringFlag.SetFlag(_flagFactory.GetCreatedFlag); 
+            _coloringFlag.SetFlag(_flagFactory.GetCreatedFlag);
             _coloringFlag.GetCurrentFragment();
             _coloringFlag.ChangeColoringActivity(state: true);
-            _coloringFlag.StartedColoring.Subscribe(_ => _arrangementOfColors.DisableAllButtons()).AddTo(_compositeDisposable);
+            _coloringFlag.StartedColoring.Subscribe(_ => _arrangementOfColors.DisableInteractivityOfAllButtons()).AddTo(_compositeDisposable);
             _coloringFlag.StartedColoring.Subscribe(_ => _arrangementOfColors.RecordSelectedColor()).AddTo(_compositeDisposable);
-            _coloringFlag.FragmentIsColored.Subscribe(_ => _arrangementOfColors.ActivateUnusedButtons()).AddTo(_compositeDisposable);
+            _coloringFlag.FragmentIsColored.Subscribe(_ => _arrangementOfColors.ActivateInteractivityOfUnusedButtons()).AddTo(_compositeDisposable);
             _coloringFlag.FlagIsFinished.Subscribe(_ => _arrangementOfColors.CompareColorCollections()).AddTo(_compositeDisposable);
-            _arrangementOfColors.ActivateUnusedButtons();
+            _arrangementOfColors.ActivateInteractivityOfUnusedButtons();
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _coloringResult.ShowVictoryIcon()).AddTo(_compositeDisposable);
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _stateMachine.Enter<GuessingState>()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _coloringResult.ShowLossIcon()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _colorCancellation.ChangeButtonActivity(state: false)).AddTo(_compositeDisposable);
-            _arrangementOfColors.IncorrectColoring.Subscribe(async _ => await ResetFlagColoring()).AddTo(_compositeDisposable);
+            _arrangementOfColors.IncorrectColoring.Subscribe(_ => ResetFlagColoring().Forget()).AddTo(_compositeDisposable);
             _descriptionTask.ChangeDescription(DescriptionTypes.Coloring);
             _hintForColoring.ChangeActivityOfHintButton(state: true);
             _colorCancellation.ChangeButtonActivity(state: true);
@@ -54,7 +54,7 @@ namespace Services.StateMachine.States
 
         private async UniTask ResetFlagColoring()
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(1.2f), ignoreTimeScale: false);
+            await UniTask.Delay(TimeSpan.FromSeconds(1f), ignoreTimeScale: false);
             _coloringFlag.ResetAllFragments();
             _arrangementOfColors.ResetColorButtons();
             _coloringResult.HideResultIcon();
@@ -63,10 +63,11 @@ namespace Services.StateMachine.States
 
         public override void Exit()
         {
-            _compositeDisposable.Dispose();
+            _compositeDisposable.Clear();
             _coloringFlag.ChangeColoringActivity(state: false);
             _hintForColoring.ChangeActivityOfHintButton(state: false);
             _colorCancellation.ChangeButtonActivity(state: false);
+            _arrangementOfColors.ResetColorButtons();
             _arrangementOfColors.ChangeVisibilityOfColors(state: false);
         }
     }

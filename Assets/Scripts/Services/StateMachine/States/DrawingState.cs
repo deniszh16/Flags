@@ -24,9 +24,9 @@ namespace Services.StateMachine.States
 
         private readonly CompositeDisposable _compositeDisposable = new();
         
-        public DrawingState(GameStateMachine stateMachine, IPersistentProgressService progressService, IStaticDataService staticData, IFlagFactory flagFactory,
-            DrawingSection drawingSection, DrawingRoute drawingRoute, DescriptionTask descriptionTask, InfoCurrentLevel infoCurrentLevel,
-            ArrangementOfColors arrangementOfColors, HintForColoring hintForColoring) : base(stateMachine)
+        public DrawingState(GameStateMachine stateMachine, IPersistentProgressService progressService, IStaticDataService staticData,
+            IFlagFactory flagFactory, DrawingSection drawingSection, DrawingRoute drawingRoute, DescriptionTask descriptionTask,
+            InfoCurrentLevel infoCurrentLevel, ArrangementOfColors arrangementOfColors, HintForColoring hintForColoring) : base(stateMachine)
         {
             _progressService = progressService;
             _staticData = staticData;
@@ -58,7 +58,7 @@ namespace Services.StateMachine.States
 
         public override void Exit()
         {
-            _compositeDisposable.Dispose();
+            _compositeDisposable.Clear();
             _drawingRoute.ChangeDrawingActivity(state: false);
         }
     }

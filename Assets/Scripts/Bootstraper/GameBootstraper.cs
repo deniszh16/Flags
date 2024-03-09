@@ -17,8 +17,8 @@ namespace Bootstraper
         private ISceneLoaderService _sceneLoaderService;
         
         [Inject]
-        private void Construct(IPersistentProgressService progressService, ISaveLoadService saveLoadService, ILocalizationService localizationService,
-            ISceneLoaderService sceneLoaderService)
+        private void Construct(IPersistentProgressService progressService, ISaveLoadService saveLoadService,
+            ILocalizationService localizationService, ISceneLoaderService sceneLoaderService)
         {
             _progressService = progressService;
             _saveLoadService = saveLoadService;
