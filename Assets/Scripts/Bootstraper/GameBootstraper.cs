@@ -3,6 +3,7 @@ using Cysharp.Threading.Tasks;
 using Services.Localization;
 using Services.SceneLoader;
 using Services.SaveLoad;
+using Services.Sound;
 using UnityEngine;
 using Zenject;
 using Data;
@@ -15,15 +16,17 @@ namespace Bootstraper
         private ISaveLoadService _saveLoadService;
         private ILocalizationService _localizationService;
         private ISceneLoaderService _sceneLoaderService;
+        private ISoundService _soundService;
         
         [Inject]
         private void Construct(IPersistentProgressService progressService, ISaveLoadService saveLoadService,
-            ILocalizationService localizationService, ISceneLoaderService sceneLoaderService)
+            ILocalizationService localizationService, ISceneLoaderService sceneLoaderService, ISoundService soundService)
         {
             _progressService = progressService;
             _saveLoadService = saveLoadService;
             _localizationService = localizationService;
             _sceneLoaderService = sceneLoaderService;
+            _soundService = soundService;
         }
         
         private void Awake()
@@ -36,6 +39,7 @@ namespace Bootstraper
         {
             LoadProgressOrInitNew();
             _localizationService.SetLocale(_progressService.GetUserProgress.SettingsData.Locale);
+            _soundService.SoundActivity = _progressService.GetUserProgress.SettingsData.Sound;
             _sceneLoaderService.LoadSceneAsync(Scenes.MainMenu, screensaver: false, delay: 1f).Forget();
         }
 

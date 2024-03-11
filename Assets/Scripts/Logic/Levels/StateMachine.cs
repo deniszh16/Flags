@@ -83,7 +83,7 @@ namespace Logic.Levels
             _gameStateMachine.AddState(new MapState(_gameStateMachine, _progressService, _staticData, _countries, _mapProgress, _currentCountry, _levelStartButton));
             _gameStateMachine.AddState(new DrawingState(_gameStateMachine, _progressService, _staticData, _flagFactory, _drawingSection, _drawingRoute, _descriptionTask, _infoCurrentLevel, _arrangementOfColors, _hintForColoring, _levelEffects));
             _gameStateMachine.AddState(new ColoringState(_gameStateMachine, _coloringFlag, _arrangementOfColors, _flagFactory, _descriptionTask, _hintForColoring, _colorCancellation, _levelEffects, _coloringResult));
-            _gameStateMachine.AddState(new GuessingState(_gameStateMachine, _staticData, _progressService, _guessingCapitals, _descriptionTask, _drawingSection, _levelEffects));
+            _gameStateMachine.AddState(new GuessingState(_gameStateMachine, _staticData, _progressService, _guessingCapitals, _descriptionTask, _drawingSection, _levelEffects, _coloringResult));
             _gameStateMachine.AddState(new ResultsState(_gameStateMachine, _progressService, _saveLoadService, _gameResults, _flagFactory, _levelEffects, _coloringResult));
         }
 

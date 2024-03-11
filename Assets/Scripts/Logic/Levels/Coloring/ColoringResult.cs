@@ -29,6 +29,7 @@ namespace Logic.Levels.Coloring
         private void StartIconAnimation()
         {
             _result.gameObject.SetActive(true);
+            _result.transform.localScale = Vector3.zero;
             _result.transform.DOScale(Vector3.one, AnimationDuration);
         }
         

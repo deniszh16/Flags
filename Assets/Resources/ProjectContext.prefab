@@ -76,3 +76,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneLoader: {fileID: 1616574415705109890, guid: 384d17a6a593cc44dbdca2caad630f32, type: 3}
   _localizationService: {fileID: 4590714056550905376, guid: f4bac2a70401a5b4ea4ef41dc29f4015, type: 3}
+  _soundService: {fileID: 6772552306678533799, guid: 389d2045902916249a37806f13476c5a, type: 3}

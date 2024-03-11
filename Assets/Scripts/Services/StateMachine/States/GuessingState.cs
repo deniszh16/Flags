@@ -1,8 +1,9 @@
 ﻿using Services.PersistentProgress;
 using Services.StaticDataService;
 using Cysharp.Threading.Tasks;
-using Logic.Levels.Drawing;
+using Logic.Levels.Coloring;
 using Logic.Levels.Guessing;
+using Logic.Levels.Drawing;
 using Logic.Levels.Other;
 using System;
 using UniRx;
@@ -18,11 +19,12 @@ namespace Services.StateMachine.States
         private readonly DescriptionTask _descriptionTask;
         private readonly DrawingSection _drawingSection;
         private readonly LevelEffects _levelEffects;
+        private readonly ColoringResult _coloringResult;
 
         private readonly CompositeDisposable _compositeDisposable = new();
         
-        public GuessingState(GameStateMachine stateMachine, IStaticDataService staticData, IPersistentProgressService progressService,
-            GuessingCapitals guessingCapitals, DescriptionTask descriptionTask, DrawingSection drawingSection, LevelEffects levelEffects) : base(stateMachine)
+        public GuessingState(GameStateMachine stateMachine, IStaticDataService staticData, IPersistentProgressService progressService, GuessingCapitals guessingCapitals,
+            DescriptionTask descriptionTask, DrawingSection drawingSection, LevelEffects levelEffects, ColoringResult coloringResult) : base(stateMachine)
         {
             _staticData = staticData;
             _progressService = progressService;
@@ -31,6 +33,7 @@ namespace Services.StateMachine.States
             _descriptionTask = descriptionTask;
             _drawingSection = drawingSection;
             _levelEffects = levelEffects;
+            _coloringResult = coloringResult;
         }
 
         public override void Enter()
@@ -40,21 +43,25 @@ namespace Services.StateMachine.States
                 _staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].CorrectVariant);
             _guessingCapitals.ShowSpawnAnimation();
             _guessingCapitals.QuizCompleted.Subscribe(answer => GoToResults(answer).Forget()).AddTo(_compositeDisposable);
-            
-            _guessingCapitals.QuizCompleted.Subscribe(answer =>
-            {
-                var text = answer ? DescriptionTypes.CorrectAnswer : DescriptionTypes.IncorrectAnswer;
-                _descriptionTask.ChangeDescription(text);
-            }).AddTo(_compositeDisposable);
-            
+            _guessingCapitals.QuizCompleted.Subscribe(UpdateScreenValues).AddTo(_compositeDisposable);
             _guessingCapitals.QuizCompleted.Subscribe(answer => _levelEffects.ShowEffectQuizResult(answer)).AddTo(_compositeDisposable);
             _descriptionTask.ChangeDescription(DescriptionTypes.Guessing);
+        }
+
+        private void UpdateScreenValues(bool state)
+        {
+            DescriptionTypes text = state ? DescriptionTypes.CorrectAnswer : DescriptionTypes.IncorrectAnswer;
+            _descriptionTask.ChangeDescription(text);
+            
+            if (state) return;
+            _coloringResult.HideResultIcon();
+            _coloringResult.ShowLossIcon();
         }
 
         private async UniTask GoToResults(bool answer)
         {
             _progressService.GetUserProgress.ChangeNumberOfAnswers(answer);
-            await UniTask.Delay(TimeSpan.FromSeconds(1f), ignoreTimeScale: false);
+            await UniTask.Delay(TimeSpan.FromSeconds(1.3f), ignoreTimeScale: false);
             _stateMachine.Enter<ResultsState>();
         }
 

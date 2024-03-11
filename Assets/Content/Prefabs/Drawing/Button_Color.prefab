@@ -89,6 +89,7 @@ GameObject:
   - component: {fileID: 2305523632471162045}
   - component: {fileID: 7357895187001599517}
   - component: {fileID: 854323823264376012}
+  - component: {fileID: 5587436841004013478}
   m_Layer: 5
   m_Name: Button_Color
   m_TagString: Untagged
@@ -199,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3787647677832771670}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5587436841004013478}
+        m_TargetAssemblyTypeName: Logic.Sound.PlayingSound, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7357895187001599517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +250,20 @@ MonoBehaviour:
   _frameImage: {fileID: 5978685481697690948}
   _shadedImage: {fileID: 8236899309693940386}
   _pressingButton: {fileID: 4319390505230199206}
+--- !u!114 &5587436841004013478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128862021539651747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 458563ac699d47c79fd5250782647154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoplay: 0
+  _sound: 0
 --- !u!1 &4319390505245849236
 GameObject:
   m_ObjectHideFlags: 0
