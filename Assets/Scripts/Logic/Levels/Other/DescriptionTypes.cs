@@ -4,6 +4,8 @@
     {
         Drawing,
         Coloring,
-        Guessing
+        Guessing,
+        CorrectAnswer,
+        IncorrectAnswer
     }
 }

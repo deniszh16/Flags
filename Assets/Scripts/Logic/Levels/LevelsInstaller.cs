@@ -31,7 +31,7 @@ namespace Logic.Levels
         [SerializeField] private ColoringResult _coloringResult;
         
         [SerializeField] private GuessingCapitals _guessingCapitals;
-
+        [SerializeField] private LevelEffects _levelEffects;
         [SerializeField] private GameResults _gameResults;
 
         public override void InstallBindings()
@@ -56,6 +56,7 @@ namespace Logic.Levels
             BindColoringResult();
 
             BindGuessingCapitals();
+            BindLevelEffects();
             BindGameResults();
         }
         
@@ -112,6 +113,9 @@ namespace Logic.Levels
 
         private void BindGuessingCapitals() =>
             Container.BindInstance(_guessingCapitals).AsSingle();
+
+        private void BindLevelEffects() =>
+            Container.BindInstance(_levelEffects).AsSingle();
 
         private void BindGameResults() =>
             Container.BindInstance(_gameResults).AsSingle();

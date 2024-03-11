@@ -13,7 +13,6 @@ namespace Logic.Buttons
         [SerializeField] private Button _button;
         
         private const float AnimationDuration = 0.5f;
-
         private GameStateMachine _gameStateMachine;
 
         [Inject]

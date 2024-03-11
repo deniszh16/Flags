@@ -107,6 +107,14 @@ MonoBehaviour:
     m_Key: key_HintsUsed
     m_Metadata:
       m_Items: []
+  - m_Id: 9330791977926656
+    m_Key: key_CorrectQuizAnswer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9330963067781120
+    m_Key: key_WrongQuizAnswer
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

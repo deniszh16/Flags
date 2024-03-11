@@ -117,6 +117,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items:
       - rid: 6010829229683114091
+  - m_Id: 9330791977926656
+    m_Localized: Correct answer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9330963067781120
+    m_Localized: Wrong answer
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

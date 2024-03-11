@@ -44,7 +44,7 @@ namespace Logic.Levels.Drawing
             
             _lineRenderer.startWidth = _lineRenderer.endWidth = LineWidth;
             _lineRenderer.positionCount = 1;
-            _lineRenderer.SetPosition(0, _pencil.transform.localPosition);
+            _lineRenderer.SetPosition(index: 0, _pencil.transform.localPosition);
         }
         
         public void OnPointerDown(PointerEventData eventData) =>

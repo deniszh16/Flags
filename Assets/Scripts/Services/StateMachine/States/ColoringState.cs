@@ -16,12 +16,14 @@ namespace Services.StateMachine.States
         private readonly DescriptionTask _descriptionTask;
         private readonly HintForColoring _hintForColoring;
         private readonly ColorCancellation _colorCancellation;
+        private readonly LevelEffects _levelEffects;
         private readonly ColoringResult _coloringResult;
         
         private readonly CompositeDisposable _compositeDisposable = new();
 
-        public ColoringState(GameStateMachine stateMachine, ColoringFlag coloringFlag, ArrangementOfColors arrangementOfColors, IFlagFactory flagFactory,
-            DescriptionTask descriptionTask, HintForColoring hintForColoring, ColorCancellation colorCancellation, ColoringResult coloringResult) : base(stateMachine)
+        public ColoringState(GameStateMachine stateMachine, ColoringFlag coloringFlag, ArrangementOfColors arrangementOfColors,
+            IFlagFactory flagFactory, DescriptionTask descriptionTask, HintForColoring hintForColoring, ColorCancellation colorCancellation,
+            LevelEffects levelEffects, ColoringResult coloringResult) : base(stateMachine)
         {
             _coloringFlag = coloringFlag;
             _arrangementOfColors = arrangementOfColors;
@@ -29,6 +31,7 @@ namespace Services.StateMachine.States
             _descriptionTask = descriptionTask;
             _hintForColoring = hintForColoring;
             _colorCancellation = colorCancellation;
+            _levelEffects = levelEffects;
             _coloringResult = coloringResult;
         }
 
@@ -44,9 +47,11 @@ namespace Services.StateMachine.States
             _arrangementOfColors.ActivateInteractivityOfUnusedButtons();
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _coloringResult.ShowVictoryIcon()).AddTo(_compositeDisposable);
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _stateMachine.Enter<GuessingState>()).AddTo(_compositeDisposable);
+            _arrangementOfColors.CorrectColoring.Subscribe(_ => _levelEffects.ShowColorizedFlagEffect()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _coloringResult.ShowLossIcon()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _colorCancellation.ChangeButtonActivity(state: false)).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => ResetFlagColoring().Forget()).AddTo(_compositeDisposable);
+            _arrangementOfColors.IncorrectColoring.Subscribe(_ => _levelEffects.ShowEffectIncorrectColoring()).AddTo(_compositeDisposable);
             _descriptionTask.ChangeDescription(DescriptionTypes.Coloring);
             _hintForColoring.ChangeActivityOfHintButton(state: true);
             _colorCancellation.ChangeButtonActivity(state: true);

@@ -35,10 +35,11 @@ namespace Logic.Levels.Coloring
             
             List<Color> listOfColors = new List<Color>();
             listOfColors.AddRange(colors);
-            
+
+            int numberOfColors = listOfColors.Count;
             for (int i = 0; i < _colorButtons.Length; i++)
             {
-                if (i < listOfColors.Count)
+                if (i < numberOfColors)
                 {
                     int number = Random.Range(0, listOfColors.Count - 1);
                     _colorButtons[i].gameObject.SetActive(true);

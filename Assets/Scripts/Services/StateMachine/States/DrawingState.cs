@@ -1,4 +1,5 @@
-﻿using Services.PersistentProgress;
+﻿using Cysharp.Threading.Tasks;
+using Services.PersistentProgress;
 using Services.StaticDataService;
 using Logic.Levels.Coloring;
 using Logic.Levels.Drawing;
@@ -21,12 +22,13 @@ namespace Services.StateMachine.States
         private readonly InfoCurrentLevel _infoCurrentLevel;
         private readonly ArrangementOfColors _arrangementOfColors;
         private readonly HintForColoring _hintForColoring;
+        private readonly LevelEffects _levelEffects;
 
         private readonly CompositeDisposable _compositeDisposable = new();
         
         public DrawingState(GameStateMachine stateMachine, IPersistentProgressService progressService, IStaticDataService staticData,
             IFlagFactory flagFactory, DrawingSection drawingSection, DrawingRoute drawingRoute, DescriptionTask descriptionTask,
-            InfoCurrentLevel infoCurrentLevel, ArrangementOfColors arrangementOfColors, HintForColoring hintForColoring) : base(stateMachine)
+            InfoCurrentLevel infoCurrentLevel, ArrangementOfColors arrangementOfColors, HintForColoring hintForColoring, LevelEffects levelEffects) : base(stateMachine)
         {
             _progressService = progressService;
             _staticData = staticData;
@@ -38,6 +40,7 @@ namespace Services.StateMachine.States
             _infoCurrentLevel = infoCurrentLevel;
             _arrangementOfColors = arrangementOfColors;
             _hintForColoring = hintForColoring;
+            _levelEffects = levelEffects;
         }
 
         public override void Enter()
@@ -47,6 +50,7 @@ namespace Services.StateMachine.States
             _flagFactory.FlagCreated.Subscribe(_drawingRoute.PrepareRouteForPencil).AddTo(_compositeDisposable);
             _drawingRoute.ChangeDrawingActivity(state: true);
             _drawingRoute.FragmentDrawn.Subscribe(_ => _flagFactory.GetCreatedFlag.ShowDrawnLines()).AddTo(_compositeDisposable);
+            _drawingRoute.DrawingCompleted.Subscribe(_ => _levelEffects.ShowDrawingFinishEffect()).AddTo(_compositeDisposable);
             _drawingRoute.DrawingCompleted.Subscribe(_ => _stateMachine.Enter<ColoringState>()).AddTo(_compositeDisposable);
             _descriptionTask.ChangeDescription(DescriptionTypes.Drawing);
             _infoCurrentLevel.ShowCurrentLevel(_progressService.GetUserProgress.Progress);

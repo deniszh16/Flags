@@ -111,7 +111,6 @@ namespace Logic.Levels.Coloring
             }
             else
             {
-                _currentFlag = null;
                 _currentFragmentImage = null;
                 FlagIsFinished.Execute();
             }
