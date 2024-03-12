@@ -30,6 +30,12 @@ namespace Logic.Buttons
             transform.localScale = Vector3.zero;
             transform.DOScale(Vector3.one, AnimationDuration).SetEase(Ease.InOutQuad);
         }
+        
+        public void DisableStartButton()
+        {
+            transform.localScale = Vector3.zero;
+            _button.interactable = false;
+        }
 
         private void OnDisable() =>
             _button.onClick.RemoveListener(StartLevel);

@@ -36,10 +36,18 @@ namespace Services.StateMachine.States
             LevelsStaticData levelsStaticData = _staticData.GetLevelConfig();
             
             _countries.CheckCountries(progress);
-            _countries.MoveMapToCurrentCountry(levelsStaticData, _firstStart);
             _mapProgress.CalculatePassPercentage(progress, numberOfTasks: levelsStaticData.LevelConfig.Count);
-            _currentCountry.ChangeTranslationKey(levelsStaticData.LevelConfig[progress].LocalizedText);
-            _levelStartButton.ShowButtonAnimation();
+
+            if (progress < levelsStaticData.LevelConfig.Count)
+            {
+                _countries.MoveMapToCurrentCountry(levelsStaticData, _firstStart);
+                _currentCountry.ChangeTranslationKey(levelsStaticData.LevelConfig[progress].LocalizedText);
+                _levelStartButton.ShowButtonAnimation();
+            }
+            else
+            {
+                _levelStartButton.DisableStartButton();
+            }
         }
 
         public override void Exit() =>
