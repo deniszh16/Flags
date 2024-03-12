@@ -34,6 +34,14 @@ MonoBehaviour:
     m_Localized: France
     m_Metadata:
       m_Items: []
+  - m_Id: 9305498387038208
+    m_Localized: Italy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9309692493905920
+    m_Localized: Austria
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

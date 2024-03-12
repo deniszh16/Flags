@@ -26,6 +26,46 @@ MonoBehaviour:
     m_Localized: Moscow
     m_Metadata:
       m_Items: []
+  - m_Id: 2247934432329728
+    m_Localized: Beijing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2248127831687168
+    m_Localized: Shanghai
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2252430139015168
+    m_Localized: Vancouver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2252574880251904
+    m_Localized: Ottawa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2253159578812416
+    m_Localized: Paris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2253189178015744
+    m_Localized: Marcel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2456704362037248
+    m_Localized: Milan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2456777187737600
+    m_Localized: Rome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2460645413961728
+    m_Localized: Salzburg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2460726343057408
+    m_Localized: Vienna
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

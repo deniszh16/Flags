@@ -69,7 +69,7 @@ crashlytics-build.properties
 Sprites/
 LoadedAssets/
 Countries/
-Flags/
+FlagElements/
 
 # Ignoring files
 *.gitattributes

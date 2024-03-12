@@ -27,6 +27,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e85fbcd43bb0614d9b180af3c9fc0b1
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Canada.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a58a04728b04ad94f89e6f8e2dfa33b4
+    m_Address: Assets/Content/Prefabs/Flags/Flag_France.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6873dc5ab216d6341b1b61d85afdedc7
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Italy.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a1967572d1678af42a4d75ea7a6a1037
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Austria.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b5edba8ac0e19064d88648d46154b600, type: 2}
   m_SchemaSet:
