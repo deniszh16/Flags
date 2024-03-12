@@ -23,7 +23,7 @@ namespace Logic.WorldMap
 
         public void CalculatePassPercentage(int progress, int numberOfTasks)
         {
-            _progress = (float)progress / numberOfTasks * 100;
+            _progress = Mathf.Round((float)progress / numberOfTasks * 100);
             _localizedString.Arguments[0] = _progress;
             _localizedString.RefreshString();
         }

@@ -89,6 +89,7 @@ namespace Logic.Levels.Drawing
                 _points = _colliders[_currentArrayOfPoints].points;
                 _currentTargetIndex = 0;
                 _pencil.transform.localPosition = _points[_currentTargetIndex];
+                _lineRenderer.SetPosition(index: 0, _pencil.transform.localPosition);
             }
             else
             {
