@@ -47,6 +47,46 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9601892853584c6468f129b112e181cc
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Brazil.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93b3fc01abeb7ac47a16544fa2a026a2
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Germany.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dc85d973c1032f45ab9da8d30e4720d
+    m_Address: Assets/Content/Prefabs/Flags/Flag_USA.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2dd8443d5733d24591b9a8767438f22
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Japan.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 512ecae4e045a8142a8ace48528078ad
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Belgium.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6614d05e4f36316478dfc557fa19b316
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Armenia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cbf284025642884ca6ebaef3906df0f
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Poland.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29da29c2f9a1a7e4d95bab84f4980243
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Finland.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b5edba8ac0e19064d88648d46154b600, type: 2}
   m_SchemaSet:
