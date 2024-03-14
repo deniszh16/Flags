@@ -87,6 +87,41 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bb80aa92e0765142809093463696525
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Kazakhstan.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8046260cad715f479eb6f4c3df510d0
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Argentina.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49d9e2d25515da947b860925f9efa26f
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Estonia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddbd942ada7ffd44586bd66cee9537bc
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Ukraine.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0335f668b8f8394f9bc2aae40f3c21f
+    m_Address: Assets/Content/Prefabs/Flags/Flag_CzechRepublic.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 057e8a5929f44954fbc6a9e2b685998c
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Morocco.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3238a13b4db81d449731bf1098a2463
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Sweden.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b5edba8ac0e19064d88648d46154b600, type: 2}
   m_SchemaSet:

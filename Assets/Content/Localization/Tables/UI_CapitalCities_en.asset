@@ -130,6 +130,62 @@ MonoBehaviour:
     m_Localized: Helsinki
     m_Metadata:
       m_Items: []
+  - m_Id: 2956877571899392
+    m_Localized: Astana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2956917208072192
+    m_Localized: Alma-Ata
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2997126301827072
+    m_Localized: Buenos Aires
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2997104340451328
+    m_Localized: Rosario
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3203748882104320
+    m_Localized: Tallinn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3203779110453248
+    m_Localized: Narva
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3209096246411264
+    m_Localized: Kiev
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3209017800343552
+    m_Localized: Odessa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3209668240424960
+    m_Localized: Prague
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3209748498432000
+    m_Localized: Pilsen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3233793356939264
+    m_Localized: Rabat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3233816316559360
+    m_Localized: Casablanca
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3246112610795520
+    m_Localized: Stockholm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3246089487597568
+    m_Localized: Malmo
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
