@@ -122,6 +122,51 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 531d1291ae904cd4697a59104aa103ff
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Netherlands.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba834aab8328f684ebf1a1bcd955c9b4
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Cyprus.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aee4bfb312e247f4e9437bbcb35b0e63
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Turkey.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6837f81706f58b4eb6532cc50a8fcba
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Ireland.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58cadcaab64b6834ea8213b4c133bdf6
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Vietnam.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9e80ab300b926a49b09d4d29800e337
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Chile.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 163e9e564bcbc2446a3131b099c9f5a2
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Bulgaria.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 47b077fe73b88aa499e3d5b2c186de52
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Cameroon.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4bd54a06a27e8c4285c55115e93a56b
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Belarus.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b5edba8ac0e19064d88648d46154b600, type: 2}
   m_SchemaSet:

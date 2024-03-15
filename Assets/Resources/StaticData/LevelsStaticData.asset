@@ -274,7 +274,7 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
       m_TableEntryReference:
-        m_KeyId: 9365114995163136
+        m_KeyId: 10378132797341696
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -782,6 +782,341 @@ MonoBehaviour:
     Colors:
     - {r: 0, g: 0.41568628, b: 0.654902, a: 1}
     - {r: 0.99607843, g: 0.8, b: 0, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10146428119760896
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3297792530399232
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3297929319235584
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 1
+    Position: {x: 80, y: -250}
+    Flag:
+      m_AssetGUID: 531d1291ae904cd4697a59104aa103ff
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 0.68235296, g: 0.10980392, b: 0.15686275, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0.12941177, g: 0.27450982, b: 0.54509807, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10152110214692864
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3309917348904960
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3309958117539840
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 1
+    Position: {x: -300, y: -200}
+    Flag:
+      m_AssetGUID: ba834aab8328f684ebf1a1bcd955c9b4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0.8352941, g: 0.47058824, b: 0, a: 1}
+    - {r: 0.30588236, g: 0.35686275, b: 0.19215687, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10391992644222976
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3542944071106560
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3542973989076992
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 1
+    Position: {x: -290, y: -220}
+    Flag:
+      m_AssetGUID: aee4bfb312e247f4e9437bbcb35b0e63
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 0.88235295, g: 0.12156863, b: 0.15686275, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10404333184172032
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3558081775616000
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3558168358633472
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 2
+    Position: {x: 200, y: -260}
+    Flag:
+      m_AssetGUID: b6837f81706f58b4eb6532cc50a8fcba
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 0.08235294, g: 0.6039216, b: 0.38039216, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 1, g: 0.5294118, b: 0.24313726, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10410421392588800
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3561372781723648
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3561396445986816
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 2
+    Position: {x: -1170, y: 100}
+    Flag:
+      m_AssetGUID: 58cadcaab64b6834ea8213b4c133bdf6
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 0.85490197, g: 0.14509805, b: 0.11372549, a: 1}
+    - {r: 1, g: 1, b: 0, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10417102327463936
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3568131126673408
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3568162885943296
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 2
+    Position: {x: 1010, y: 765}
+    Flag:
+      m_AssetGUID: b9e80ab300b926a49b09d4d29800e337
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0.85490197, g: 0.15686275, b: 0.105882354, a: 1}
+    - {r: 0, g: 0.2, b: 0.627451, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10437192225734656
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3588075658756096
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3588108814729216
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 1
+    Position: {x: -175, y: -120}
+    Flag:
+      m_AssetGUID: 163e9e564bcbc2446a3131b099c9f5a2
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0, g: 0.5882353, b: 0.43137255, a: 1}
+    - {r: 0.8392157, g: 0.14901961, b: 0.07058824, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10440053751889920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3591199840616448
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3591250902073344
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 2
+    Position: {x: -20, y: 65}
+    Flag:
+      m_AssetGUID: 47b077fe73b88aa499e3d5b2c186de52
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 0, g: 0.47843137, b: 0.36862746, a: 1}
+    - {r: 0.80784315, g: 0.06666667, b: 0.14901961, a: 1}
+    - {r: 0.9882353, g: 0.81960785, b: 0.08627451, a: 1}
+    - {r: 0.9882353, g: 0.81960785, b: 0.08627451, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 10452188825468928
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3603024921575424
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 3603056638902272
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 2
+    Position: {x: -170, y: -270}
+    Flag:
+      m_AssetGUID: d4bd54a06a27e8c4285c55115e93a56b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 0.78431374, g: 0.19215687, b: 0.24313726, a: 1}
+    - {r: 0.2901961, g: 0.6509804, b: 0.34117648, a: 1}
+    - {r: 0.78431374, g: 0.19215687, b: 0.24313726, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
   references:
     version: 2
     RefIds: []
