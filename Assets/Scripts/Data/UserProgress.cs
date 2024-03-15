@@ -26,7 +26,9 @@ namespace Data
         public bool FreeHint => _freeHint;
         public int HintsUsed => _hintsUsed;
 
-        public SettingsData SettingsData { get; } = new();
+        [SerializeField] private SettingsData _settingsData = new();
+        
+        public SettingsData SettingsData => _settingsData;
 
         public void IncreaseProgress() =>
             _progress++;
