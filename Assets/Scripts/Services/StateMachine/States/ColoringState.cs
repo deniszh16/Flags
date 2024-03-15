@@ -74,6 +74,7 @@ namespace Services.StateMachine.States
             _colorCancellation.ChangeButtonActivity(state: false);
             _arrangementOfColors.ResetColorButtons();
             _arrangementOfColors.ChangeVisibilityOfColors(state: false);
+            _arrangementOfColors.DisableInteractivityOfAllButtons();
         }
     }
 }

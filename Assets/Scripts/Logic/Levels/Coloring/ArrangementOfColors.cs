@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Random = UnityEngine.Random;
+using Random = System.Random;
 using UnityEngine;
 using UniRx;
 
@@ -36,12 +36,13 @@ namespace Logic.Levels.Coloring
             List<Color> listOfColors = new List<Color>();
             listOfColors.AddRange(colors);
 
+            Random random = new();
             int numberOfColors = listOfColors.Count;
             for (int i = 0; i < _colorButtons.Length; i++)
             {
                 if (i < numberOfColors)
                 {
-                    int number = Random.Range(0, listOfColors.Count - 1);
+                    int number = random.Next(0, listOfColors.Count);
                     _colorButtons[i].gameObject.SetActive(true);
                     _colorButtons[i].Color = listOfColors[number];
                     listOfColors.RemoveAt(number);
