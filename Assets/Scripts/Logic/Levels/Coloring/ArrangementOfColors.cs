@@ -15,6 +15,9 @@ namespace Logic.Levels.Coloring
 
         public readonly ReactiveCommand CorrectColoring = new();
         public readonly ReactiveCommand IncorrectColoring = new();
+        public readonly ReactiveCommand ColoredButtonSelected = new();
+
+        private bool _coloredButtonSelected;
         
         private List<Color> _flagColors;
         private List<ColorButton> _colorButtonsUsed;
@@ -60,9 +63,17 @@ namespace Logic.Levels.Coloring
                 button.ChangeButtonActivity(state: false);
         }
         
-        public void SetActiveButton(ColorButton colorButton) =>
+        public void SetActiveButton(ColorButton colorButton)
+        {
             _activeButton = colorButton;
-        
+
+            if (_coloredButtonSelected != true)
+            {
+                ColoredButtonSelected.Execute();
+                _coloredButtonSelected = true;
+            }
+        }
+
         public void RecordSelectedColor()
         {
             _colorButtonsUsed.Add(_activeButton);

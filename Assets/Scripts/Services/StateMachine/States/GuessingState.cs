@@ -3,8 +3,10 @@ using Services.StaticDataService;
 using Cysharp.Threading.Tasks;
 using Logic.Levels.Coloring;
 using Logic.Levels.Guessing;
+using Logic.Levels.Tutorial;
 using Logic.Levels.Drawing;
 using Logic.Levels.Other;
+using UnityEngine;
 using System;
 using UniRx;
 
@@ -19,12 +21,13 @@ namespace Services.StateMachine.States
         private readonly DescriptionTask _descriptionTask;
         private readonly DrawingSection _drawingSection;
         private readonly LevelEffects _levelEffects;
+        private readonly Tutorial _tutorial;
         private readonly ColoringResult _coloringResult;
 
         private readonly CompositeDisposable _compositeDisposable = new();
         
         public GuessingState(GameStateMachine stateMachine, IStaticDataService staticData, IPersistentProgressService progressService, GuessingCapitals guessingCapitals,
-            DescriptionTask descriptionTask, DrawingSection drawingSection, LevelEffects levelEffects, ColoringResult coloringResult) : base(stateMachine)
+            DescriptionTask descriptionTask, DrawingSection drawingSection, LevelEffects levelEffects, Tutorial tutorial, ColoringResult coloringResult) : base(stateMachine)
         {
             _staticData = staticData;
             _progressService = progressService;
@@ -33,6 +36,7 @@ namespace Services.StateMachine.States
             _descriptionTask = descriptionTask;
             _drawingSection = drawingSection;
             _levelEffects = levelEffects;
+            _tutorial = tutorial;
             _coloringResult = coloringResult;
         }
 
@@ -46,6 +50,12 @@ namespace Services.StateMachine.States
             _guessingCapitals.QuizCompleted.Subscribe(UpdateScreenValues).AddTo(_compositeDisposable);
             _guessingCapitals.QuizCompleted.Subscribe(answer => _levelEffects.ShowEffectQuizResult(answer)).AddTo(_compositeDisposable);
             _descriptionTask.ChangeDescription(DescriptionTypes.Guessing);
+
+            if (_progressService.GetUserProgress.Progress <= 1)
+            {
+                _tutorial.ShowTutorial(delay: 0.4f, position: new Vector2(235f, -650f)).Forget();
+                _guessingCapitals.QuizCompleted.Subscribe(answer => _tutorial.ChangeVisibilityOfTutorial(state: false)).AddTo(_compositeDisposable);
+            }
         }
 
         private void UpdateScreenValues(bool state)

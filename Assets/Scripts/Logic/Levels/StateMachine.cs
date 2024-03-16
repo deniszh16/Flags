@@ -42,6 +42,7 @@ namespace Logic.Levels
 
         private GuessingCapitals _guessingCapitals;
         private LevelEffects _levelEffects;
+        private Tutorial.Tutorial _tutorial;
         private GameResults _gameResults;
 
         [Inject]
@@ -49,7 +50,7 @@ namespace Logic.Levels
             Countries countries, MapProgress mapProgress, CurrentCountry currentCountry, LevelStartButton levelStartButton, IFlagFactory flagFactory,
             DrawingSection drawingSection, DrawingRoute drawingRoute, DescriptionTask descriptionTask, InfoCurrentLevel infoCurrentLevel, ArrangementOfColors arrangementOfColors,
             ColoringFlag coloringFlag, HintForColoring hintForColoring, ColorCancellation colorCancellation, ColoringResult coloringResult, GuessingCapitals guessingCapitals,
-            LevelEffects levelEffects, GameResults gameResults)
+            LevelEffects levelEffects, Tutorial.Tutorial tutorial, GameResults gameResults)
         {
             _gameStateMachine = gameStateMachine;
             _progressService = progressService;
@@ -75,15 +76,16 @@ namespace Logic.Levels
 
             _guessingCapitals = guessingCapitals;
             _levelEffects = levelEffects;
+            _tutorial = tutorial;
             _gameResults = gameResults;
         }
 
         private void Awake()
         {
             _gameStateMachine.AddState(new MapState(_gameStateMachine, _progressService, _staticData, _countries, _mapProgress, _currentCountry, _levelStartButton));
-            _gameStateMachine.AddState(new DrawingState(_gameStateMachine, _progressService, _staticData, _flagFactory, _drawingSection, _drawingRoute, _descriptionTask, _infoCurrentLevel, _arrangementOfColors, _hintForColoring, _levelEffects));
-            _gameStateMachine.AddState(new ColoringState(_gameStateMachine, _coloringFlag, _arrangementOfColors, _flagFactory, _descriptionTask, _hintForColoring, _colorCancellation, _levelEffects, _coloringResult));
-            _gameStateMachine.AddState(new GuessingState(_gameStateMachine, _staticData, _progressService, _guessingCapitals, _descriptionTask, _drawingSection, _levelEffects, _coloringResult));
+            _gameStateMachine.AddState(new DrawingState(_gameStateMachine, _progressService, _staticData, _flagFactory, _drawingSection, _drawingRoute, _descriptionTask, _infoCurrentLevel, _arrangementOfColors, _hintForColoring, _levelEffects, _tutorial));
+            _gameStateMachine.AddState(new ColoringState(_gameStateMachine, _progressService, _coloringFlag, _arrangementOfColors, _flagFactory, _descriptionTask, _hintForColoring, _colorCancellation, _levelEffects, _tutorial, _coloringResult));
+            _gameStateMachine.AddState(new GuessingState(_gameStateMachine, _staticData, _progressService, _guessingCapitals, _descriptionTask, _drawingSection, _levelEffects, _tutorial, _coloringResult));
             _gameStateMachine.AddState(new ResultsState(_gameStateMachine, _progressService, _saveLoadService, _gameResults, _flagFactory, _levelEffects, _coloringResult));
         }
 

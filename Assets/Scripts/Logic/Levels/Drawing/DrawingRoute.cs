@@ -8,9 +8,11 @@ namespace Logic.Levels.Drawing
     {
         public readonly ReactiveCommand FragmentDrawn = new();
         public readonly ReactiveCommand DrawingCompleted = new();
+        public readonly ReactiveCommand StartDrawing = new();
         
         private bool _drawingActivity;
         private bool _tappingScreen;
+        private bool _startDrawing;
         
         private EdgeCollider2D[] _colliders;
         private int _currentArrayOfPoints;
@@ -47,8 +49,16 @@ namespace Logic.Levels.Drawing
             _lineRenderer.SetPosition(index: 0, _pencil.transform.localPosition);
         }
         
-        public void OnPointerDown(PointerEventData eventData) =>
+        public void OnPointerDown(PointerEventData eventData)
+        {
             _tappingScreen = true;
+
+            if (_startDrawing != true)
+            {
+                StartDrawing.Execute();
+                _startDrawing = true;
+            }
+        }
 
         public void OnPointerUp(PointerEventData eventData) =>
             _tappingScreen = false;

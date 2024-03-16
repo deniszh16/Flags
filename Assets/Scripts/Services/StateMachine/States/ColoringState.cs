@@ -1,8 +1,11 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using Services.PersistentProgress;
+using Cysharp.Threading.Tasks;
 using Logic.Levels.Coloring;
+using Logic.Levels.Tutorial;
 using Logic.Levels.Factory;
 using Logic.Levels.Hints;
 using Logic.Levels.Other;
+using UnityEngine;
 using System;
 using UniRx;
 
@@ -10,6 +13,8 @@ namespace Services.StateMachine.States
 {
     public class ColoringState : BaseStates
     {
+        private readonly IPersistentProgressService _progressService;
+        
         private readonly ColoringFlag _coloringFlag;
         private readonly ArrangementOfColors _arrangementOfColors;
         private readonly IFlagFactory _flagFactory;
@@ -17,14 +22,16 @@ namespace Services.StateMachine.States
         private readonly HintForColoring _hintForColoring;
         private readonly ColorCancellation _colorCancellation;
         private readonly LevelEffects _levelEffects;
+        private readonly Tutorial _tutorial;
         private readonly ColoringResult _coloringResult;
         
         private readonly CompositeDisposable _compositeDisposable = new();
 
-        public ColoringState(GameStateMachine stateMachine, ColoringFlag coloringFlag, ArrangementOfColors arrangementOfColors,
-            IFlagFactory flagFactory, DescriptionTask descriptionTask, HintForColoring hintForColoring, ColorCancellation colorCancellation,
-            LevelEffects levelEffects, ColoringResult coloringResult) : base(stateMachine)
+        public ColoringState(GameStateMachine stateMachine, IPersistentProgressService progressService,  ColoringFlag coloringFlag,
+            ArrangementOfColors arrangementOfColors, IFlagFactory flagFactory, DescriptionTask descriptionTask, HintForColoring hintForColoring,
+            ColorCancellation colorCancellation, LevelEffects levelEffects, Tutorial tutorial, ColoringResult coloringResult) : base(stateMachine)
         {
+            _progressService = progressService;
             _coloringFlag = coloringFlag;
             _arrangementOfColors = arrangementOfColors;
             _flagFactory = flagFactory;
@@ -32,6 +39,7 @@ namespace Services.StateMachine.States
             _hintForColoring = hintForColoring;
             _colorCancellation = colorCancellation;
             _levelEffects = levelEffects;
+            _tutorial = tutorial;
             _coloringResult = coloringResult;
         }
 
@@ -55,6 +63,17 @@ namespace Services.StateMachine.States
             _descriptionTask.ChangeDescription(DescriptionTypes.Coloring);
             _hintForColoring.ChangeActivityOfHintButton(state: true);
             _colorCancellation.ChangeButtonActivity(state: true);
+
+            if (_progressService.GetUserProgress.Progress <= 1)
+            {
+                _tutorial.ShowTutorial(delay: 0.2f, position: new Vector2(400f, -750f)).Forget();
+                _arrangementOfColors.ColoredButtonSelected.Subscribe(_ => _tutorial.ChangeVisibilityOfTutorial(state: false)).AddTo(_compositeDisposable);
+                _arrangementOfColors.ColoredButtonSelected.Subscribe(_ =>
+                {
+                    _tutorial.ShowTutorial(delay: 0.2f, position: new Vector2(0, -150f)).Forget();
+                }).AddTo(_compositeDisposable);
+                _coloringFlag.StartedColoring.Subscribe(_ => _tutorial.ChangeVisibilityOfTutorial(state: false)).AddTo(_compositeDisposable);
+            }
         }
 
         private async UniTask ResetFlagColoring()
