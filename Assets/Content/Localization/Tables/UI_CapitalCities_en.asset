@@ -258,6 +258,70 @@ MonoBehaviour:
     m_Localized: Mogilev
     m_Metadata:
       m_Items: []
+  - m_Id: 3613466322616320
+    m_Localized: New Delhi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3613490351783936
+    m_Localized: Mumbai
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3622411372150784
+    m_Localized: Bern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3622457182339072
+    m_Localized: Zurich
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3635260370796544
+    m_Localized: Antananarivo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3635240833728512
+    m_Localized: Tuamasina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3655160250318848
+    m_Localized: Budapest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3655179489591296
+    m_Localized: Debrecen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3663047609630720
+    m_Localized: Oslo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3663071135481856
+    m_Localized: Bergen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3913465002541056
+    m_Localized: Mogadishu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3913493339258880
+    m_Localized: Hargeisa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3917107130613760
+    m_Localized: Porto
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3917127292633088
+    m_Localized: Lisbon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3933873454006272
+    m_Localized: Cairo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3933904382803968
+    m_Localized: Alexandria
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
