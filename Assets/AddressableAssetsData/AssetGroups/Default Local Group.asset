@@ -207,6 +207,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73da2f64a53d5be42a4ff9d20a01de1e
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Latvia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 856d84367392e1c4e88c542091dbed28
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Romania.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b5edba8ac0e19064d88648d46154b600, type: 2}
   m_SchemaSet:

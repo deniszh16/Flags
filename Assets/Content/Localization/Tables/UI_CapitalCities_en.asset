@@ -322,6 +322,22 @@ MonoBehaviour:
     m_Localized: Alexandria
     m_Metadata:
       m_Items: []
+  - m_Id: 4304447397249024
+    m_Localized: Riga
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4304401343791104
+    m_Localized: Jurmala
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4335640926830592
+    m_Localized: Bucharest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4335618906734592
+    m_Localized: Iasi
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

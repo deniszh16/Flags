@@ -170,6 +170,14 @@ MonoBehaviour:
     m_Localized: Egypt
     m_Metadata:
       m_Items: []
+  - m_Id: 11153305746096128
+    m_Localized: Latvia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11184484574642176
+    m_Localized: Romania
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
