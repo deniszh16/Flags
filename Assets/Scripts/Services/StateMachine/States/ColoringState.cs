@@ -50,7 +50,9 @@ namespace Services.StateMachine.States
             _coloringFlag.ChangeColoringActivity(state: true);
             _coloringFlag.StartedColoring.Subscribe(_ => _arrangementOfColors.DisableInteractivityOfAllButtons()).AddTo(_compositeDisposable);
             _coloringFlag.StartedColoring.Subscribe(_ => _arrangementOfColors.RecordSelectedColor()).AddTo(_compositeDisposable);
+            _coloringFlag.StartedColoring.Subscribe(_ => _colorCancellation.ChangeButtonActivity(state: false)).AddTo(_compositeDisposable);
             _coloringFlag.FragmentIsColored.Subscribe(_ => _arrangementOfColors.ActivateInteractivityOfUnusedButtons()).AddTo(_compositeDisposable);
+            _coloringFlag.FragmentIsColored.Subscribe(_ => _colorCancellation.ChangeButtonActivity(state: true)).AddTo(_compositeDisposable);
             _coloringFlag.FlagIsFinished.Subscribe(_ => _arrangementOfColors.CompareColorCollections()).AddTo(_compositeDisposable);
             _arrangementOfColors.ActivateInteractivityOfUnusedButtons();
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _coloringResult.ShowVictoryIcon()).AddTo(_compositeDisposable);
@@ -62,7 +64,6 @@ namespace Services.StateMachine.States
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _levelEffects.ShowEffectIncorrectColoring()).AddTo(_compositeDisposable);
             _descriptionTask.ChangeDescription(DescriptionTypes.Coloring);
             _hintForColoring.ChangeActivityOfHintButton(state: true);
-            _colorCancellation.ChangeButtonActivity(state: true);
 
             if (_progressService.GetUserProgress.Progress <= 1)
             {
@@ -82,7 +83,6 @@ namespace Services.StateMachine.States
             _coloringFlag.ResetAllFragments();
             _arrangementOfColors.ResetColorButtons();
             _coloringResult.HideResultIcon();
-            _colorCancellation.ChangeButtonActivity(state: true);
         }
 
         public override void Exit()
