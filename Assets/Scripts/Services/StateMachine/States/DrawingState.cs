@@ -50,8 +50,10 @@ namespace Services.StateMachine.States
         public override void Enter()
         {
             _drawingSection.ChangeVisibilityOfDrawingSection(state: true);
+            _drawingSection.ChangeVisibilityOfLoadingIcon(state: true);
             _drawingSection.CreateFlag(_flagFactory, _staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].Flag);
             _flagFactory.FlagCreated.Subscribe(_drawingRoute.PrepareRouteForPencil).AddTo(_compositeDisposable);
+            _flagFactory.FlagCreated.Subscribe(_ => _drawingSection.ChangeVisibilityOfLoadingIcon(state: false)).AddTo(_compositeDisposable);
             
             _flagFactory.FlagCreated.Subscribe(_ =>
             {

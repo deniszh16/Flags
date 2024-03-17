@@ -11,6 +11,7 @@ namespace Logic.Levels.Drawing
 
         [Header("Контейнер для флага")]
         [SerializeField] private Transform _container;
+        [SerializeField] private GameObject _loadingIcon;
 
         private IFlagFactory _flagFactory;
 
@@ -21,6 +22,9 @@ namespace Logic.Levels.Drawing
             _canvasGroup.interactable = state;
             _canvasGroup.blocksRaycasts = state;
         }
+
+        public void ChangeVisibilityOfLoadingIcon(bool state) =>
+            _loadingIcon.SetActive(state);
 
         public void CreateFlag(IFlagFactory flagFactory, AssetReferenceGameObject flag)
         {
