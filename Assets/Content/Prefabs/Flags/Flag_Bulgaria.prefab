@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &2277366071869066092
 RectTransform:
@@ -74,20 +74,20 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 312.59784, y: -68.698364}
-  - {x: 299.0255, y: -62.565186}
+  - {x: 313.8874, y: -70.72479}
+  - {x: 297.92023, y: -63.854736}
   - {x: 271.81122, y: -54.48358}
   - {x: 235.91376, y: -47.525574}
-  - {x: 195.94989, y: -44.721863}
-  - {x: 167.50208, y: -44.741882}
-  - {x: 141.71857, y: -45.763}
+  - {x: 196.68677, y: -43.432312}
+  - {x: 167.31787, y: -43.636597}
+  - {x: 141.3501, y: -44.84192}
   - {x: 89.97925, y: -51.736572}
   - {x: 54.913452, y: -58.27307}
   - {x: 10.357544, y: -67.10144}
   - {x: -48.55304, y: -79.28265}
   - {x: -97.69998, y: -88.09595}
-  - {x: -158.87405, y: -93.96344}
-  - {x: -204.83408, y: -94.21594}
+  - {x: -158.13718, y: -96.17407}
+  - {x: -205.57095, y: -95.87396}
   - {x: -250.57239, y: -89.08417}
   - {x: -287.06146, y: -80.08624}
   - {x: -310.81033, y: -70.85516}
@@ -188,7 +188,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!224 &500357601479775533
 RectTransform:
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -525,7 +525,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!224 &6002036790747251371
 RectTransform:
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -864,7 +864,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &8631072779881582062
 RectTransform:
@@ -916,7 +916,7 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -926,17 +926,18 @@ EdgeCollider2D:
   - {x: -312.8329, y: 69.12189}
   - {x: -261.06607, y: 53.369568}
   - {x: -233.58493, y: 48.659912}
-  - {x: -200.3421, y: 46.29718}
-  - {x: -145.1474, y: 46.932068}
+  - {x: -200.01196, y: 44.481384}
+  - {x: -146.30289, y: 44.786133}
+  - {x: -109.85434, y: 48.803406}
   - {x: -82.26166, y: 54.325317}
   - {x: -24.10913, y: 65.489136}
   - {x: 47.574646, y: 80.71338}
   - {x: 112.938416, y: 91.40198}
-  - {x: 150.24152, y: 95.34192}
-  - {x: 193.90271, y: 96.14685}
+  - {x: 149.58124, y: 95.672}
+  - {x: 193.73767, y: 97.13733}
   - {x: 236.03937, y: 92.280396}
   - {x: 265.35718, y: 87.439575}
-  - {x: 312.5299, y: 72.89319}
+  - {x: 312.5299, y: 70.252075}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1211,7 +1212,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 0
 --- !u!224 &299146018046220434
 RectTransform:
@@ -1253,7 +1254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

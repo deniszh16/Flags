@@ -245,7 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9045ce1d618e484dbdd5d621a5e1dd93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainImage: {fileID: 3787647677832771670}
+  _image: {fileID: 3787647677832771670}
   _button: {fileID: 2305523632471162045}
   _frameImage: {fileID: 5978685481697690948}
   _shadedImage: {fileID: 8236899309693940386}
@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 4319390505230199206}
   - component: {fileID: 4319390505230025438}
   m_Layer: 0
-  m_Name: FX_PressingButton
+  m_Name: Effect_PressingButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

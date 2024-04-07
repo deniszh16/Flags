@@ -1,7 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
-using UnityEngine.SceneManagement;
+using UnityEngine;
+using System;
 
 namespace Services.SceneLoader
 {
@@ -12,7 +12,8 @@ namespace Services.SceneLoader
 
         public async UniTask LoadSceneAsync(Scenes scene, bool screensaver, float delay)
         {
-            await UniTask.Delay(TimeSpan.FromSeconds(delay));
+            if (delay > 0)
+                await UniTask.Delay(TimeSpan.FromSeconds(delay));
             
             if (screensaver)
             {

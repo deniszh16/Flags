@@ -24,7 +24,7 @@ namespace Logic.WorldMap
             {
                 if (i > _currentProgress) break;
                 _countries[i].ShowCountry();
-                
+
                 if (i < _currentProgress)
                     _countries[i].ShowOpenCountry();
             }
@@ -32,7 +32,7 @@ namespace Logic.WorldMap
 
         public void MoveMapToCurrentCountry(LevelsStaticData staticData, bool animatedMovement)
         {
-            Vector2Int position = staticData.LevelConfig[_currentProgress].Position;
+            Vector2Int position = staticData.LevelConfig[_currentProgress].Position; 
             
             if (animatedMovement) _worldMap.localPosition = new Vector3(position.x, position.y, 0);
             else _worldMap.DOAnchorPos(position, AnimationDuration);

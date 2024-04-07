@@ -7,7 +7,6 @@ namespace Logic.WorldMap
     {
         [Header("Ссылки на компоненты")]
         [SerializeField] private Image _image;
-        [SerializeField] private Countries _countries;
         
         [Header("Открытая страна")]
         [SerializeField] private Sprite _openSprite;

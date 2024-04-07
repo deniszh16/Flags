@@ -1,4 +1,5 @@
-﻿using Logic.Levels.Factory;
+﻿using Services.UpdateService;
+using Logic.Levels.Factory;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -31,6 +32,17 @@ namespace Logic.Levels.Coloring
         public readonly ReactiveCommand StartedColoring = new();
         public readonly ReactiveCommand FragmentIsColored = new();
         public readonly ReactiveCommand FlagIsFinished = new();
+
+        private IMonoUpdateService _monoUpdateService;
+
+        public void Init(IMonoUpdateService monoUpdateService)
+        {
+            if (_monoUpdateService == null)
+            {
+                _monoUpdateService = monoUpdateService;
+                _monoUpdateService.AddToUpdate(MyUpdate);
+            }
+        }
 
         public void ChangeColoringActivity(bool state) =>
             _coloringActivity = state;
@@ -66,7 +78,7 @@ namespace Logic.Levels.Coloring
             _animator.SetBool(id: _animationTrigger, value: false);
         }
 
-        private void Update()
+        private void MyUpdate()
         {
             if (_coloringActivity == false || _tappingScreen == false)
                 return;
@@ -153,5 +165,8 @@ namespace Logic.Levels.Coloring
             _currentFlag.ResetFillColors();
             GetCurrentFragment();
         }
+
+        private void OnDestroy() =>
+            _monoUpdateService?.RemoveFromUpdate(MyUpdate);
     }
 }

@@ -7,10 +7,12 @@ namespace Logic.Levels.Coloring
     public class ColorButton : MonoBehaviour
     {
         [Header("Ссылки на компоненты")]
-        [SerializeField] private Image _mainImage;
+        [SerializeField] private Image _image;
         [SerializeField] private Button _button;
         [SerializeField] private Image _frameImage;
         [SerializeField] private GameObject _shadedImage;
+        
+        [Header("Эффект нажатия")]
         [SerializeField] private ParticleSystem _pressingButton;
 
         private readonly Color _translucentColor = new(1, 1, 1, 0.5f);
@@ -19,8 +21,8 @@ namespace Logic.Levels.Coloring
 
         public Color Color
         {
-            get => _mainImage.color;
-            set => _mainImage.color = value;
+            get => _image.color;
+            set => _image.color = value;
         }
 
         private ColoringFlag _coloringFlag;

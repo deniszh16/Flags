@@ -29,7 +29,7 @@ namespace Logic.Levels.Coloring
             _canvasGroup.alpha = value;
         }
 
-        public void ArrangeColors(Color[] colors)
+        public void ArrangeColors(Color[] colors, bool randomArrangement)
         {
             _flagColors = new List<Color>();
             _flagColors.AddRange(colors);
@@ -45,7 +45,7 @@ namespace Logic.Levels.Coloring
             {
                 if (i < numberOfColors)
                 {
-                    int number = random.Next(0, listOfColors.Count);
+                    int number = randomArrangement ? random.Next(0, listOfColors.Count) : 0;
                     _colorButtons[i].gameObject.SetActive(true);
                     _colorButtons[i].Color = listOfColors[number];
                     listOfColors.RemoveAt(number);

@@ -14,18 +14,18 @@ namespace Bootstraper
     {
         private IPersistentProgressService _progressService;
         private ISaveLoadService _saveLoadService;
-        private ILocalizationService _localizationService;
         private ISceneLoaderService _sceneLoaderService;
+        private ILocalizationService _localizationService;
         private ISoundService _soundService;
-        
+
         [Inject]
         private void Construct(IPersistentProgressService progressService, ISaveLoadService saveLoadService,
-            ILocalizationService localizationService, ISceneLoaderService sceneLoaderService, ISoundService soundService)
+            ISceneLoaderService sceneLoaderService, ILocalizationService localizationService, ISoundService soundService)
         {
             _progressService = progressService;
             _saveLoadService = saveLoadService;
-            _localizationService = localizationService;
             _sceneLoaderService = sceneLoaderService;
+            _localizationService = localizationService;
             _soundService = soundService;
         }
         
@@ -42,7 +42,7 @@ namespace Bootstraper
             _soundService.SoundActivity = _progressService.GetUserProgress.SettingsData.Sound;
             _sceneLoaderService.LoadSceneAsync(Scenes.MainMenu, screensaver: false, delay: 1f).Forget();
         }
-
+        
         private void LoadProgressOrInitNew()
         {
             _progressService.GetUserProgress =

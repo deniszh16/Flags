@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Services.UpdateService;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UniRx;
 
@@ -29,6 +30,17 @@ namespace Logic.Levels.Drawing
 
         [Header("Ссылки на компоненты")]
         [SerializeField] private LineRenderer _lineRenderer;
+
+        private IMonoUpdateService _monoUpdateService;
+
+        public void Init(IMonoUpdateService monoUpdateService)
+        {
+            if (_monoUpdateService == null)
+            {
+                _monoUpdateService = monoUpdateService;
+                _monoUpdateService.AddToUpdate(MyUpdate);
+            }
+        }
 
         public void ChangeDrawingActivity(bool state) =>
             _drawingActivity = state;
@@ -63,7 +75,7 @@ namespace Logic.Levels.Drawing
         public void OnPointerUp(PointerEventData eventData) =>
             _tappingScreen = false;
 
-        private void Update()
+        private void MyUpdate()
         {
             if (_drawingActivity == false || _tappingScreen == false)
                 return;
@@ -108,5 +120,8 @@ namespace Logic.Levels.Drawing
                 DrawingCompleted.Execute();
             }
         }
+
+        private void OnDestroy() =>
+            _monoUpdateService?.RemoveFromUpdate(MyUpdate);
     }
 }

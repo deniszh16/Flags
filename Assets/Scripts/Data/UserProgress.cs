@@ -11,24 +11,53 @@ namespace Data
         [SerializeField] private int _wrongAnswers;
         
         [SerializeField] private int _hints = 3;
-        [SerializeField] private bool _endlessHints;
         [SerializeField] private bool _freeHint;
         [SerializeField] private int _hintsUsed;
 
-        public int Progress => _progress;
-        public int RightAnswers => _rightAnswers;
-        public int WrongAnswers => _wrongAnswers;
+        [SerializeField] private int _score;
+        
+        [SerializeField] private SettingsData _settingsData = new();
         
         public event Action ChangedNumberOfHints;
 
-        public int Hints => _hints;
-        public bool EndlessHints => _endlessHints;
-        public bool FreeHint => _freeHint;
-        public int HintsUsed => _hintsUsed;
-
-        [SerializeField] private SettingsData _settingsData = new();
+        public int Progress
+        {
+            get => _progress;
+            set => _progress = value;
+        }
         
-        public SettingsData SettingsData => _settingsData;
+        public int RightAnswers
+        {
+            get => _rightAnswers;
+            set => _rightAnswers = value;
+        }
+
+        public int WrongAnswers
+        {
+            get => _wrongAnswers;
+            set => _wrongAnswers = value;
+        }
+
+        public int Hints
+        {
+            get => _hints;
+            set => _hints = value;
+        }
+
+        public bool FreeHint
+        {
+            get => _freeHint;
+            set => _freeHint = value;
+        }
+
+        public int HintsUsed
+        {
+            get => _hintsUsed;
+            set => _hintsUsed = value;
+        }
+        
+        public SettingsData SettingsData =>
+            _settingsData;
 
         public void IncreaseProgress() =>
             _progress++;
@@ -44,9 +73,6 @@ namespace Data
             _hints += value;
             ChangedNumberOfHints?.Invoke();
         }
-
-        public void ChangeEndlessHints() =>
-            _endlessHints = true;
         
         public void ChangeFreeHints() =>
             _freeHint = true;
@@ -58,6 +84,12 @@ namespace Data
         {
             if (answer) _rightAnswers++;
             else _wrongAnswers++;
+        }
+        
+        public int GetPlayerScore()
+        {
+            _score = _progress * 5 + _rightAnswers * 3 + _wrongAnswers * 2 - _hintsUsed;
+            return _score;
         }
     }
 }

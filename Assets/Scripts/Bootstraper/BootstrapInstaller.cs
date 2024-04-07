@@ -40,7 +40,7 @@ namespace Bootstraper
             _progressService = new PersistentProgressService();
             Container.BindInstance(_progressService).AsSingle();
         }
-
+        
         private void BindSaveLoadService()
         {
             _saveLoadService = new SaveLoadService(_progressService);

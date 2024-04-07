@@ -68,8 +68,6 @@ crashlytics-build.properties
 .vscode/
 Sprites/
 LoadedAssets/
-Countries/
-FlagElements/
 
 # Ignoring files
 *.gitattributes
