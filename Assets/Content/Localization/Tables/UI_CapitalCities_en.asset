@@ -338,6 +338,86 @@ MonoBehaviour:
     m_Localized: Iasi
     m_Metadata:
       m_Items: []
+  - m_Id: 12242090462363648
+    m_Localized: Tbilisi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12242232359862272
+    m_Localized: Batumi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12266284260605952
+    m_Localized: Monaco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12266352824893440
+    m_Localized: Nimes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12322719975686144
+    m_Localized: London
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12322663847510016
+    m_Localized: Manchester
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12360820987084800
+    m_Localized: Abuja
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12360785973035008
+    m_Localized: Lagos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12364832155189248
+    m_Localized: Copenhagen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12364796545548288
+    m_Localized: Odense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12402314162814976
+    m_Localized: Ulan Bator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12402291555516416
+    m_Localized: Darkhan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12419996954214400
+    m_Localized: Bogota
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12420019746062336
+    m_Localized: Cali
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12608791704059904
+    m_Localized: Madrid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12608822125346816
+    m_Localized: Barcelona
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12642555842871296
+    m_Localized: Reykjavik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12642472275558400
+    m_Localized: Akureyri
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12649426842632192
+    m_Localized: Vilnius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12649451962318848
+    m_Localized: Kaunas
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

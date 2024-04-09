@@ -217,6 +217,56 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 155b9204c6f2f9240850f5c3704d91ca
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Georgia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3ee2fd9e58cd0642b15367f33bf6166
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Monaco.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32d3c092f95b99f489875a0329b3df65
+    m_Address: Assets/Content/Prefabs/Flags/Flag_GreatBritain.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6e0a997df42c0440ba8095fda63bfe7
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Nigeria.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b66b628c9598b444bbf100df4b4d19e
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Denmark.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 543d977311953614fb91ff19555a093d
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Mongolia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bba947d014e687a4498d31d44e852290
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Colombia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a6d12c50a8bce3418b38dd41b1f170e
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Spain.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72396fb16117d174cb245ff02571f00e
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Iceland.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d183ac6233fbd8b4aaa32c479cbd80e7
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Lithuania.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b5edba8ac0e19064d88648d46154b600, type: 2}
   m_SchemaSet:
