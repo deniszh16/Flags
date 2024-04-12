@@ -1,5 +1,6 @@
 ﻿using Services.PersistentProgress;
 using Logic.Levels.Coloring;
+using Services.AdsService;
 using Services.SaveLoad;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,15 +27,17 @@ namespace Logic.UI.Hints
 
         private IPersistentProgressService _progressService;
         private ISaveLoadService _saveLoadService;
+        private IAdsService _adsService;
         private ArrangementOfColors _arrangementOfColors;
         private ColoringFlag _coloringFlag;
 
         [Inject]
         private void Construct(IPersistentProgressService progressService, ISaveLoadService saveLoadService,
-            ArrangementOfColors arrangementOfColors, ColoringFlag coloringFlag)
+            IAdsService adsService, ArrangementOfColors arrangementOfColors, ColoringFlag coloringFlag)
         {
             _progressService = progressService;
             _saveLoadService = saveLoadService;
+            _adsService = adsService;
             _arrangementOfColors = arrangementOfColors;
             _coloringFlag = coloringFlag;
         }
@@ -50,6 +53,8 @@ namespace Logic.UI.Hints
             _hintButton.onClick.AddListener(UseHint);
             _closeWindowButton.onClick.AddListener(CloseHintWindow);
             _progressService.GetUserProgress.ChangedNumberOfHints += ShowNumberOfHints;
+            _adsService.RewardedAdViewed += GiveRewardForViewingAds;
+            _adsService.RewardedAdViewed += ShowHintEffect;
         }
 
         private void UseHint()
@@ -76,7 +81,14 @@ namespace Logic.UI.Hints
         
         public void ViewRewardedAds()
         {
+            _adsService.ShowRewardedAd();
             CloseHintWindow();
+        }
+        
+        private void GiveRewardForViewingAds()
+        {
+            _progressService.GetUserProgress.ChangeNumberOfHints(3);
+            _saveLoadService.SaveProgress();
         }
         
         private void ShowHintEffect()
@@ -90,6 +102,8 @@ namespace Logic.UI.Hints
             _hintButton.onClick.RemoveListener(UseHint);
             _closeWindowButton.onClick.RemoveListener(CloseHintWindow);
             _progressService.GetUserProgress.ChangedNumberOfHints -= ShowNumberOfHints;
+            _adsService.RewardedAdViewed -= GiveRewardForViewingAds;
+            _adsService.RewardedAdViewed -= ShowHintEffect;
         }
     }
 }

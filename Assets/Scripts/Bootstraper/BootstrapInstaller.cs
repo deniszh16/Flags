@@ -2,6 +2,7 @@ using Services.PersistentProgress;
 using Services.StaticDataService;
 using Services.Localization;
 using Services.SceneLoader;
+using Services.AdsService;
 using Services.SaveLoad;
 using Services.Sound;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace Bootstraper
         [SerializeField] private SceneLoaderService _sceneLoader;
         [SerializeField] private LocalizationService _localizationService;
         [SerializeField] private SoundService _soundService;
+        [SerializeField] private YandexAdsService _yandexAdsService;
         
         private IPersistentProgressService _progressService;
         private ISaveLoadService _saveLoadService;
@@ -26,6 +28,7 @@ namespace Bootstraper
             BindLocalizationService();
             BindSceneLoader();
             BindSoundService();
+            BindYandexAdsService();
         }
         
         private void BindStaticData()
@@ -64,6 +67,15 @@ namespace Bootstraper
         {
             SoundService soundService = Container.InstantiatePrefabForComponent<SoundService>(_soundService);
             Container.Bind<ISoundService>().To<SoundService>().FromInstance(soundService).AsSingle();
+        }
+
+        private void BindYandexAdsService()
+        {
+            YandexAdsService yandexAdsService = Container.InstantiatePrefabForComponent<YandexAdsService>(_yandexAdsService);
+            yandexAdsService.SetupLoader();
+            yandexAdsService.RequestInterstitial();
+            yandexAdsService.RequestRewardedAd();
+            Container.Bind<IAdsService>().To<YandexAdsService>().FromInstance(yandexAdsService).AsSingle();
         }
     }
 }

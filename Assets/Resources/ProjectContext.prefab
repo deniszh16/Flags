@@ -77,4 +77,4 @@ MonoBehaviour:
   _sceneLoader: {fileID: 1616574415705109890, guid: 384d17a6a593cc44dbdca2caad630f32, type: 3}
   _localizationService: {fileID: 4590714056550905376, guid: f4bac2a70401a5b4ea4ef41dc29f4015, type: 3}
   _soundService: {fileID: 6772552306678533799, guid: 389d2045902916249a37806f13476c5a, type: 3}
-  _yandexService: {fileID: 1983241892675802896, guid: 829605d925587504aa39049770deafe5, type: 3}
+  _yandexAdsService: {fileID: 6296645662961455850, guid: b48949a8e552d784b831bd6d6df6cdc4, type: 3}
