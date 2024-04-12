@@ -18,6 +18,7 @@
 ## Публикация
 
 - [Яндекс Игры](https://yandex.ru/games/app/306841)
+- [RuStore](https://apps.rustore.ru/app/ru.dzgames.flags)
 
 ## Технические подробности
 
