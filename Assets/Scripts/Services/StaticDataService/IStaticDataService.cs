@@ -1,6 +1,6 @@
-﻿using StaticData;
+﻿using DZGames.Flags.StaticData;
 
-namespace Services.StaticDataService
+namespace DZGames.Flags.Services
 {
     public interface IStaticDataService
     {

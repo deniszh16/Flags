@@ -1,11 +1,10 @@
 ﻿using YandexMobileAds;
 using YandexMobileAds.Base;
-using UnityEngine;
 using System;
 
-namespace Services.AdsService
+namespace DZGames.Flags.Services
 {
-    public class YandexAdsService : MonoBehaviour, IAdsService
+    public class YandexAdsService : IAdsService
     {
         public event Action RewardedAdViewed;
         

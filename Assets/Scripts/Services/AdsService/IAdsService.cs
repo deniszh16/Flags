@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Services.AdsService
+namespace DZGames.Flags.Services
 {
     public interface IAdsService
     {

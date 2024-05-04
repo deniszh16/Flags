@@ -1,9 +1,9 @@
-﻿using Services.Localization;
+﻿using DZGames.Flags.Services;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
+using VContainer;
 
-namespace Logic.UI.Buttons
+namespace DZGames.Flags.Logic
 {
     public class LanguageButton : MonoBehaviour
     {

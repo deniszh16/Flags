@@ -1,4 +1,4 @@
-﻿namespace Services.Localization
+﻿namespace DZGames.Flags.Services
 {
     public interface ILocalizationService
     {

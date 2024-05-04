@@ -1,4 +1,4 @@
-﻿namespace Logic.UI.Levels
+﻿namespace DZGames.Flags.Logic
 {
     public enum DescriptionTypes
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace Logic.WorldMap
+namespace DZGames.Flags.Logic
 {
     public class MapProgress : MonoBehaviour
     {
@@ -17,9 +17,9 @@ namespace Logic.WorldMap
             _localizedString.Arguments = new object[] { _progress };
             _localizedString.StringChanged += UpdateText;
         }
-
-        private void UpdateText(string value) =>
-            _textMeshPro.text = value;
+        
+        private void OnDisable() =>
+            _localizedString.StringChanged -= UpdateText;
 
         public void CalculatePassPercentage(int progress, int numberOfTasks)
         {
@@ -28,7 +28,7 @@ namespace Logic.WorldMap
             _localizedString.RefreshString();
         }
 
-        private void OnDisable() =>
-            _localizedString.StringChanged -= UpdateText;
+        private void UpdateText(string value) =>
+            _textMeshPro.text = value;
     }
 }

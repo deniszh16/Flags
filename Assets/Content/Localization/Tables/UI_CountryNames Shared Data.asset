@@ -215,6 +215,10 @@ MonoBehaviour:
     m_Key: key_Lithuania
     m_Metadata:
       m_Items: []
+  - m_Id: 21324908085723136
+    m_Key: key_Kyrgyzstan
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

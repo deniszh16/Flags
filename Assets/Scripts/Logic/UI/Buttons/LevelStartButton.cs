@@ -1,11 +1,10 @@
-﻿using Logic.Levels.StateMachine.States;
-using Services.StateMachine;
+﻿using DZGames.Flags.Services;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using Zenject;
+using VContainer;
 
-namespace Logic.UI.Buttons
+namespace DZGames.Flags.Logic
 {
     public class LevelStartButton : MonoBehaviour
     {
@@ -22,20 +21,20 @@ namespace Logic.UI.Buttons
 
         private void OnEnable() =>
             _button.onClick.AddListener(() => _gameStateMachine.Enter<DrawingState>());
+        
+        private void OnDisable() =>
+            _button.onClick.RemoveAllListeners();
 
         public void ShowButtonAnimation()
         {
-            transform.localScale = Vector3.zero;
-            transform.DOScale(Vector3.one, AnimationDuration).SetEase(Ease.InOutQuad);
+            _button.transform.localScale = Vector3.zero;
+            _button.transform.DOScale(Vector3.one, AnimationDuration).SetEase(Ease.InOutQuad);
         }
         
         public void DisableStartButton()
         {
-            transform.localScale = Vector3.zero;
+            _button.transform.localScale = Vector3.zero;
             _button.interactable = false;
         }
-
-        private void OnDisable() =>
-            _button.onClick.RemoveAllListeners();
     }
 }

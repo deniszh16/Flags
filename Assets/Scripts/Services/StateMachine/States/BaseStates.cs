@@ -1,4 +1,4 @@
-﻿namespace Services.StateMachine.States
+﻿namespace DZGames.Flags.Services
 {
     public abstract class BaseStates : IState
     {

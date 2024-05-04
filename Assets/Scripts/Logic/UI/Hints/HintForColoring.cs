@@ -1,14 +1,11 @@
-﻿using Services.PersistentProgress;
-using Logic.Levels.Coloring;
-using Services.AdsService;
-using Services.SaveLoad;
+﻿using DZGames.Flags.Services;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-using Zenject;
+using VContainer;
 using TMPro;
 
-namespace Logic.UI.Hints
+namespace DZGames.Flags.Logic
 {
     public class HintForColoring : MonoBehaviour
     {
@@ -28,6 +25,7 @@ namespace Logic.UI.Hints
         private IPersistentProgressService _progressService;
         private ISaveLoadService _saveLoadService;
         private IAdsService _adsService;
+        
         private ArrangementOfColors _arrangementOfColors;
         private ColoringFlag _coloringFlag;
 
@@ -41,13 +39,7 @@ namespace Logic.UI.Hints
             _arrangementOfColors = arrangementOfColors;
             _coloringFlag = coloringFlag;
         }
-
-        public void ChangeActivityOfHintButton(bool state) =>
-            _hintButton.interactable = state;
-
-        public void ShowNumberOfHints() =>
-            _numberOfHints.text = _progressService.GetUserProgress.Hints.ToString();
-
+        
         private void OnEnable()
         {
             _hintButton.onClick.AddListener(UseHint);
@@ -56,7 +48,31 @@ namespace Logic.UI.Hints
             _adsService.RewardedAdViewed += GiveRewardForViewingAds;
             _adsService.RewardedAdViewed += ShowHintEffect;
         }
+        
+        private void OnDisable()
+        {
+            _hintButton.onClick.RemoveListener(UseHint);
+            _closeWindowButton.onClick.RemoveListener(CloseHintWindow);
+            _progressService.GetUserProgress.ChangedNumberOfHints -= ShowNumberOfHints;
+            _adsService.RewardedAdViewed -= GiveRewardForViewingAds;
+            _adsService.RewardedAdViewed -= ShowHintEffect;
+        }
 
+        public void ChangeActivityOfHintButton(bool state) =>
+            _hintButton.interactable = state;
+
+        public void ShowNumberOfHints() =>
+            _numberOfHints.text = _progressService.GetUserProgress.Hints.ToString();
+        
+        public void ViewRewardedAds()
+        {
+            _adsService.ShowRewardedAd();
+            CloseHintWindow();
+        }
+        
+        public void CloseHintWindow() =>
+            _gettingHints.SetActive(false);
+        
         private void UseHint()
         {
             if (_progressService.GetUserProgress.Hints > 0)
@@ -76,15 +92,6 @@ namespace Logic.UI.Hints
             }
         }
         
-        public void CloseHintWindow() =>
-            _gettingHints.SetActive(false);
-        
-        public void ViewRewardedAds()
-        {
-            _adsService.ShowRewardedAd();
-            CloseHintWindow();
-        }
-        
         private void GiveRewardForViewingAds()
         {
             _progressService.GetUserProgress.ChangeNumberOfHints(3);
@@ -95,15 +102,6 @@ namespace Logic.UI.Hints
         {
             _effect.gameObject.SetActive(true);
             _effect.Play();
-        }
-
-        private void OnDisable()
-        {
-            _hintButton.onClick.RemoveListener(UseHint);
-            _closeWindowButton.onClick.RemoveListener(CloseHintWindow);
-            _progressService.GetUserProgress.ChangedNumberOfHints -= ShowNumberOfHints;
-            _adsService.RewardedAdViewed -= GiveRewardForViewingAds;
-            _adsService.RewardedAdViewed -= ShowHintEffect;
         }
     }
 }

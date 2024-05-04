@@ -1,22 +1,14 @@
-﻿using Services.StateMachine.States;
-using Services.PersistentProgress;
-using Services.StateMachine;
-using Logic.Levels.Coloring;
-using Logic.Levels.Factory;
-using Services.SaveLoad;
-using Logic.UI.Levels;
+﻿using DZGames.Flags.Services;
 
-namespace Logic.Levels.StateMachine.States
+namespace DZGames.Flags.Logic
 {
     public class ResultsState : BaseStates
     {
         private readonly IPersistentProgressService _progressService;
         private readonly ISaveLoadService _saveLoadService;
-
         private readonly IFlagFactory _flagFactory;
         
         private readonly ColoringResult _coloringResult;
-
         private readonly LevelEffects _levelEffects;
         private readonly GameResults _gameResults;
 
@@ -25,11 +17,9 @@ namespace Logic.Levels.StateMachine.States
         {
             _progressService = progressService;
             _saveLoadService = saveLoadService;
-
             _flagFactory = flagFactory;
 
             _coloringResult = coloringResult;
-
             _levelEffects = levelEffects;
             _gameResults = gameResults;
         }

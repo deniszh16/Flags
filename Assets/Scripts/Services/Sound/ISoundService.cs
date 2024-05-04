@@ -1,12 +1,13 @@
 ﻿using System;
 
-namespace Services.Sound
+namespace DZGames.Flags.Services
 {
     public interface ISoundService
     {
-        public bool SoundActivity { get; set; }
-        
         public event Action SoundChanged;
+        
+        public bool SoundActivity { get; }
+        public void ChangeSoundActivity(bool state);
         
         public void SwitchSound();
         public void SettingBackgroundMusic();

@@ -1,59 +1,47 @@
-﻿using Services.StateMachine.States;
-using Services.PersistentProgress;
-using Services.StaticDataService;
-using Cysharp.Threading.Tasks;
-using Services.UpdateService;
-using Services.StateMachine;
-using Logic.Levels.Coloring;
-using Logic.Levels.Drawing;
-using Logic.Levels.Factory;
-using Logic.UI.Tutorials;
-using Logic.UI.Levels;
-using Logic.UI.Hints;
+﻿using Cysharp.Threading.Tasks;
+using DZGames.Flags.Services;
 using UnityEngine;
 using UniRx;
 
-namespace Logic.Levels.StateMachine.States
+namespace DZGames.Flags.Logic
 {
     public class DrawingState : BaseStates
     {
         private readonly IPersistentProgressService _progressService;
         private readonly IStaticDataService _staticData;
-        private readonly IMonoUpdateService _monoUpdateService;
-        
         private readonly IFlagFactory _flagFactory;
+        
         private readonly DrawingSection _drawingSection;
         private readonly DrawingRoute _drawingRoute;
-        private readonly DescriptionTask _descriptionTask;
-        private readonly InfoCurrentLevel _infoCurrentLevel;
+        
         private readonly ArrangementOfColors _arrangementOfColors;
-        
         private readonly HintForColoring _hintForColoring;
-        
-        private readonly LevelEffects _levelEffects;
+
         private readonly Tutorial _tutorial;
+        private readonly InfoCurrentLevel _infoCurrentLevel;
+        private readonly DescriptionTask _descriptionTask;
+        private readonly LevelEffects _levelEffects;
 
         private readonly CompositeDisposable _compositeDisposable = new();
         
-        public DrawingState(GameStateMachine stateMachine, IPersistentProgressService progressService, IStaticDataService staticData, IMonoUpdateService monoUpdateService,
-            IFlagFactory flagFactory, DrawingSection drawingSection, DrawingRoute drawingRoute, DescriptionTask descriptionTask, InfoCurrentLevel infoCurrentLevel,
-            ArrangementOfColors arrangementOfColors, HintForColoring hintForColoring, LevelEffects levelEffects, Tutorial tutorial) : base(stateMachine)
+        public DrawingState(GameStateMachine stateMachine, IPersistentProgressService progressService, IStaticDataService staticData, IFlagFactory flagFactory,
+            DrawingSection drawingSection, DrawingRoute drawingRoute, ArrangementOfColors arrangementOfColors, HintForColoring hintForColoring, Tutorial tutorial,
+            InfoCurrentLevel infoCurrentLevel, DescriptionTask descriptionTask, LevelEffects levelEffects) : base(stateMachine)
         {
             _progressService = progressService;
             _staticData = staticData;
-            _monoUpdateService = monoUpdateService;
-            
             _flagFactory = flagFactory;
+            
             _drawingSection = drawingSection;
             _drawingRoute = drawingRoute;
-            _descriptionTask = descriptionTask;
-            _infoCurrentLevel = infoCurrentLevel;
+            
             _arrangementOfColors = arrangementOfColors;
-            
             _hintForColoring = hintForColoring;
-            
-            _levelEffects = levelEffects;
+
             _tutorial = tutorial;
+            _infoCurrentLevel = infoCurrentLevel;
+            _descriptionTask = descriptionTask;
+            _levelEffects = levelEffects;
         }
 
         public override void Enter()
@@ -67,7 +55,6 @@ namespace Logic.Levels.StateMachine.States
             
             ShowTutorial();
             
-            _drawingRoute.Init(_monoUpdateService);
             _drawingRoute.StartDrawing.Subscribe(_ => _tutorial.ChangeVisibilityOfTutorial(state: false)).AddTo(_compositeDisposable);
             _drawingRoute.ChangeDrawingActivity(state: true);
             _drawingRoute.FragmentDrawn.Subscribe(_ => _flagFactory.GetCreatedFlag.ShowDrawnLines()).AddTo(_compositeDisposable);
@@ -84,6 +71,13 @@ namespace Logic.Levels.StateMachine.States
             
             _hintForColoring.ShowNumberOfHints();
         }
+        
+        public override void Exit()
+        {
+            _compositeDisposable.Clear();
+            _drawingRoute.ChangeDrawingActivity(state: false);
+            _tutorial.ChangeVisibilityOfTutorial(state: false);
+        }
 
         private void ShowTutorial()
         {
@@ -92,13 +86,6 @@ namespace Logic.Levels.StateMachine.States
                 if (_progressService.GetUserProgress.Progress <= 1)
                     _tutorial.ShowTutorial(delay: 0.2f, position: new Vector2(0, -150f)).Forget();
             }).AddTo(_compositeDisposable);
-        }
-
-        public override void Exit()
-        {
-            _compositeDisposable.Clear();
-            _drawingRoute.ChangeDrawingActivity(state: false);
-            _tutorial.ChangeVisibilityOfTutorial(state: false);
         }
     }
 }

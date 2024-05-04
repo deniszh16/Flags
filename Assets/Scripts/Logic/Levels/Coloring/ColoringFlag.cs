@@ -1,20 +1,27 @@
-﻿using Services.UpdateService;
-using Logic.Levels.Factory;
+﻿using DZGames.Flags.Services;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using VContainer;
 using UniRx;
 
-namespace Logic.Levels.Coloring
+namespace DZGames.Flags.Logic
 {
     public class ColoringFlag : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
+        public readonly ReactiveCommand StartedColoring = new();
+        public readonly ReactiveCommand FragmentIsColored = new();
+        public readonly ReactiveCommand FlagIsFinished = new();
+        
         [Header("Кисть для раскрашивания")]
         [SerializeField] private Transform _brush;
         [SerializeField] private Image _whiteBrush;
         [SerializeField] private Animator _animator;
 
         private readonly int _animationTrigger = Animator.StringToHash(name: "Coloring");
+        
+        private const float FillStep = 0.1f;
+        private const float FillingSpeed = 15f;
 
         private Color? _activeColor;
         
@@ -26,22 +33,28 @@ namespace Logic.Levels.Coloring
         private int _currentFragment;
         private Image _currentFragmentImage;
 
-        private const float FillStep = 0.1f;
-        private const float FillingSpeed = 25f;
-
-        public readonly ReactiveCommand StartedColoring = new();
-        public readonly ReactiveCommand FragmentIsColored = new();
-        public readonly ReactiveCommand FlagIsFinished = new();
-
         private IMonoUpdateService _monoUpdateService;
 
-        public void Init(IMonoUpdateService monoUpdateService)
+        [Inject]
+        private void Construct(IMonoUpdateService monoUpdateService)
         {
-            if (_monoUpdateService == null)
-            {
-                _monoUpdateService = monoUpdateService;
-                _monoUpdateService.AddToUpdate(MyUpdate);
-            }
+            _monoUpdateService = monoUpdateService;
+            _monoUpdateService.AddToUpdate(MyUpdate);
+        }
+        
+        private void OnDestroy() =>
+            _monoUpdateService?.RemoveFromUpdate(MyUpdate);
+        
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _tappingScreen = true;
+            _animator.SetBool(id: _animationTrigger, value: true);
+        }
+
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            _tappingScreen = false;
+            _animator.SetBool(id: _animationTrigger, value: false);
         }
 
         public void ChangeColoringActivity(bool state) =>
@@ -66,16 +79,42 @@ namespace Logic.Levels.Coloring
             if (_activeColor != null) _whiteBrush.color = _activeColor.Value;
         }
         
-        public void OnPointerDown(PointerEventData eventData)
+        public void ColorInFragmentWithHint(int fragment, Color color)
         {
-            _tappingScreen = true;
-            _animator.SetBool(id: _animationTrigger, value: true);
+            _currentFragment = fragment;
+            GetCurrentFragment();
+            
+            _currentFragmentImage.color = color;
+            _currentFragmentImage.fillAmount = 1;
+
+            for (int i = fragment + 1; i < _currentFlag.NumberOfEmptyFragments; i++)
+            {
+                _currentFlag.DeselectFragment(i);
+                _currentFlag.ResetFillOfLastFragment(i);
+            }
+            
+            FinishColoringFragment();
+        }
+        
+        public void ResetLastFragment()
+        {
+            if (_currentFragment > 0)
+            {
+                _currentFlag.DeselectFragment(_currentFragment);
+                _currentFragment--;
+                _currentFlag.ResetFillOfLastFragment(_currentFragment);
+                _currentFragmentImage = null;
+                _brush.gameObject.SetActive(false);
+                GetCurrentFragment();
+            }
         }
 
-        public void OnPointerUp(PointerEventData eventData)
+        public void ResetAllFragments()
         {
-            _tappingScreen = false;
-            _animator.SetBool(id: _animationTrigger, value: false);
+            _currentFragment = 0;
+            _currentFragmentImage = null;
+            _currentFlag.ResetFillColors();
+            GetCurrentFragment();
         }
 
         private void MyUpdate()
@@ -127,46 +166,5 @@ namespace Logic.Levels.Coloring
                 FlagIsFinished.Execute();
             }
         }
-
-        public void ColorInFragmentWithHint(int fragment, Color color)
-        {
-            _currentFragment = fragment;
-            GetCurrentFragment();
-            
-            _currentFragmentImage.color = color;
-            _currentFragmentImage.fillAmount = 1;
-
-            for (int i = fragment + 1; i < _currentFlag.NumberOfEmptyFragments; i++)
-            {
-                _currentFlag.DeselectFragment(i);
-                _currentFlag.ResetFillOfLastFragment(i);
-            }
-            
-            FinishColoringFragment();
-        }
-        
-        public void ResetLastFragment()
-        {
-            if (_currentFragment > 0)
-            {
-                _currentFlag.DeselectFragment(_currentFragment);
-                _currentFragment--;
-                _currentFlag.ResetFillOfLastFragment(_currentFragment);
-                _currentFragmentImage = null;
-                _brush.gameObject.SetActive(false);
-                GetCurrentFragment();
-            }
-        }
-
-        public void ResetAllFragments()
-        {
-            _currentFragment = 0;
-            _currentFragmentImage = null;
-            _currentFlag.ResetFillColors();
-            GetCurrentFragment();
-        }
-
-        private void OnDestroy() =>
-            _monoUpdateService?.RemoveFromUpdate(MyUpdate);
     }
 }

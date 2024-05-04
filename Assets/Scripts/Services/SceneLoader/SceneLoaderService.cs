@@ -1,19 +1,20 @@
 ﻿using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
+using System.Threading;
 using UnityEngine;
 using System;
 
-namespace Services.SceneLoader
+namespace DZGames.Flags.Services
 {
     public class SceneLoaderService : MonoBehaviour, ISceneLoaderService
     {
         [Header("Экран затемнения")]
         [SerializeField] private CanvasGroup _blackout;
 
-        public async UniTask LoadSceneAsync(Scenes scene, bool screensaver, float delay)
+        public async UniTask LoadSceneAsync(Scenes scene, bool screensaver, float delay, CancellationToken token)
         {
             if (delay > 0)
-                await UniTask.Delay(TimeSpan.FromSeconds(delay));
+                await UniTask.Delay(TimeSpan.FromSeconds(delay), cancellationToken: token);
             
             if (screensaver)
             {
@@ -21,7 +22,7 @@ namespace Services.SceneLoader
                 _blackout.alpha = 1f;
             }
             
-            await SceneManager.LoadSceneAsync(scene.ToString());
+            await SceneManager.LoadSceneAsync((int)scene).WithCancellation(token);
             
             if (screensaver)
             {

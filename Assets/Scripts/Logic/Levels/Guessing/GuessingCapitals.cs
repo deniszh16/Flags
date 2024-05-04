@@ -4,19 +4,20 @@ using UnityEngine.Localization.Components;
 using DG.Tweening;
 using UniRx;
 
-namespace Logic.Levels.Guessing
+namespace DZGames.Flags.Logic
 {
     public class GuessingCapitals : MonoBehaviour
     {
+        public readonly ReactiveCommand<bool> QuizCompleted = new();
+        
         [Header("Ссылки на компоненты")]
         [SerializeField] private RectTransform _rectTransform;
         
         [Header("Тексты вариантов")]
         [SerializeField] private LocalizeStringEvent[] _localizeStringEvents;
 
-        public readonly ReactiveCommand<bool> QuizCompleted = new();
-
         private readonly Vector2 _startingPosition = new(0, -300);
+        
         private const float PositionY = 270;
         private const float AnimationDuration = 0.3f;
         private const float DelayBeforeAnimation = 0.1f;
@@ -25,7 +26,7 @@ namespace Logic.Levels.Guessing
         private bool _isAnswered;
 
         public void ChangeGuessingActivity(bool state) =>
-            gameObject.SetActive(state);
+            _rectTransform.gameObject.SetActive(state);
 
         public void ArrangeOptions(LocalizedString[] variants, int correctAnswer)
         {
@@ -57,9 +58,11 @@ namespace Logic.Levels.Guessing
             QuizCompleted.Execute(parameter: false);
         }
 
-        private void OnDisable()
+        public void ResetPanelCapitals()
         {
-            _rectTransform.anchoredPosition = _startingPosition;
+            if (_rectTransform)
+                _rectTransform.anchoredPosition = _startingPosition;
+            
             _isAnswered = false;
         }
     }

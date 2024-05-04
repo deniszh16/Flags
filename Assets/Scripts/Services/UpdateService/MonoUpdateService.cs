@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Services.UpdateService
+namespace DZGames.Flags.Services
 {
     public class MonoUpdateService : MonoBehaviour, IMonoUpdateService
     {
-        private List<Action> _updateActions = new();
+        private readonly List<Action> _updateActions = new();
         
         public void AddToUpdate(Action action) =>
             _updateActions.Add(action);

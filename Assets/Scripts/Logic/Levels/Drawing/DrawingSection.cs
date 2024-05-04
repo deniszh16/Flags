@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using DZGames.Flags.Services;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
-using Logic.Levels.Factory;
 
-namespace Logic.Levels.Drawing
+namespace DZGames.Flags.Logic
 {
     public class DrawingSection : MonoBehaviour
     {
@@ -14,6 +14,9 @@ namespace Logic.Levels.Drawing
         [SerializeField] private GameObject _loadingIcon;
 
         private IFlagFactory _flagFactory;
+        
+        private void OnDestroy() =>
+            _flagFactory?.RemovePreviousFlag();
 
         public void ChangeVisibilityOfDrawingSection(bool state)
         {
@@ -31,8 +34,5 @@ namespace Logic.Levels.Drawing
             _flagFactory = flagFactory;
             _flagFactory.CreateFlag(flag, _container);
         }
-
-        private void OnDestroy() =>
-            _flagFactory?.RemovePreviousFlag();
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Services.Sound
+﻿namespace DZGames.Flags.Services
 {
     public enum Sounds
     {
@@ -8,6 +8,6 @@
         CorrectAnswer,
         IncorrectAnswer,
         GettingHint,
-        LevelСompleted
+        LevelCompleted
     }
 }

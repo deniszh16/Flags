@@ -1,6 +1,6 @@
-﻿using Data;
+﻿using DZGames.Flags.Data;
 
-namespace Services.SaveLoad
+namespace DZGames.Flags.Services
 {
     public interface ISaveLoadService
     {

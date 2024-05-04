@@ -1,12 +1,11 @@
-﻿using Services.PersistentProgress;
-using Services.SaveLoad;
+﻿using DZGames.Flags.Services;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
-using Zenject;
+using VContainer;
 
-namespace Logic.UI.Hints
+namespace DZGames.Flags.Logic
 {
     public class FreeHintButton : MonoBehaviour
     {
@@ -29,6 +28,9 @@ namespace Logic.UI.Hints
             _progressService = progressService;
             _saveLoadService = saveLoadService;
         }
+        
+        private void OnDisable() =>
+            _button.onClick.RemoveListener(GetFreeHint);
 
         private void OnEnable()
         {
@@ -59,8 +61,5 @@ namespace Logic.UI.Hints
             _effect.gameObject.SetActive(true);
             _effect.Play();
         }
-
-        private void OnDisable() =>
-            _button.onClick.RemoveListener(GetFreeHint);
     }
 }

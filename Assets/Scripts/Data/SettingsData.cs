@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
 using System;
 
-namespace Data
+namespace DZGames.Flags.Data
 {
     [Serializable]
     public class SettingsData
     {
-        [SerializeField] private int _locale;
-        [SerializeField] private bool _sound = true;
-
         public int Locale
         {
             get => _locale;
@@ -20,6 +17,9 @@ namespace Data
             get => _sound;
             set => _sound = value;
         }
+        
+        [SerializeField] private int _locale;
+        [SerializeField] private bool _sound = true;
 
         public SettingsData() =>
             _locale = Application.systemLanguage == SystemLanguage.Russian ? 0 : 1;

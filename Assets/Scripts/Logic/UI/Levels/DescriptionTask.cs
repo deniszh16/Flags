@@ -2,7 +2,7 @@
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 
-namespace Logic.UI.Levels
+namespace DZGames.Flags.Logic
 {
     public class DescriptionTask : MonoBehaviour
     {

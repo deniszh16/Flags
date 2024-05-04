@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using Services.Sound;
-using Logic.Sound;
+using DZGames.Flags.Services;
 using UnityEngine;
 
-namespace Logic.UI.Levels
+namespace DZGames.Flags.Logic
 {
     public class LevelEffects : MonoBehaviour
     {
@@ -53,7 +52,7 @@ namespace Logic.UI.Levels
         
         public void ShowConfettiEffect()
         {
-            PlayEffectSound(Sounds.LevelСompleted);
+            PlayEffectSound(Sounds.LevelCompleted);
             foreach (ParticleSystem effect in _confetti)
             {
                 effect.gameObject.SetActive(true);

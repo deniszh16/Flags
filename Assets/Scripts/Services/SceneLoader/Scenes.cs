@@ -1,4 +1,4 @@
-﻿namespace Services.SceneLoader
+﻿namespace DZGames.Flags.Services
 {
     public enum Scenes
     {

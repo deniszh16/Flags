@@ -1,9 +1,12 @@
-﻿using Data;
+﻿using DZGames.Flags.Data;
 
-namespace Services.PersistentProgress
+namespace DZGames.Flags.Services
 {
     public class PersistentProgressService : IPersistentProgressService
     {
-        public UserProgress GetUserProgress { get; set; }
+        public UserProgress GetUserProgress { get; private set; }
+
+        public void SetUserProgress(UserProgress progress) =>
+            GetUserProgress = progress;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Data
+namespace DZGames.Flags.Data
 {
     public static class DataExtensions
     {

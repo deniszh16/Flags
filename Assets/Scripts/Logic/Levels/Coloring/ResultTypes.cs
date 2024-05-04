@@ -1,4 +1,4 @@
-﻿namespace Logic.Levels.Coloring
+﻿namespace DZGames.Flags.Logic
 {
     public enum ResultTypes
     {

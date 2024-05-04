@@ -218,6 +218,10 @@ MonoBehaviour:
     m_Localized: Lithuania
     m_Metadata:
       m_Items: []
+  - m_Id: 21324908085723136
+    m_Localized: Kyrgyzstan
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

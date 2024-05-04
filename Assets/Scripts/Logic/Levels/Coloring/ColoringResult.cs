@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace Logic.Levels.Coloring
+namespace DZGames.Flags.Logic
 {
     public class ColoringResult : MonoBehaviour
     {
@@ -25,6 +25,9 @@ namespace Logic.Levels.Coloring
             _result.sprite = _sprites[(int)ResultTypes.Losing];
             StartIconAnimation();
         }
+        
+        public void HideResultIcon() =>
+            _result.gameObject.SetActive(false);
 
         private void StartIconAnimation()
         {
@@ -32,8 +35,5 @@ namespace Logic.Levels.Coloring
             _result.transform.localScale = Vector3.zero;
             _result.transform.DOScale(Vector3.one, AnimationDuration);
         }
-        
-        public void HideResultIcon() =>
-            _result.gameObject.SetActive(false);
     }
 }

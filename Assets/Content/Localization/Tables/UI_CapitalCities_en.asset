@@ -418,6 +418,14 @@ MonoBehaviour:
     m_Localized: Kaunas
     m_Metadata:
       m_Items: []
+  - m_Id: 14475906635612160
+    m_Localized: Bishkek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14475919222718464
+    m_Localized: Karakol
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

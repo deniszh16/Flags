@@ -1,13 +1,10 @@
-﻿using Logic.Levels.StateMachine.States;
-using Services.StateMachine;
-using Services.AdsService;
+﻿using DZGames.Flags.Services;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using Services.PersistentProgress;
-using Zenject;
+using VContainer;
 
-namespace Logic.UI.Buttons
+namespace DZGames.Flags.Logic
 {
     public class OpenMapButton : MonoBehaviour
     {
@@ -21,8 +18,8 @@ namespace Logic.UI.Buttons
         private IAdsService _adsService;
 
         [Inject]
-        private void Construct(GameStateMachine gameStateMachine, IPersistentProgressService progressService,
-            IAdsService adsService)
+        private void Construct(GameStateMachine gameStateMachine,
+            IPersistentProgressService progressService, IAdsService adsService)
         {
             _gameStateMachine = gameStateMachine;
             _progressService = progressService;
@@ -35,6 +32,9 @@ namespace Logic.UI.Buttons
         private void Start() =>
             ShowButtonAnimation();
         
+        private void OnDisable() =>
+            _button.onClick.RemoveListener(OpenMap);
+        
         private void OpenMap()
         {
             _gameStateMachine.Enter<MapState>();
@@ -45,8 +45,5 @@ namespace Logic.UI.Buttons
 
         private void ShowButtonAnimation() =>
             transform.DOScale(Vector3.one, AnimationDuration).SetEase(Ease.InOutQuad);
-
-        private void OnDisable() =>
-            _button.onClick.RemoveListener(OpenMap);
     }
 }

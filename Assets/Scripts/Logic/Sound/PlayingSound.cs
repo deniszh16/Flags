@@ -1,8 +1,8 @@
-﻿using Services.Sound;
+﻿using DZGames.Flags.Services;
 using UnityEngine;
-using Zenject;
+using VContainer;
 
-namespace Logic.Sound
+namespace DZGames.Flags.Logic
 {
     public class PlayingSound : MonoBehaviour
     {

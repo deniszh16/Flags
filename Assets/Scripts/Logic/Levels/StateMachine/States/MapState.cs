@@ -1,12 +1,7 @@
-﻿using Services.StateMachine.States;
-using Services.PersistentProgress;
-using Services.StaticDataService;
-using Services.StateMachine;
-using Logic.UI.Buttons;
-using Logic.WorldMap;
-using StaticData;
+﻿using DZGames.Flags.Services;
+using DZGames.Flags.StaticData;
 
-namespace Logic.Levels.StateMachine.States
+namespace DZGames.Flags.Logic
 {
     public class MapState : BaseStates
     {
@@ -17,7 +12,7 @@ namespace Logic.Levels.StateMachine.States
         private readonly MapProgress _mapProgress;
         private readonly CurrentCountry _currentCountry;
         private readonly LevelStartButton _levelStartButton;
-
+        
         private bool _firstStart = true;
         
         public MapState(GameStateMachine stateMachine, IPersistentProgressService progressService, IStaticDataService staticData,
@@ -31,7 +26,7 @@ namespace Logic.Levels.StateMachine.States
             _currentCountry = currentCountry;
             _levelStartButton = levelStartButton;
         }
-
+        
         public override void Enter()
         {
             int progress = _progressService.GetUserProgress.Progress - 1;
@@ -39,7 +34,7 @@ namespace Logic.Levels.StateMachine.States
             
             _countries.CheckCountries(progress);
             _mapProgress.CalculatePassPercentage(progress, numberOfTasks: levelsStaticData.LevelConfig.Count);
-
+            
             if (progress < levelsStaticData.LevelConfig.Count)
             {
                 _countries.MoveMapToCurrentCountry(levelsStaticData, _firstStart);

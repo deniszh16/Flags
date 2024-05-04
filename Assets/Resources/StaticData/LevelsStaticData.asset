@@ -1857,6 +1857,42 @@ MonoBehaviour:
     - {r: 0.99215686, g: 0.7254902, b: 0.07450981, a: 1}
     - {r: 0, g: 0.41568628, b: 0.26666668, a: 1}
     - {r: 0.75686276, g: 0.15294118, b: 0.1764706, a: 1}
+  - LocalizedText:
+      m_TableReference:
+        m_TableCollectionName: GUID:0ea8316bc55bb8149b717c10e29602e5
+      m_TableEntryReference:
+        m_KeyId: 21324908085723136
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Capitals:
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 14475906635612160
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    - m_TableReference:
+        m_TableCollectionName: GUID:3afd41f4ca9727e41beeed8680d11c4e
+      m_TableEntryReference:
+        m_KeyId: 14475919222718464
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    CorrectVariant: 1
+    Position: {x: -800, y: -200}
+    Flag:
+      m_AssetGUID: 6b8c0f82e3cf73d4d9e3e23b7a8293c8
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+    Colors:
+    - {r: 0.9098039, g: 0.06666667, b: 0.1764706, a: 1}
+    - {r: 1, g: 0.9372549, b: 0, a: 1}
   references:
     version: 2
     RefIds: []

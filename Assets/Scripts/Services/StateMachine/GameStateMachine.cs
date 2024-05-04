@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Services.StateMachine.States;
 
-namespace Services.StateMachine
+namespace DZGames.Flags.Services
 {
     public class GameStateMachine
     {

@@ -1,10 +1,11 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
-using Services.SceneLoader;
+using DZGames.Flags.Services;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
+using VContainer;
 
-namespace Logic.UI.Buttons
+namespace DZGames.Flags.Logic
 {
     public class SceneOpenButton : MonoBehaviour
     {
@@ -22,11 +23,11 @@ namespace Logic.UI.Buttons
 
         private void OnEnable() =>
             _button.onClick.AddListener(GoToScene);
-
-        private void GoToScene() =>
-            _sceneLoaderService.LoadSceneAsync(_scene, screensaver: true, delay: 0f).Forget();
         
         private void OnDisable() =>
             _button.onClick.RemoveListener(GoToScene);
+
+        private void GoToScene() =>
+            _sceneLoaderService.LoadSceneAsync(_scene, screensaver: true, delay: 0f, CancellationToken.None).Forget();
     }
 }

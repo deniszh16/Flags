@@ -1,13 +1,15 @@
 ﻿using System;
-using Services.PersistentProgress;
-using Services.SaveLoad;
 using UnityEngine;
-using Zenject;
+using VContainer;
 
-namespace Services.Sound
+namespace DZGames.Flags.Services
 {
     public class SoundService : MonoBehaviour, ISoundService
     {
+        public bool SoundActivity { get; private set; }
+        
+        public event Action SoundChanged;
+        
         [Header("Фоновая музыка")]
         [SerializeField] private AudioSource _audioSourceBackgroundMusic;
         [SerializeField] private AudioClip[] _audioClips;
@@ -15,10 +17,6 @@ namespace Services.Sound
         [Header("Игровые звуки")]
         [SerializeField] private AudioSource _audioSourceSounds;
         [SerializeField] private AudioClip[] _uiSounds;
-        
-        public bool SoundActivity { get; set; }
-        
-        public event Action SoundChanged;
         
         private IPersistentProgressService _progressService;
         private ISaveLoadService _saveLoadService;
@@ -29,7 +27,10 @@ namespace Services.Sound
             _progressService = progressService;
             _saveLoadService = saveLoadService;
         }
-        
+
+        public void ChangeSoundActivity(bool state) =>
+            SoundActivity = state;
+
         public void SwitchSound()
         {
             bool activity = _progressService.GetUserProgress.SettingsData.Sound;

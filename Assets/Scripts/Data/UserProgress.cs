@@ -1,25 +1,13 @@
 using UnityEngine;
 using System;
 
-namespace Data
+namespace DZGames.Flags.Data
 {
     [Serializable]
     public class UserProgress
     {
-        [SerializeField] private int _progress = 1;
-        [SerializeField] private int _rightAnswers;
-        [SerializeField] private int _wrongAnswers;
-        
-        [SerializeField] private int _hints = 3;
-        [SerializeField] private bool _freeHint;
-        [SerializeField] private int _hintsUsed;
-
-        [SerializeField] private int _score;
-        
-        [SerializeField] private SettingsData _settingsData = new();
-        
         public event Action ChangedNumberOfHints;
-
+        
         public int Progress
         {
             get => _progress;
@@ -58,7 +46,18 @@ namespace Data
         
         public SettingsData SettingsData =>
             _settingsData;
+        
+        [SerializeField] private int _progress = 1;
+        [SerializeField] private int _rightAnswers;
+        [SerializeField] private int _wrongAnswers;
+        [SerializeField] private int _score;
 
+        [SerializeField] private int _hints = 3;
+        [SerializeField] private bool _freeHint;
+        [SerializeField] private int _hintsUsed;
+        
+        [SerializeField] private SettingsData _settingsData = new();
+        
         public void IncreaseProgress() =>
             _progress++;
 

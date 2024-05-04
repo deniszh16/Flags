@@ -1,62 +1,48 @@
-﻿using Services.StateMachine.States;
-using Services.PersistentProgress;
-using Cysharp.Threading.Tasks;
-using Services.UpdateService;
-using Services.StateMachine;
-using Logic.Levels.Coloring;
-using Logic.Levels.Factory;
-using Logic.UI.Tutorials;
-using Logic.UI.Levels;
-using Logic.UI.Hints;
+﻿using Cysharp.Threading.Tasks;
+using DZGames.Flags.Services;
 using UnityEngine;
 using System;
 using UniRx;
 
-namespace Logic.Levels.StateMachine.States
+namespace DZGames.Flags.Logic
 {
     public class ColoringState : BaseStates
     {
         private readonly IPersistentProgressService _progressService;
-        private readonly IMonoUpdateService _monoUpdateService;
-
         private readonly IFlagFactory _flagFactory;
-        private readonly DescriptionTask _descriptionTask;
+        
         private readonly ArrangementOfColors _arrangementOfColors;
-
         private readonly ColoringFlag _coloringFlag;
         private readonly HintForColoring _hintForColoring;
         private readonly ColorCancellation _colorCancellation;
         private readonly ColoringResult _coloringResult;
 
-        private readonly LevelEffects _levelEffects;
         private readonly Tutorial _tutorial;
+        private readonly DescriptionTask _descriptionTask;
+        private readonly LevelEffects _levelEffects;
 
         private readonly CompositeDisposable _compositeDisposable = new();
 
-        public ColoringState(GameStateMachine stateMachine, IPersistentProgressService progressService, IMonoUpdateService monoUpdateService,
-            IFlagFactory flagFactory, DescriptionTask descriptionTask, ArrangementOfColors arrangementOfColors, ColoringFlag coloringFlag,
-            HintForColoring hintForColoring, ColorCancellation colorCancellation, ColoringResult coloringResult,
-            LevelEffects levelEffects, Tutorial tutorial) : base(stateMachine)
+        public ColoringState(GameStateMachine stateMachine, IPersistentProgressService progressService, IFlagFactory flagFactory,
+            ArrangementOfColors arrangementOfColors, ColoringFlag coloringFlag, HintForColoring hintForColoring, ColorCancellation colorCancellation,
+            ColoringResult coloringResult, Tutorial tutorial, DescriptionTask descriptionTask, LevelEffects levelEffects) : base(stateMachine)
         {
             _progressService = progressService;
-            _monoUpdateService = monoUpdateService;
-            
             _flagFactory = flagFactory;
-            _descriptionTask = descriptionTask;
-            _arrangementOfColors = arrangementOfColors;
             
+            _arrangementOfColors = arrangementOfColors;
             _coloringFlag = coloringFlag;
             _hintForColoring = hintForColoring;
             _colorCancellation = colorCancellation;
             _coloringResult = coloringResult;
-            
-            _levelEffects = levelEffects;
+
             _tutorial = tutorial;
+            _descriptionTask = descriptionTask;
+            _levelEffects = levelEffects;
         }
 
         public override void Enter()
         {
-            _coloringFlag.Init(_monoUpdateService);
             _coloringFlag.SetFlag(_flagFactory.GetCreatedFlag);
             _coloringFlag.GetCurrentFragment();
             _coloringFlag.ChangeColoringActivity(state: true);
@@ -82,6 +68,17 @@ namespace Logic.Levels.StateMachine.States
 
             ShowTutorial();
         }
+        
+        public override void Exit()
+        {
+            _compositeDisposable.Clear();
+            _coloringFlag.ChangeColoringActivity(state: false);
+            _hintForColoring.ChangeActivityOfHintButton(state: false);
+            _colorCancellation.ChangeButtonActivity(state: false);
+            _arrangementOfColors.ResetColorButtons();
+            _arrangementOfColors.ChangeVisibilityOfColors(state: false);
+            _arrangementOfColors.DisableInteractivityOfAllButtons();
+        }
 
         private async UniTask ResetFlagColoring()
         {
@@ -104,17 +101,6 @@ namespace Logic.Levels.StateMachine.States
                 }).AddTo(_compositeDisposable);
                 _coloringFlag.StartedColoring.Subscribe(_ => _tutorial.ChangeVisibilityOfTutorial(state: false)).AddTo(_compositeDisposable);
             }
-        }
-
-        public override void Exit()
-        {
-            _compositeDisposable.Clear();
-            _coloringFlag.ChangeColoringActivity(state: false);
-            _hintForColoring.ChangeActivityOfHintButton(state: false);
-            _colorCancellation.ChangeButtonActivity(state: false);
-            _arrangementOfColors.ResetColorButtons();
-            _arrangementOfColors.ChangeVisibilityOfColors(state: false);
-            _arrangementOfColors.DisableInteractivityOfAllButtons();
         }
     }
 }

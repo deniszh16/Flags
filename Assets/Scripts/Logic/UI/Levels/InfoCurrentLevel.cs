@@ -3,7 +3,7 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using TMPro;
 
-namespace Logic.UI.Levels
+namespace DZGames.Flags.Logic
 {
     public class InfoCurrentLevel : MonoBehaviour
     {
@@ -22,9 +22,9 @@ namespace Logic.UI.Levels
             _levelLocalizedString.StringChanged += UpdateText;
         }
         
-        private void UpdateText(string value) =>
-            _levelText.text = value;
-
+        private void OnDisable() =>
+            _levelLocalizedString.StringChanged -= UpdateText;
+        
         public void ShowCurrentLevel(int progress)
         {
             _level = progress;
@@ -38,7 +38,7 @@ namespace Logic.UI.Levels
             _countryLocalizedString.RefreshString();
         }
         
-        private void OnDisable() =>
-            _levelLocalizedString.StringChanged -= UpdateText;
+        private void UpdateText(string value) =>
+            _levelText.text = value;
     }
 }

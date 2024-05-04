@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using DZGames.Flags.Data;
+using UnityEngine;
 using UnityEngine.Localization;
 using TMPro;
-using Data;
 
-namespace Logic.UI.Levels
+namespace DZGames.Flags.Logic
 {
     public class GameResults : MonoBehaviour
     {
@@ -30,18 +30,7 @@ namespace Logic.UI.Levels
         private int _correctAnswers;
         private int _incorrectAnswers;
         private int _hintsUsed;
-
-        public void ChangeActivityOfResultsPanel(bool state) =>
-            gameObject.SetActive(state);
-
-        public void ChangeVisibilityOfDrawingSection(bool state)
-        {
-            int alpha = state ? 1 : 0;
-            _canvasGroup.alpha = alpha;
-            _canvasGroup.interactable = state;
-            _canvasGroup.blocksRaycasts = state;
-        }
-
+        
         private void OnEnable()
         {
             _coloredFlagsLocalizedString.Arguments = new object[] { _flags };
@@ -57,17 +46,24 @@ namespace Logic.UI.Levels
             _hintsUsedLocalizedString.StringChanged += UpdateNumberOfHintsUsed;
         }
         
-        private void UpdateNumberOfColoredFlags(string value) =>
-            _coloredFlagsText.text = value;
-        
-        private void UpdateNumberOfCorrectAnswers(string value) =>
-            _correctAnswersText.text = value;
-        
-        private void UpdateNumberOfIncorrectAnswers(string value) =>
-            _incorrectAnswersText.text = value;
-        
-        private void UpdateNumberOfHintsUsed(string value) =>
-            _hintsUsedText.text = value;
+        private void OnDisable()
+        {
+            _coloredFlagsLocalizedString.StringChanged -= UpdateNumberOfColoredFlags;
+            _correctAnswersLocalizedString.StringChanged -= UpdateNumberOfCorrectAnswers;
+            _incorrectAnswersLocalizedString.StringChanged -= UpdateNumberOfIncorrectAnswers;
+            _hintsUsedLocalizedString.StringChanged -= UpdateNumberOfHintsUsed;
+        }
+
+        public void ChangeActivityOfResultsPanel(bool state) =>
+            gameObject.SetActive(state);
+
+        public void ChangeVisibilityOfDrawingSection(bool state)
+        {
+            int alpha = state ? 1 : 0;
+            _canvasGroup.alpha = alpha;
+            _canvasGroup.interactable = state;
+            _canvasGroup.blocksRaycasts = state;
+        }
         
         public void UpdateStatistics(UserProgress progress)
         {
@@ -88,13 +84,17 @@ namespace Logic.UI.Levels
             _hintsUsedLocalizedString.Arguments[0] = _hintsUsed;
             _hintsUsedLocalizedString.RefreshString();
         }
-
-        private void OnDisable()
-        {
-            _coloredFlagsLocalizedString.StringChanged -= UpdateNumberOfColoredFlags;
-            _correctAnswersLocalizedString.StringChanged -= UpdateNumberOfCorrectAnswers;
-            _incorrectAnswersLocalizedString.StringChanged -= UpdateNumberOfIncorrectAnswers;
-            _hintsUsedLocalizedString.StringChanged -= UpdateNumberOfHintsUsed;
-        }
+        
+        private void UpdateNumberOfColoredFlags(string value) =>
+            _coloredFlagsText.text = value;
+        
+        private void UpdateNumberOfCorrectAnswers(string value) =>
+            _correctAnswersText.text = value;
+        
+        private void UpdateNumberOfIncorrectAnswers(string value) =>
+            _incorrectAnswersText.text = value;
+        
+        private void UpdateNumberOfHintsUsed(string value) =>
+            _hintsUsedText.text = value;
     }
 }

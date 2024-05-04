@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
+using VContainer;
 
-namespace Logic.Levels.Coloring
+namespace DZGames.Flags.Logic
 {
     public class ColorCancellation : MonoBehaviour
     {
@@ -19,9 +19,6 @@ namespace Logic.Levels.Coloring
             _arrangementOfColors = arrangementOfColors;
         }
 
-        public void ChangeButtonActivity(bool state) =>
-            _button.interactable = state;
-
         private void OnEnable()
         {
             _button.onClick.AddListener(_coloringFlag.ResetLastFragment);
@@ -30,5 +27,8 @@ namespace Logic.Levels.Coloring
 
         private void OnDisable() =>
             _button.onClick.RemoveListener(_coloringFlag.ResetLastFragment);
+        
+        public void ChangeButtonActivity(bool state) =>
+            _button.interactable = state;
     }
 }

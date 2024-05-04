@@ -1,9 +1,9 @@
-﻿using Services.Sound;
+﻿using DZGames.Flags.Services;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
+using VContainer;
 
-namespace Logic.UI.Buttons
+namespace DZGames.Flags.Logic
 {
     public class SoundSwitchButton : MonoBehaviour
     {
@@ -30,16 +30,16 @@ namespace Logic.UI.Buttons
             _soundService.SoundChanged += ChangeButtonIcon;
         }
         
-        private void ChangeButtonIcon()
-        {
-            bool soundActivity = _soundService.SoundActivity;
-            _image.sprite = soundActivity ? _active : _inactive;
-        }
-        
         private void OnDisable()
         {
             _button.onClick.RemoveListener(_soundService.SwitchSound);
             _soundService.SoundChanged -= ChangeButtonIcon;
+        }
+        
+        private void ChangeButtonIcon()
+        {
+            bool soundActivity = _soundService.SoundActivity;
+            _image.sprite = soundActivity ? _active : _inactive;
         }
     }
 }

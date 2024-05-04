@@ -1,9 +1,10 @@
-﻿using Services.UpdateService;
+﻿using DZGames.Flags.Services;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UniRx;
+using VContainer;
 
-namespace Logic.Levels.Drawing
+namespace DZGames.Flags.Logic
 {
     public class DrawingRoute : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
@@ -11,36 +12,51 @@ namespace Logic.Levels.Drawing
         public readonly ReactiveCommand DrawingCompleted = new();
         public readonly ReactiveCommand StartDrawing = new();
         
+        [Header("Карандаш для рисования")]
+        [SerializeField] private Transform _pencil;
+        [SerializeField] private float _drawingSpeed;
+        
+        [Header("Ссылки на компоненты")]
+        [SerializeField] private LineRenderer _lineRenderer;
+        
+        private const float LineWidth = 0.012f;
+        
         private bool _drawingActivity;
         private bool _tappingScreen;
         private bool _startDrawing;
         
         private EdgeCollider2D[] _colliders;
         private int _currentArrayOfPoints;
-
-        [Header("Карандаш для рисования")]
-        [SerializeField] private Transform _pencil;
-        [SerializeField] private float _drawingSpeed;
         
         private Vector2[] _points;
         private int _currentTargetIndex;
         private Vector2 _currentTarget;
 
-        private const float LineWidth = 0.012f;
-
-        [Header("Ссылки на компоненты")]
-        [SerializeField] private LineRenderer _lineRenderer;
-
         private IMonoUpdateService _monoUpdateService;
 
-        public void Init(IMonoUpdateService monoUpdateService)
+        [Inject]
+        private void Construct(IMonoUpdateService monoUpdateService)
         {
-            if (_monoUpdateService == null)
+            _monoUpdateService = monoUpdateService;
+            _monoUpdateService.AddToUpdate(MyUpdate);
+        }
+
+        private void OnDestroy() =>
+            _monoUpdateService?.RemoveFromUpdate(MyUpdate);
+        
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            _tappingScreen = true;
+
+            if (_startDrawing != true)
             {
-                _monoUpdateService = monoUpdateService;
-                _monoUpdateService.AddToUpdate(MyUpdate);
+                StartDrawing.Execute();
+                _startDrawing = true;
             }
         }
+
+        public void OnPointerUp(PointerEventData eventData) =>
+            _tappingScreen = false;
 
         public void ChangeDrawingActivity(bool state) =>
             _drawingActivity = state;
@@ -61,20 +77,6 @@ namespace Logic.Levels.Drawing
             _lineRenderer.SetPosition(index: 0, _pencil.transform.localPosition);
         }
         
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            _tappingScreen = true;
-
-            if (_startDrawing != true)
-            {
-                StartDrawing.Execute();
-                _startDrawing = true;
-            }
-        }
-
-        public void OnPointerUp(PointerEventData eventData) =>
-            _tappingScreen = false;
-
         private void MyUpdate()
         {
             if (_drawingActivity == false || _tappingScreen == false)
@@ -120,8 +122,5 @@ namespace Logic.Levels.Drawing
                 DrawingCompleted.Execute();
             }
         }
-
-        private void OnDestroy() =>
-            _monoUpdateService?.RemoveFromUpdate(MyUpdate);
     }
 }

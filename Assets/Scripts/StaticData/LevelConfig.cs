@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.Localization;
 
-namespace StaticData
+namespace DZGames.Flags.StaticData
 {
     [Serializable]
     public class LevelConfig

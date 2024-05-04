@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Logic.WorldMap
+namespace DZGames.Flags.Logic
 {
     public class Country : MonoBehaviour
     {

@@ -3,19 +3,19 @@ using Random = System.Random;
 using UnityEngine;
 using UniRx;
 
-namespace Logic.Levels.Coloring
+namespace DZGames.Flags.Logic
 {
     public class ArrangementOfColors : MonoBehaviour
     {
+        public readonly ReactiveCommand CorrectColoring = new();
+        public readonly ReactiveCommand IncorrectColoring = new();
+        public readonly ReactiveCommand ColoredButtonSelected = new();
+        
         [Header("Ссылки на компоненты")]
         [SerializeField] private CanvasGroup _canvasGroup;
         
         [Header("Цветные кнопки")]
         [SerializeField] private ColorButton[] _colorButtons;
-
-        public readonly ReactiveCommand CorrectColoring = new();
-        public readonly ReactiveCommand IncorrectColoring = new();
-        public readonly ReactiveCommand ColoredButtonSelected = new();
 
         private bool _coloredButtonSelected;
         
@@ -127,19 +127,6 @@ namespace Logic.Levels.Coloring
             ActivateInteractivityOfUnusedButtons();
             return (fragment, _flagColors[fragment]);
         }
-
-        private void FindButtonWithColor(Color color)
-        {
-            for (int i = 0; i < _colorButtons.Length; i++)
-            {
-                if (_colorButtons[i].gameObject.activeInHierarchy && _colorButtons[i].Color.Equals(color))
-                {
-                    _activeButton = _colorButtons[i];
-                    RecordSelectedColor();
-                    break;
-                }
-            }
-        }
         
         public void ResetLastColorButton()
         {
@@ -158,6 +145,19 @@ namespace Logic.Levels.Coloring
             }
             
             _colorButtonsUsed.Clear();
+        }
+        
+        private void FindButtonWithColor(Color color)
+        {
+            for (int i = 0; i < _colorButtons.Length; i++)
+            {
+                if (_colorButtons[i].gameObject.activeInHierarchy && _colorButtons[i].Color.Equals(color))
+                {
+                    _activeButton = _colorButtons[i];
+                    RecordSelectedColor();
+                    break;
+                }
+            }
         }
     }
 }

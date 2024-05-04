@@ -1,11 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
+using VContainer;
 
-namespace Logic.Levels.Coloring
+namespace DZGames.Flags.Logic
 {
     public class ColorButton : MonoBehaviour
     {
+        public bool ColorUsed { get; set; }
+
+        public Color Color
+        {
+            get => _image.color;
+            set => _image.color = value;
+        }
+        
         [Header("Ссылки на компоненты")]
         [SerializeField] private Image _image;
         [SerializeField] private Button _button;
@@ -17,14 +25,6 @@ namespace Logic.Levels.Coloring
 
         private readonly Color _translucentColor = new(1, 1, 1, 0.5f);
 
-        public bool ColorUsed { get; set; }
-
-        public Color Color
-        {
-            get => _image.color;
-            set => _image.color = value;
-        }
-
         private ColoringFlag _coloringFlag;
         private ArrangementOfColors _arrangementOfColors;
 
@@ -34,7 +34,7 @@ namespace Logic.Levels.Coloring
             _coloringFlag = coloringFlag;
             _arrangementOfColors = arrangementOfColors;
         }
-
+        
         private void OnEnable()
         {
             _button.onClick.AddListener(ShowTapEffect);
@@ -42,6 +42,9 @@ namespace Logic.Levels.Coloring
             _button.onClick.AddListener(_coloringFlag.CustomizeBrush);
             _button.onClick.AddListener(() => _arrangementOfColors.SetActiveButton(this));
         }
+        
+        private void OnDisable() =>
+            _button.onClick.RemoveAllListeners();
 
         public void ChangeButtonActivity(bool state)
         {
@@ -52,8 +55,5 @@ namespace Logic.Levels.Coloring
         
         private void ShowTapEffect() =>
             _pressingButton.Play();
-
-        private void OnDisable() =>
-            _button.onClick.RemoveAllListeners();
     }
 }
