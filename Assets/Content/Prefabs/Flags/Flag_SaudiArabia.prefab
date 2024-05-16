@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 154, y: 157}
+  m_AnchoredPosition: {x: 0, y: -89}
+  m_SizeDelta: {x: 235, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2159926697677581356
 CanvasRenderer:
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6b6983104f6b9c54ca7bc7351447c394, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac292bcb8eb4e2547bef25067ef62f35, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b12e59789cc04df4f9981aec0b62accc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89a0de72e7ccae048bc1f6febc4afdde, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -184,8 +184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 258, y: 263}
+  m_AnchoredPosition: {x: 0, y: 9}
+  m_SizeDelta: {x: 317, y: 247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3621801694230843959
 CanvasRenderer:
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fb44506b238ff654994b9e3a0e071dda, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 06ae77d095a0b884b93e448fa8069348, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -447,35 +447,37 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 2.2020264, y: 76.7608}
-  - {x: -10.516724, y: 72.662476}
-  - {x: -22.78363, y: 67.767456}
-  - {x: -44.954254, y: 52.43213}
-  - {x: -54.258453, y: 42.012512}
-  - {x: -64.987946, y: 27.571655}
-  - {x: -73.36478, y: 4.9468994}
-  - {x: -74.826355, y: -7.015686}
-  - {x: -75.11862, y: -23.496826}
-  - {x: -71.19589, y: -38.07013}
-  - {x: -66.71704, y: -47.213806}
-  - {x: -57.154144, y: -60.009216}
-  - {x: -49.48999, y: -65.7453}
-  - {x: -37.432953, y: -72.85004}
-  - {x: -23.607239, y: -75.729614}
-  - {x: -7.3844604, y: -77.13263}
-  - {x: 7.60791, y: -73.23694}
-  - {x: 22.45343, y: -67.45569}
-  - {x: 44.5708, y: -52.37726}
-  - {x: 55.901123, y: -40.088257}
-  - {x: 64.70184, y: -26.911133}
-  - {x: 74.54602, y: -2.2398682}
-  - {x: 76.29382, y: 19.743408}
-  - {x: 72.99725, y: 36.485657}
-  - {x: 69.15143, y: 44.670166}
-  - {x: 59.452515, y: 59.043762}
-  - {x: 44.20581, y: 70.2937}
-  - {x: 28.652405, y: 76.776245}
-  - {x: 3.3236694, y: 76.9397}
+  - {x: -116.381195, y: -105.29071}
+  - {x: -109.24194, y: -111.686646}
+  - {x: -100.68005, y: -114.023315}
+  - {x: -80.96933, y: -112.5636}
+  - {x: -16.656189, y: -100.305176}
+  - {x: 41.72119, y: -88.640076}
+  - {x: 75.2276, y: -82.59924}
+  - {x: 74.28882, y: -87.55841}
+  - {x: 76.56354, y: -94.10455}
+  - {x: 79.240234, y: -94.30115}
+  - {x: 81.63098, y: -90.94794}
+  - {x: 97.31378, y: -88.99463}
+  - {x: 104.882935, y: -87.52716}
+  - {x: 106.91583, y: -89.648254}
+  - {x: 109.21698, y: -90.05444}
+  - {x: 112.53754, y: -88.93109}
+  - {x: 116.58154, y: -82.80359}
+  - {x: 115.81409, y: -73.66791}
+  - {x: 111.28851, y: -68.3808}
+  - {x: 99.66443, y: -70.59009}
+  - {x: 86.31799, y: -71.718506}
+  - {x: 81.85956, y: -72.56323}
+  - {x: 81.829956, y: -67.64551}
+  - {x: 80.02557, y: -66.54883}
+  - {x: 77.22699, y: -63.816895}
+  - {x: 75.2207, y: -65.27966}
+  - {x: 73.47815, y: -69.23279}
+  - {x: 74.63141, y: -73.487}
+  - {x: -34.79413, y: -93.75952}
+  - {x: -79.70331, y: -101.59772}
+  - {x: -116.28714, y: -104.767334}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -491,7 +493,7 @@ GameObject:
   - component: {fileID: 570647026850475996}
   - component: {fileID: 7101856562608818536}
   m_Layer: 5
-  m_Name: Flag_Kyrgyzstan
+  m_Name: Flag_SaudiArabia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -612,8 +614,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 626, y: 474}
+  m_AnchoredPosition: {x: 0, y: -4}
+  m_SizeDelta: {x: 628, y: 473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5942358036383551426
 CanvasRenderer:
@@ -718,7 +720,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 320825634a9d3d540a36c340bbc14da1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d85ca5988da292f4db06d103109ea7eb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -763,8 +765,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 251, y: 256}
+  m_AnchoredPosition: {x: 0, y: 8.5}
+  m_SizeDelta: {x: 314, y: 244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8576825459227793309
 CanvasRenderer:
@@ -794,13 +796,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7ede6d6a69dd50c468d3809981174716, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2d3a81a40ec60924c9de822b6893bbc2, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 1
+  m_FillMethod: 2
   m_FillAmount: 0
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1

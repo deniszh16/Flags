@@ -21,7 +21,7 @@ namespace DZGames.Flags.Logic
         private readonly int _animationTrigger = Animator.StringToHash(name: "Coloring");
         
         private const float FillStep = 0.1f;
-        private const float FillingSpeed = 15f;
+        private const float FillingSpeed = 14f;
 
         private Color? _activeColor;
         

@@ -272,6 +272,76 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fac54a092cad23499fea122b6db2202
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Mali.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fdc9c20dbf142d4790f6d8c46b79ec0
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Peru.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32c62bfb54a326241865612a48ba7a3f
+    m_Address: Assets/Content/Prefabs/Flags/Flag_SaudiArabia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 663448247f2c5324e9d9c5e842f25214
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Maldives.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 870b541d709da9c4e88945f4a86872d5
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Australia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adcd0c927bc239346b6a70451af6dc53
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Liechtenstein.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5b1b33aeeee191469b4af1a2a0980fe
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Panama.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a452860ae0b7cc4abd30e86435088cf
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Senegal.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96715ac299a0aaf4ca17caa4a5dac986
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Gabon.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 83f0d5a080c965d41aa25cc3a9221e14
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Indonesia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a924c370b9f338246b44ca3b9c2064be
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Cuba.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53e6fa3afc6834c44a97df673729cf07
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Luxembourg.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdb3f0c9349604c47be9faccfd17252b
+    m_Address: Assets/Content/Prefabs/Flags/Flag_Macedonia.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bae65bfbd430754aa1f6c78dfe2c9ba
+    m_Address: Assets/Content/Prefabs/Flags/Flag_SouthKorea.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: b5edba8ac0e19064d88648d46154b600, type: 2}
   m_SchemaSet:
