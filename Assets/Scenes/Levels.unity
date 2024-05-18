@@ -27237,7 +27237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pencil: {fileID: 1105151811}
-  _drawingSpeed: 350
+  _drawingSpeed: 365
   _lineRenderer: {fileID: 1681375909}
 --- !u!114 &1681375913
 MonoBehaviour:
