@@ -84,7 +84,7 @@ namespace DZGames.Flags.Logic
             _flagFactory.FlagCreated.Subscribe(_ =>
             {
                 if (_progressService.GetUserProgress.Progress <= 1)
-                    _tutorial.ShowTutorial(delay: 0.2f, position: new Vector2(0, -150f)).Forget();
+                    _tutorial.ShowTutorialAsync(delay: 0.2f, position: new Vector2(0, -150f)).Forget();
             }).AddTo(_compositeDisposable);
         }
     }

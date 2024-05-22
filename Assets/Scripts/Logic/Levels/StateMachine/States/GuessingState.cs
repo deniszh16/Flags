@@ -43,7 +43,7 @@ namespace DZGames.Flags.Logic
             _guessingCapitals.ArrangeOptions(_staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].Capitals,
                 _staticData.GetLevelConfig().LevelConfig[_progressService.GetUserProgress.Progress - 1].CorrectVariant);
             _guessingCapitals.ShowSpawnAnimation();
-            _guessingCapitals.QuizCompleted.Subscribe(answer => GoToResults(answer).Forget()).AddTo(_compositeDisposable);
+            _guessingCapitals.QuizCompleted.Subscribe(answer => GoToResultsAsync(answer).Forget()).AddTo(_compositeDisposable);
             _guessingCapitals.QuizCompleted.Subscribe(UpdateScreenValues).AddTo(_compositeDisposable);
             _guessingCapitals.QuizCompleted.Subscribe(answer => _levelEffects.ShowEffectQuizResult(answer)).AddTo(_compositeDisposable);
             
@@ -70,7 +70,7 @@ namespace DZGames.Flags.Logic
             _coloringResult.ShowLossIcon();
         }
 
-        private async UniTask GoToResults(bool answer)
+        private async UniTask GoToResultsAsync(bool answer)
         {
             _progressService.GetUserProgress.ChangeNumberOfAnswers(answer);
             await UniTask.Delay(TimeSpan.FromSeconds(1.3f), ignoreTimeScale: false);
@@ -81,7 +81,7 @@ namespace DZGames.Flags.Logic
         {
             if (_progressService.GetUserProgress.Progress <= 1)
             {
-                _tutorial.ShowTutorial(delay: 0.4f, position: new Vector2(235f, -650f)).Forget();
+                _tutorial.ShowTutorialAsync(delay: 0.4f, position: new Vector2(235f, -650f)).Forget();
                 _guessingCapitals.QuizCompleted.Subscribe(answer => _tutorial.ChangeVisibilityOfTutorial(state: false)).AddTo(_compositeDisposable);
             }
         }

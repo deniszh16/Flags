@@ -25,12 +25,12 @@ namespace DZGames.Flags.Logic
             _progressService = progressService;
             _adsService = adsService;
         }
+        
+        private void Start() =>
+            ShowButtonAnimation();
 
         private void OnEnable() =>
             _button.onClick.AddListener(OpenMap);
-
-        private void Start() =>
-            ShowButtonAnimation();
         
         private void OnDisable() =>
             _button.onClick.RemoveListener(OpenMap);

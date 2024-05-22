@@ -17,17 +17,17 @@ namespace DZGames.Flags.Services
         }
 
         public void SetLocale(int localeID) =>
-            ChangeLocaleCoroutine(localeID).Forget();
+            ChangeLocaleAsync(localeID).Forget();
 
         public void ChangeLocale()
         {
             if (_active) return;
             
             int localeID = _progressService.GetUserProgress.SettingsData.Locale == 0 ? 1 : 0;
-            ChangeLocaleCoroutine(localeID).Forget();
+            ChangeLocaleAsync(localeID).Forget();
         }
 
-        private async UniTask ChangeLocaleCoroutine(int localeID)
+        private async UniTask ChangeLocaleAsync(int localeID)
         {
             _active = true;
             await LocalizationSettings.InitializationOperation;

@@ -9,7 +9,7 @@ namespace DZGames.Flags.Logic
         [Header("Иконка нажатия")]
         [SerializeField] private GameObject _icon;
 
-        public async UniTask ShowTutorial(float delay, Vector2 position)
+        public async UniTask ShowTutorialAsync(float delay, Vector2 position)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(delay));
             _icon.transform.localPosition = position;

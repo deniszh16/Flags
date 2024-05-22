@@ -60,7 +60,7 @@ namespace DZGames.Flags.Logic
             _arrangementOfColors.CorrectColoring.Subscribe(_ => _levelEffects.ShowColorizedFlagEffect()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _coloringResult.ShowLossIcon()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _colorCancellation.ChangeButtonActivity(state: false)).AddTo(_compositeDisposable);
-            _arrangementOfColors.IncorrectColoring.Subscribe(_ => ResetFlagColoring().Forget()).AddTo(_compositeDisposable);
+            _arrangementOfColors.IncorrectColoring.Subscribe(_ => ResetFlagColoringAsync().Forget()).AddTo(_compositeDisposable);
             _arrangementOfColors.IncorrectColoring.Subscribe(_ => _levelEffects.ShowEffectIncorrectColoring()).AddTo(_compositeDisposable);
             
             _descriptionTask.ChangeDescription(DescriptionTypes.Coloring);
@@ -80,7 +80,7 @@ namespace DZGames.Flags.Logic
             _arrangementOfColors.DisableInteractivityOfAllButtons();
         }
 
-        private async UniTask ResetFlagColoring()
+        private async UniTask ResetFlagColoringAsync()
         {
             await UniTask.Delay(TimeSpan.FromSeconds(1f), ignoreTimeScale: false);
             _coloringFlag.ResetAllFragments();
@@ -93,11 +93,11 @@ namespace DZGames.Flags.Logic
             if (_progressService.GetUserProgress.Progress <= 1)
             {
                 _hintForColoring.ChangeActivityOfHintButton(state: false);
-                _tutorial.ShowTutorial(delay: 0.2f, position: new Vector2(-145, -720f)).Forget();
+                _tutorial.ShowTutorialAsync(delay: 0.2f, position: new Vector2(-145, -720f)).Forget();
                 _arrangementOfColors.ColoredButtonSelected.Subscribe(_ => _tutorial.ChangeVisibilityOfTutorial(state: false)).AddTo(_compositeDisposable);
                 _arrangementOfColors.ColoredButtonSelected.Subscribe(_ =>
                 {
-                    _tutorial.ShowTutorial(delay: 0.2f, position: new Vector2(0, -150f)).Forget();
+                    _tutorial.ShowTutorialAsync(delay: 0.2f, position: new Vector2(0, -150f)).Forget();
                 }).AddTo(_compositeDisposable);
                 _coloringFlag.StartedColoring.Subscribe(_ => _tutorial.ChangeVisibilityOfTutorial(state: false)).AddTo(_compositeDisposable);
             }
