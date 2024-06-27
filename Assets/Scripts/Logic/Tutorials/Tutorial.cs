@@ -2,7 +2,7 @@
 using UnityEngine;
 using System;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class Tutorial : MonoBehaviour
     {

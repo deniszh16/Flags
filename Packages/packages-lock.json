@@ -157,7 +157,7 @@
       }
     },
     "com.unity.ide.rider": {
-      "version": "3.0.28",
+      "version": "3.0.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -208,7 +208,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.8.6",
+      "version": "1.8.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -229,11 +229,11 @@
       }
     },
     "jp.hadashikick.vcontainer": {
-      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.15.4",
+      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.16.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "58610810240efebe27b982a3adfb8405c57320a2"
+      "hash": "c9dcf7041cf7ff3d6451a55cb75dbb99e589e13e"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

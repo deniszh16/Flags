@@ -1,10 +1,10 @@
-﻿using DZGames.Flags.Services;
+﻿using Flags.Services;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using VContainer;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class LevelStartButton : MonoBehaviour
     {

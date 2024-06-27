@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using VContainer;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class VariantButton : MonoBehaviour
     {
@@ -24,14 +24,12 @@ namespace DZGames.Flags.Logic
         private void OnEnable()
         {
             _button.onClick.AddListener(() => _guessingCapitals.CheckAnswer(variantButton: this));
-            Debug.Log("Подписка");
         }
 
         private void OnDisable()
         {
             ChangeButtonColor(Color.white);
             _button.onClick.RemoveAllListeners();
-            Debug.Log("Отписка");
         }
         
         public void ChangeButtonColor(Color color) =>

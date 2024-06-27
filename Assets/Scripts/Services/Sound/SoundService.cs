@@ -2,7 +2,7 @@
 using UnityEngine;
 using VContainer;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public class SoundService : MonoBehaviour, ISoundService
     {

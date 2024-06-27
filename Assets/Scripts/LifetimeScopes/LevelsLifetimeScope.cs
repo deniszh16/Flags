@@ -1,10 +1,10 @@
-﻿using DZGames.Flags.Services;
-using DZGames.Flags.Logic;
+﻿using Flags.Services;
+using Flags.Logic;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
 
-namespace DZGames.Flags.LifetimeScopes
+namespace Flags.LifetimeScopes
 {
     public class LevelsLifetimeScope : LifetimeScope
     {

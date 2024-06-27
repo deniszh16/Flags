@@ -1,9 +1,9 @@
-﻿using DZGames.Flags.Data;
+﻿using Flags.Data;
 using UnityEngine;
 using UnityEngine.Localization;
 using TMPro;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class GameResults : MonoBehaviour
     {

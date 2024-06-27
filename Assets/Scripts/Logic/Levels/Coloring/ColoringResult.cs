@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class ColoringResult : MonoBehaviour
     {

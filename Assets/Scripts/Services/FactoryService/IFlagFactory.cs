@@ -1,9 +1,9 @@
-﻿using DZGames.Flags.Logic;
+﻿using Flags.Logic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UniRx;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public interface IFlagFactory
     {

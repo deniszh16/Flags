@@ -146,8 +146,6 @@ MonoBehaviour:
   _audioSourceBackgroundMusic: {fileID: 8057371214244782882}
   _audioClips:
   - {fileID: 8300000, guid: df7ad9aeca85b5b4a99ad7c45ba83767, type: 3}
-  - {fileID: 8300000, guid: b3fb2e1d7b1dcdb419bc97821a1bb48d, type: 3}
-  - {fileID: 8300000, guid: 7ff83f5c16365614e96e676b2b56b478, type: 3}
   _audioSourceSounds: {fileID: 5950472833067297762}
   _uiSounds:
   - {fileID: 8300000, guid: dfc405d28caf0fc41b30c3ec18bb3761, type: 3}

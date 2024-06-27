@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class ElementAdaptability : MonoBehaviour
     {

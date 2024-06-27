@@ -1,8 +1,8 @@
-﻿using DZGames.Flags.Services;
+﻿using Flags.Services;
 using UnityEngine;
 using VContainer;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class LevelStateMachine : MonoBehaviour
     {

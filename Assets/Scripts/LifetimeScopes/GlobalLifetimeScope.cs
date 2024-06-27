@@ -1,9 +1,9 @@
-﻿using DZGames.Flags.Services;
+﻿using Flags.Services;
 using VContainer.Unity;
 using UnityEngine;
 using VContainer;
 
-namespace DZGames.Flags.LifetimeScopes
+namespace Flags.LifetimeScopes
 {
     public class GlobalLifetimeScope : LifetimeScope
     {

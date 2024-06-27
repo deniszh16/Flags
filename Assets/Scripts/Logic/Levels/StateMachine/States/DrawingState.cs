@@ -1,9 +1,9 @@
 ﻿using Cysharp.Threading.Tasks;
-using DZGames.Flags.Services;
+using Flags.Services;
 using UnityEngine;
 using UniRx;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class DrawingState : BaseStates
     {

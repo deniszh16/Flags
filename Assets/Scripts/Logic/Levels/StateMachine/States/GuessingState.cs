@@ -1,10 +1,10 @@
 ﻿using Cysharp.Threading.Tasks;
-using DZGames.Flags.Services;
+using Flags.Services;
 using UnityEngine;
 using System;
 using UniRx;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class GuessingState : BaseStates
     {

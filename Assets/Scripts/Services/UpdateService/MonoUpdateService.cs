@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public class MonoUpdateService : MonoBehaviour, IMonoUpdateService
     {

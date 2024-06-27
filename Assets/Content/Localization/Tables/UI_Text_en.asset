@@ -69,14 +69,6 @@ MonoBehaviour:
     m_Localized: View ads
     m_Metadata:
       m_Items: []
-  - m_Id: 7149200363044864
-    m_Localized: Endless hints
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7158802697764864
-    m_Localized: Buy for 29 yans
-    m_Metadata:
-      m_Items: []
   - m_Id: 7175616072859648
     m_Localized: Already received
     m_Metadata:
@@ -123,10 +115,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 9330963067781120
     m_Localized: Wrong answer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11862423838474240
-    m_Localized: Our games
     m_Metadata:
       m_Items: []
   references:

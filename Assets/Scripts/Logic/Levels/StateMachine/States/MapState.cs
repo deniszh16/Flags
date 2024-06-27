@@ -1,7 +1,7 @@
-﻿using DZGames.Flags.Services;
-using DZGames.Flags.StaticData;
+﻿using Flags.Services;
+using Flags.StaticData;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class MapState : BaseStates
     {

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace DZGames.Flags.Editor
+namespace Flags.Editor
 {
     public static class Tools
     {

@@ -1,11 +1,11 @@
-﻿using DZGames.Flags.Services;
+﻿using Flags.Services;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using VContainer;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class FreeHintButton : MonoBehaviour
     {

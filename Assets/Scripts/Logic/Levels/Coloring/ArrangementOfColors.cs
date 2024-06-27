@@ -3,7 +3,7 @@ using Random = System.Random;
 using UnityEngine;
 using UniRx;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class ArrangementOfColors : MonoBehaviour
     {

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using VContainer;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class ColorCancellation : MonoBehaviour
     {

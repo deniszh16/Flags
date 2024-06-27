@@ -63,14 +63,6 @@ MonoBehaviour:
     m_Key: key_ViewAds
     m_Metadata:
       m_Items: []
-  - m_Id: 7149200363044864
-    m_Key: key_EndlessHints
-    m_Metadata:
-      m_Items: []
-  - m_Id: 7158802697764864
-    m_Key: key_PurchaseCost
-    m_Metadata:
-      m_Items: []
   - m_Id: 7175616072859648
     m_Key: key_AlreadyReceived
     m_Metadata:
@@ -113,10 +105,6 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 9330963067781120
     m_Key: key_WrongQuizAnswer
-    m_Metadata:
-      m_Items: []
-  - m_Id: 11862423838474240
-    m_Key: key_OtherGames
     m_Metadata:
       m_Items: []
   m_Metadata:

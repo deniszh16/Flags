@@ -1,7 +1,7 @@
-﻿using DZGames.Flags.StaticData;
+﻿using Flags.StaticData;
 using UnityEngine;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public class StaticDataService : IStaticDataService
     {

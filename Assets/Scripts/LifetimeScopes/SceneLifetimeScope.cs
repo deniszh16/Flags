@@ -1,7 +1,7 @@
 ﻿using VContainer;
 using VContainer.Unity;
 
-namespace DZGames.Flags.LifetimeScopes
+namespace Flags.LifetimeScopes
 {
     public class SceneLifetimeScope : LifetimeScope
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public class GameStateMachine
     {

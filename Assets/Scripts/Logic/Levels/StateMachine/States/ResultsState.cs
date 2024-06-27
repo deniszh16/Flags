@@ -1,6 +1,6 @@
-﻿using DZGames.Flags.Services;
+﻿using Flags.Services;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class ResultsState : BaseStates
     {

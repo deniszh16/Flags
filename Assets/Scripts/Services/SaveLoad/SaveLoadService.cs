@@ -1,7 +1,7 @@
-﻿using DZGames.Flags.Data;
+﻿using Flags.Data;
 using UnityEngine;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public class SaveLoadService : ISaveLoadService
     {

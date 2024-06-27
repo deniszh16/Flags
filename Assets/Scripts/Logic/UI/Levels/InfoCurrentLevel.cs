@@ -3,7 +3,7 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 using TMPro;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class InfoCurrentLevel : MonoBehaviour
     {

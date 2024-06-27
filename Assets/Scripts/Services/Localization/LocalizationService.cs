@@ -1,7 +1,7 @@
 ﻿using UnityEngine.Localization.Settings;
 using Cysharp.Threading.Tasks;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public class LocalizationService : ILocalizationService
     {

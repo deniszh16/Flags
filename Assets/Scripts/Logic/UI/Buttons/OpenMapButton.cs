@@ -1,10 +1,10 @@
-﻿using DZGames.Flags.Services;
+﻿using Flags.Services;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using VContainer;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class OpenMapButton : MonoBehaviour
     {

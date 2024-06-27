@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using Cysharp.Threading.Tasks;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public interface ISceneLoaderService
     {

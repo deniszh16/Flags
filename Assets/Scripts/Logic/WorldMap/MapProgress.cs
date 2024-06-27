@@ -2,7 +2,7 @@
 using UnityEngine;
 using TMPro;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class MapProgress : MonoBehaviour
     {

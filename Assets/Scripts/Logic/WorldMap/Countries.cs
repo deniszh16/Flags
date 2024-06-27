@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using DZGames.Flags.StaticData;
+using Flags.StaticData;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class Countries : MonoBehaviour
     {

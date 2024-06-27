@@ -4,7 +4,7 @@ using UnityEngine.Localization.Components;
 using DG.Tweening;
 using UniRx;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class GuessingCapitals : MonoBehaviour
     {

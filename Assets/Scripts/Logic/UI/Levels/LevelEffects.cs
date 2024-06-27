@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using DZGames.Flags.Services;
+using Flags.Services;
 using UnityEngine;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class LevelEffects : MonoBehaviour
     {

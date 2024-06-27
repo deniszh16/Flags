@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public interface IMonoUpdateService
     {

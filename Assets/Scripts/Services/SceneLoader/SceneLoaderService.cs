@@ -4,7 +4,7 @@ using System.Threading;
 using UnityEngine;
 using System;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public class SceneLoaderService : MonoBehaviour, ISceneLoaderService
     {

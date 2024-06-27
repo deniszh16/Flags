@@ -1,11 +1,11 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using DZGames.Flags.Services;
-using DZGames.Flags.Data;
+using Flags.Services;
+using Flags.Data;
 using UnityEngine;
 using VContainer;
 
-namespace DZGames.Flags.Bootstrapper
+namespace Flags.Bootstrapper
 {
     public class GameBootstrapper : MonoBehaviour
     {

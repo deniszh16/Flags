@@ -2,7 +2,7 @@
 using UnityEngine.Localization;
 using UnityEngine.Localization.Components;
 
-namespace DZGames.Flags.Logic
+namespace Flags.Logic
 {
     public class CurrentCountry : MonoBehaviour
     {

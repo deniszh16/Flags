@@ -1,10 +1,10 @@
-﻿using DZGames.Flags.Logic;
+﻿using Flags.Logic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UniRx;
 
-namespace DZGames.Flags.Services
+namespace Flags.Services
 {
     public class FlagFactory : IFlagFactory
     {

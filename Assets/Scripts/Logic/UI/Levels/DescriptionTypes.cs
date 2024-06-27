@@ -1,4 +1,4 @@
-﻿namespace DZGames.Flags.Logic
+﻿namespace Flags.Logic
 {
     public enum DescriptionTypes
     {

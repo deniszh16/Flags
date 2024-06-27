@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-namespace DZGames.Flags.Data
+namespace Flags.Data
 {
     [Serializable]
     public class SettingsData
