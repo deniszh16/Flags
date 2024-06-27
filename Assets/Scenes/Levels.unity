@@ -24965,7 +24965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parentReference:
-    TypeName: DZGames.Flags.LifetimeScopes.GlobalLifetimeScope
+    TypeName: Flags.LifetimeScopes.GlobalLifetimeScope
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 949491136}
